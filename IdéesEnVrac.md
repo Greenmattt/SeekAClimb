@@ -1,4 +1,4 @@
-Mettez vos idées et/ou développez les
+*Mettez vos idées et/ou développez les*
 
 Application téléphone + site web sur ordi (un peu comme pronote) : certaines fonctionnalitées seront accessibles seulement sur téléphone (noté T) et parfois certaines sur ordi seulement (noté O)
 
