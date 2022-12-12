@@ -1,6 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import * as React from "react";
+import { StyleSheet, Text, View , Button, Separator, Alert, TextInput} from 'react-native';
+// import * as React from 'react';
+import React, { useState } from 'react';
+
+import Hello from './2emepage';
+//import * as React from "react";
 /* il va falloir installer des librairies supplémentaires pour naviguer entre plusieurs écrans
    je vous rappelle qu'il faut une page par voie*/
 
@@ -9,9 +13,9 @@ npm install @react-navigation/native @react-navigation/native-stack
 npm install react-native-screens react-native-safe-area-context
 */
 
-//import {NavigationContainer} from '@react-navigation/native'
+import {NavigationContainer} from '@react-navigation/native';
 
-export default class Maclasse {
+export class Maclasse {
   constructor(a,b) {
     this.taille = a*b;
   }
@@ -23,23 +27,26 @@ export default class Maclasse {
   }
 }
 
-const Hellooo = require("./2emepage.js");
+//const Hello = require("./2emepage.js");
 
 export default function App() {
-  var r = Maclasse(5,2);
+  const [text, setText] = useState('');
   return (
     <View style={styles.container}>
       <Text>Bonjour les noobs comment ça va!</Text>
       <Text>React go brrr</Text>
-      <Button
-      onPress = {() => alert.alert("button")}
-      />
-      <Separator />
-      <Hellooo/>
-      <Separator/>
-      <Text> {"test de class : " + toString(r.taille)} </Text>
+      
+      <Hello/>
+
+      <TextInput 
+                onChangeText={newText => setText(newText)}
+                defaultValue={text}
+                placeholder={"je vais me péter le crane"}
+                style={{ height: 200, width: 100 }}/>
+
       <StatusBar style="auto" />
     </View>
+  
   );
 }
 

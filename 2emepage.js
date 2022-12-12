@@ -1,11 +1,24 @@
-import * as React from 'react';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View , Button, Separator, Alert, TextInput} from 'react-native';
 
-const Hello = () => {
-    <View>
+const variable = () => {return "uwu"}
+
+class Hello extends React.Component{
+    constructor() {
+        super();
+        this.variable = 'aaaah';
+        //const [text, setText] = React.useState('');
+    }
+
+    render() {
+        return (<View>
         <Text>Bonjout je suis une autre page</Text>
-        <Text>input : </Text>
-        <TextInput defaultValue="Placeholder"/>
-    </View>
+         <Text>input : </Text>
+         <TextInput 
+                onChangeText={newText => setText(newText)}
+                placeholder={this.variable}/>
+    </View>);
+    }
 }
 
-module.exports = Hello;
+export default Hello;
