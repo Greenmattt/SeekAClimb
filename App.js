@@ -11,7 +11,7 @@ npm install react-native-screens react-native-safe-area-context
 
 //import {NavigationContainer} from '@react-navigation/native'
 
-class Maclasse {
+export default class Maclasse {
   constructor(a,b) {
     this.taille = a*b;
   }
