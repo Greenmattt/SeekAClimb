@@ -29,7 +29,7 @@ export class Maclasse {
 
 //const Hello = require("./2emepage.js");
 
-export default function App() {
+const App = () => {
   const [text, setText] = useState('');
   return (
     <View style={styles.container}>
@@ -39,10 +39,10 @@ export default function App() {
       <Hello/>
 
       <TextInput 
-                onChangeText={newText => setText(newText)}
+                onChangeText={setText}
                 defaultValue={text}
-                placeholder={"je vais me péter le crane"}
-                style={{ height: 200, width: 100 }}/>
+                placeholder={"CA MAAAARCHE"}
+                />
 
       <StatusBar style="auto" />
     </View>
@@ -58,3 +58,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default App;
