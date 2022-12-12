@@ -1,24 +1,20 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View , Button, Separator, Alert, TextInput} from 'react-native';
 
-const variable = () => {return "uwu"}
+// bon tout faire avec des éléments const comme ça a l'air de bien marché :
 
-class Hello extends React.Component{
-    constructor() {
-        super();
-        this.variable = 'aaaah';
-        //const [text, setText] = React.useState('');
-    }
-
-    render() {
-        return (<View>
+// et le import marche bien dans App.js
+const Hello = () => {
+    // pour stocker les valeurs du input : 
+    const [text, setText] = React.useState('');
+    return (<View>
         <Text>Bonjout je suis une autre page</Text>
          <Text>input : </Text>
          <TextInput 
-                onChangeText={newText => setText(newText)}
-                placeholder={this.variable}/>
+                onChangeText={setText}
+                defaultValue={text}
+                placeholder={"input de l'autre page"}/>
     </View>);
-    }
 }
 
 export default Hello;

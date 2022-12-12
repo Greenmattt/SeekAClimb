@@ -1,10 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View , Button, Separator, Alert, TextInput} from 'react-native';
-// import * as React from 'react';
 import React, { useState } from 'react';
 
+// Voila comment on import une classe d'un fichier externe : 
 import Hello from './2emepage';
 //import * as React from "react";
+
 /* il va falloir installer des librairies supplémentaires pour naviguer entre plusieurs écrans
    je vous rappelle qu'il faut une page par voie*/
 
@@ -16,6 +17,7 @@ npm install react-native-screens react-native-safe-area-context
 import {NavigationContainer} from '@react-navigation/native';
 
 export class Maclasse {
+  // je sais toujours pas comment faire fonctionner une classe de cette manière mais j'ai l'impression que ça marche pas trop
   constructor(a,b) {
     this.taille = a*b;
   }
@@ -27,17 +29,20 @@ export class Maclasse {
   }
 }
 
-//const Hello = require("./2emepage.js");
-
 const App = () => {
+  // cette const cheloue est utiliser pour stocker les valeurs du TextInput
   const [text, setText] = useState('');
+  
   return (
+    // tout ce qu'il y a dans le return est affiché (en tout cas entre les <View>)
     <View style={styles.container}>
       <Text>Bonjour les noobs comment ça va!</Text>
       <Text>React go brrr</Text>
       
+      {/* Hello vient du fichier 2emepage.js */}
       <Hello/>
 
+      {/* le input qui marche cette fois */}
       <TextInput 
                 onChangeText={setText}
                 defaultValue={text}
@@ -50,6 +55,7 @@ const App = () => {
   );
 }
 
+// style sheet de base :
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -59,4 +65,5 @@ const styles = StyleSheet.create({
   },
 });
 
+// on fait comme ça pour que App soit l'affichage de base
 export default App;
