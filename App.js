@@ -30,23 +30,26 @@ export class Maclasse {
 }
 
 const App = () => {
-  // cette const cheloue est utiliser pour stocker les valeurs du TextInput
+  // cette const cheloue est utilisée pour stocker les valeurs du TextInput
   const [text, setText] = useState('');
   
   return (
     // tout ce qu'il y a dans le return est affiché (en tout cas entre les <View>)
     <View style={styles.container}>
-      <Text>Bonjour les noobs comment ça va!</Text>
-      <Text>React go brrr</Text>
+      <Text style={styles.innerText}>Bonjour les noobs comment ça va!</Text>
+      <Text style={styles.innerText}>React go brrr</Text>
       
       {/* Hello vient du fichier 2emepage.js */}
       <Hello/>
 
       {/* le input qui marche cette fois */}
-      <TextInput 
+
+       
+      <TextInput style={styles.innerText}
                 onChangeText={setText}
                 defaultValue={text}
                 placeholder={"CA MAAAARCHE"}
+                placeholderTextColor='#ffa'
                 />
 
       <StatusBar style="auto" />
@@ -59,10 +62,13 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#000',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
   },
+  innerText: {
+    color: '#ffffff',
+  }
 });
 
 // on fait comme ça pour que App soit l'affichage de base
