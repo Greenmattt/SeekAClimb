@@ -8,13 +8,17 @@ const Hello = () => {
     // pour stocker les valeurs du input : 
     const [text, setText] = React.useState('');
     return (<View>
-        <Text>Bonjout je suis une autre page</Text>
-         <Text>input : </Text>
-         <TextInput 
+        <Text style = {styles.innerText}>Bonjout je suis une autre page</Text>
+         <Text style = {styles.innerText}>input : </Text>
+         <TextInput style = {styles.innerText}
                 onChangeText={setText}
                 defaultValue={text}
                 placeholder={"input de l'autre page"}/>
     </View>);
 }
-
+const styles = StyleSheet.create({
+    innerText: {
+      color: '#ffffff',
+    }
+  });
 export default Hello;

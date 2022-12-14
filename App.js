@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 
 // Voila comment on import une classe d'un fichier externe : 
 import Hello from './2emepage';
+
 //import * as React from "react";
 
 /* il va falloir installer des librairies supplémentaires pour naviguer entre plusieurs écrans
@@ -16,28 +17,40 @@ npm install react-native-screens react-native-safe-area-context
 
 import {NavigationContainer} from '@react-navigation/native';
 
-export class Maclasse {
-  // je sais toujours pas comment faire fonctionner une classe de cette manière mais j'ai l'impression que ça marche pas trop
-  constructor(a,b) {
-    this.taille = a*b;
+class Rectangle {
+  longueur;
+  largeur;
+  constructor(L, l) {
+      this.longueur = L;
+      this.largeur = l;
   }
-  get taille() {
-    return this.taille
+
+  get area() {
+      return this.calcArea();
   }
-  changer_aire(a,b) {
-    this.taille = a*b;
+
+  calcArea() {
+      return this.largeur * this.longueur;
   }
 }
+
+function test(parametre1) {
+  return 2*parametre1
+}
+
+
 
 const App = () => {
   // cette const cheloue est utilisée pour stocker les valeurs du TextInput
   const [text, setText] = useState('');
-  
+  const r = 42;
+  const rectanglllle = new Rectangle(2,32);
   return (
     // tout ce qu'il y a dans le return est affiché (en tout cas entre les <View>)
     <View style={styles.container}>
       <Text style={styles.innerText}>Bonjour les noobs comment ça va!</Text>
-      <Text style={styles.innerText}>React go brrr</Text>
+      <Text style={styles.innerText}>React go brrr et aussi {test(r)}</Text>
+      <Text style={styles.innerText}>La taille du rectangle est :{rectanglllle.area} </Text>
       
       {/* Hello vient du fichier 2emepage.js */}
       <Hello/>
