@@ -13,7 +13,8 @@ const Hello = () => {
          <TextInput style = {styles.innerText}
                 onChangeText={setText}
                 defaultValue={text}
-                placeholder={"input de l'autre page"}/>
+                placeholder={"là on voit ce qui est écrit"}
+                placeholderTextColor='#faf'/>
     </View>);
 }
 const styles = StyleSheet.create({

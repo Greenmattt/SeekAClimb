@@ -57,17 +57,20 @@ const App = () => {
       <Text style={styles.innerText}>React go brrr et aussi {test(r)}</Text>
 
       {/* ça ce sont les boutons classics où tu peux pas faire grand chose niveau style */}
-      <Button color="#121212" title="clic bouffon" onPress={ ()=>{ Linking.openURL('https://thomann.de')}}/>
+      <Button color="#343434" title="clic bouffon" onPress={ ()=>{ Linking.openURL('https://thomann.de')}}/>
       <Button title="Add 1" onPress={onPress}/>
 
       {/* et là on commence à arriver vers des boutons qui ressemblent à quelquechose */}
-      <TouchableOpacity activeOpacity={0.1} style={styles.button}><Text style={styles.button}>Bonjour</Text></TouchableOpacity>
+      <TouchableOpacity activeOpacity={0.1}
+                        style={styles.button}>
+                        <Text style={styles.button}>Bonjour</Text>
+      </TouchableOpacity>
 
       <Text style={styles.innerText}>clics : {count}</Text>
       <Text style={styles.innerText}>La taille du rectangle est :{rectanglllle.area}</Text>
 
       {/* Test de bouton avec des images */}
-      <TouchableOpacity activeOpacity={0.2} style={styles.button}>
+      <TouchableOpacity activeOpacity={0.2} style={styles.button} onPress={ ()=>{ alert("Voilà on a un boutton joli et qui sert à qqch")}}>
         {/* Pour le chemin de l'image il faut bien commencer par ./    on peut aussi faire par url */}
         <Image style={styles.photo}
                source={require('./images/jolie_photo.jpg')}/>
