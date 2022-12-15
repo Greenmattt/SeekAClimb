@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View , Button, Separator, Alert, TextInput, Linking, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View , Button, Alert, TextInput, Linking, TouchableOpacity, Image} from 'react-native';
 import React, { useState } from 'react';
 
 // Voila comment on import une classe d'un fichier externe : 
@@ -65,7 +65,13 @@ const App = () => {
 
       <Text style={styles.innerText}>clics : {count}</Text>
       <Text style={styles.innerText}>La taille du rectangle est :{rectanglllle.area}</Text>
-      
+
+      {/* Test de bouton avec des images */}
+      <TouchableOpacity activeOpacity={0.2} style={styles.button}>
+        {/* Pour le chemin de l'image il faut bien commencer par ./    on peut aussi faire par url */}
+        <Image style={styles.photo}
+               source={require('./images/jolie_photo.jpg')}/>
+      </TouchableOpacity>
       {/* Hello vient du fichier 2emepage.js */}
       <Hello/>
 
@@ -96,7 +102,14 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: "orange",
     padding: 2,
+    // c'est le padding de 2 qui fait qu'il y a des bordures oranges autour de l'image
     color: "pink",
+  },
+  photo : {
+    width: 108,
+    height: 81,
+    // à peu près les dimensions de l'image. Il faut impérativement les rentrer à la main
+    resizeMode:"stretch"
   }
 });
 
