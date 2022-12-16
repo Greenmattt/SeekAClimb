@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View , Button, Alert, TextInput, Linking, TouchableOpacity, Image} from 'react-native';
+import { StyleSheet, Text, View , Button, Alert, TextInput, Linking, TouchableOpacity, Image, ScrollView, } from 'react-native';
 import React, { useState } from 'react';
 
 // Voila comment on import une classe d'un fichier externe : 
@@ -51,53 +51,73 @@ const App = () => {
 
   return (
     // tout ce qu'il y a dans le return est affiché (en tout cas entre les <View>)
-    <View style={styles.container}>
-      {/* tout ça c'est du texte basique*/}
-      <Text style={styles.innerText}>Bonjour les noobs comment ça va!</Text>
-      <Text style={styles.innerText}>React go brrr et aussi {test(r)}</Text>
+    <View style={{flex: 1}}>
+      {/* permet comme son nom l'indique de scroll la page */}
+      <ScrollView contentContainerStyle={styles.contentContainer}>
+        {/* tout ça c'est du texte basique*/}
+        <Text style={styles.innerText}>Bonjour les noobs comment ça va!</Text>
+        <Text style={styles.innerText}>React go brrr et aussi {test(r)}</Text>
 
-      {/* ça ce sont les boutons classics où tu peux pas faire grand chose niveau style */}
-      <Button color="#343434" title="clic bouffon" onPress={ ()=>{ Linking.openURL('https://thomann.de')}}/>
-      <Button title="Add 1" onPress={onPress}/>
+        {/* ça ce sont les boutons classics où tu peux pas faire grand chose niveau style */}
+        <Button color="#343434" title="clic bouffon" onPress={ ()=>{ Linking.openURL('https://thomann.de')}}/>
+        <Button title="Add 1" onPress={onPress}/>
+        <Button title="Add 1" onPress={onPress}/>
+        <Button title="Add 1" onPress={onPress}/>
+        <Button title="Add 1" onPress={onPress}/>
+        <Button title="Add 1" onPress={onPress}/>
+        <Button title="Add 1" onPress={onPress}/>
+        <Button title="Add 1" onPress={onPress}/>
+        <Button title="Add 1" onPress={onPress}/>
+        <Button title="Add 1" onPress={onPress}/>
+        <Button title="Add 1" onPress={onPress}/>
+        <Button title="Add 1" onPress={onPress}/>
+        <Button title="Add 1" onPress={onPress}/>
+        <Button title="Add 1" onPress={onPress}/>
+        <Button title="Add 1" onPress={onPress}/>
+        <Button title="Add 1" onPress={onPress}/>
+        <Button title="Add 1" onPress={onPress}/>
+        <Button title="Add 1" onPress={onPress}/>
+        <Button title="Add 1" onPress={onPress}/>
 
-      {/* et là on commence à arriver vers des boutons qui ressemblent à quelquechose */}
-      <TouchableOpacity activeOpacity={0.1}
-                        style={styles.button}>
-                        <Text style={styles.button}>Bonjour</Text>
-      </TouchableOpacity>
 
-      <Text style={styles.innerText}>clics : {count}</Text>
-      <Text style={styles.innerText}>La taille du rectangle est :{rectanglllle.area}</Text>
+        {/* et là on commence à arriver vers des boutons qui ressemblent à quelquechose */}
+        <TouchableOpacity activeOpacity={0.1}
+                          style={styles.button}>
+                          <Text style={styles.button}>Bonjour</Text>
+        </TouchableOpacity>
 
-      {/* Test de bouton avec des images */}
-      <TouchableOpacity activeOpacity={0.2} style={styles.button} onPress={ ()=>{ alert("Voilà on a un boutton joli et qui sert à qqch")}}>
-        {/* Pour le chemin de l'image il faut bien commencer par ./    on peut aussi faire par url */}
-        <Image style={styles.photo}
-               source={require('./images/jolie_photo.jpg')}/>
-      </TouchableOpacity>
-      {/* Hello vient du fichier 2emepage.js */}
-      <Hello/>
+        <Text style={styles.innerText}>clics : {count}</Text>
+        <Text style={styles.innerText}>La taille du rectangle est :{rectanglllle.area}</Text>
 
-      <TextInput style={styles.innerText}
-                onChangeText={setText}
-                defaultValue={text}
-                placeholder={"CA MAAAARCHE"}
-                placeholderTextColor='#ffa'
-                />
+        {/* Test de bouton avec des images */}
+        <TouchableOpacity activeOpacity={0.2} style={styles.button} onPress={ ()=>{ alert("Voilà on a un boutton joli et qui sert à qqch")}}>
+          {/* Pour le chemin de l'image il faut bien commencer par ./    on peut aussi faire par url */}
+          <Image style={styles.photo}
+                source={require('./images/jolie_photo.jpg')}/>
+        </TouchableOpacity>
+        {/* Hello vient du fichier 2emepage.js */}
+        <Hello/>
 
-      <StatusBar style="auto" />
+        <TextInput style={styles.innerText}
+                  onChangeText={setText}
+                  defaultValue={text}
+                  placeholder={"CA MAAAARCHE"}
+                  placeholderTextColor='#ffa'
+                  />
+
+        <StatusBar style="auto" />
+      </ScrollView>
     </View>
-  
   );
 }
 
 // style sheet de base :
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+  contentContainer: {
+    flexGrow: 1,
     backgroundColor: '#000',
     alignItems: 'center',
-    justifyContent: 'space-evenly',
+    // justifyContent: 'space-evenly', // ça ça fait chier pour le scroll puisqu'il stack tout et on a pas besoin de scroll
   },
   innerText: {
     color: '#ffffff',
