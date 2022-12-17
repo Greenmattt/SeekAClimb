@@ -79,7 +79,10 @@ const App = () => {
         <Button title="Add 1" onPress={onPress}/>
         <Button title="Add 1" onPress={onPress}/>
 
-
+        <View style={styles.enLigne}>
+          <Text style={styles.innerText}>Text n°1   </Text>
+          <Text style={styles.innerText}>Text n°2</Text>
+        </View>
         {/* et là on commence à arriver vers des boutons qui ressemblent à quelquechose */}
         <TouchableOpacity activeOpacity={0.1}
                           style={styles.button}>
@@ -133,6 +136,9 @@ const styles = StyleSheet.create({
     height: 81,
     // à peu près les dimensions de l'image. Il faut impérativement les rentrer à la main
     resizeMode:"stretch"
+  },
+  enLigne: {
+    flexDirection : 'row',
   }
 });
 
