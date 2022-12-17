@@ -67,14 +67,14 @@ const App = () => {
         <Button title="Add 1" onPress={onPress}/>
         <Button title="Add 1" onPress={onPress}/>
         <Button title="Add 2" onPress={onPress}/>
-        <Button title="Add 1" onPress={onPress}/>
-        <Button title="Add 1" onPress={onPress}/>
+        <Button title="Add 1" onPress={onPress} color = "white"/>
+        <Button title="sale raciste" onPress={()=>{ Linking.openURL('https://fr.wikipedia.org/wiki/Acacia_mearnsii')}} color = "black"/>
         <Button title="Add 1" onPress={onPress}/>
         <Button title="Add 1" onPress={onPress}/>
         <Button title="Add 1" onPress={onPress} color = "purple"/>
-        <Button title="Add 1" onPress={onPress}/>
-        <Button title="Add 1" onPress={onPress}/>
-        <Button title="Add 1" onPress={onPress}/>
+        <Button title="Add 1" onPress={onPress} color = "blue"/>
+        <Button title="Add 1" onPress={onPress} color = "#106f1f"/>
+        <Button title="Add 1" onPress={onPress} color = "violet"/>
         <Button title="Add 1" onPress={onPress}/>
         <Button title="Add 1" onPress={onPress}/>
         <Button title="Add 1" onPress={onPress}/>
