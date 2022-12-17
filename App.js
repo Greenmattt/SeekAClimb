@@ -49,15 +49,6 @@ const App = () => {
   // ça c'est la fonction qui va avec
   const onPress = () => setCount(prevCount => prevCount + 1);
 
-  var plusieurs_bouttons = [];
-  for (var i = 0; i<100; i++) {
-    
-    plusieurs_bouttons.push(
-      <View key={i}>
-        <Button title="Add 1" onPress={onPress}/>
-      </View>)
-  }
-  
   return (
     // tout ce qu'il y a dans le return est affiché (en tout cas entre les <View>)
     <View style={{flex: 1}}>
@@ -69,14 +60,26 @@ const App = () => {
 
         {/* ça ce sont les boutons classics où tu peux pas faire grand chose niveau style */}
         <Button color="#343434" title="clic bouffon" onPress={ ()=>{ Linking.openURL('https://thomann.de')}}/>
-        
-        {plusieurs_bouttons}
+        <Button title="Add 1" onPress={onPress}/>
+        <Button title="Add 1" onPress={onPress}/>
+        <Button title="Add 1" onPress={onPress}/>
+        <Button title="Add 1" onPress={onPress}/>
+        <Button title="Add 1" onPress={onPress}/>
+        <Button title="Add 1" onPress={onPress}/>
+        <Button title="Add 2" onPress={onPress}/>
+        <Button title="Add 1" onPress={onPress} color = "white"/>
+        <Button title="sale raciste" onPress={()=>{ Linking.openURL('https://fr.wikipedia.org/wiki/Acacia_mearnsii')}} color = "black"/>
+        <Button title="Add 1" onPress={onPress}/>
+        <Button title="Add 1" onPress={onPress}/>
+        <Button title="Add 1" onPress={onPress} color = "purple"/>
+        <Button title="Add 1" onPress={onPress} color = "blue"/>
+        <Button title="Add 1" onPress={onPress} color = "#106f1f"/>
+        <Button title="Add 1" onPress={onPress} color = "violet"/>
+        <Button title="Add 1" onPress={onPress}/>
+        <Button title="Add 1" onPress={onPress}/>
+        <Button title="Add 1" onPress={onPress}/>
 
-        <View style={styles.enLigne}>
-          <Text style={styles.innerText}>Text n°1   </Text>
-          <Text style={styles.innerText}>Text n°2</Text>
-        </View>
-        
+
         {/* et là on commence à arriver vers des boutons qui ressemblent à quelquechose */}
         <TouchableOpacity activeOpacity={0.1}
                           style={styles.button}>
@@ -130,9 +133,6 @@ const styles = StyleSheet.create({
     height: 81,
     // à peu près les dimensions de l'image. Il faut impérativement les rentrer à la main
     resizeMode:"stretch"
-  },
-  enLigne: {
-    flexDirection : 'row',
   }
 });
 
