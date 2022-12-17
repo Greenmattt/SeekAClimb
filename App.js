@@ -66,12 +66,12 @@ const App = () => {
         <Button title="Add 1" onPress={onPress}/>
         <Button title="Add 1" onPress={onPress}/>
         <Button title="Add 1" onPress={onPress}/>
+        <Button title="Add 2" onPress={onPress}/>
         <Button title="Add 1" onPress={onPress}/>
         <Button title="Add 1" onPress={onPress}/>
         <Button title="Add 1" onPress={onPress}/>
         <Button title="Add 1" onPress={onPress}/>
-        <Button title="Add 1" onPress={onPress}/>
-        <Button title="Add 1" onPress={onPress}/>
+        <Button title="Add 1" onPress={onPress} color = "purple"/>
         <Button title="Add 1" onPress={onPress}/>
         <Button title="Add 1" onPress={onPress}/>
         <Button title="Add 1" onPress={onPress}/>
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
     color: '#ffffff',
   },
   button: {
-    backgroundColor: "orange",
+    backgroundColor: "green",
     padding: 2,
     // c'est le padding de 2 qui fait qu'il y a des bordures oranges autour de l'image
     color: "pink",
