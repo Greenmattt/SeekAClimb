@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View , Button, Alert, TextInput, Linking, TouchableOpacity, Image, ScrollView, } from 'react-native';
+import { StyleSheet, Text, View , Button, Alert, TextInput, Linking, TouchableOpacity, Image, ScrollView, Switch} from 'react-native';
 import React, { useState } from 'react';
 
 // Voila comment on import une classe d'un fichier externe : 
@@ -49,6 +49,10 @@ const App = () => {
   // ça c'est la fonction qui va avec
   const onPress = () => setCount(prevCount => prevCount + 1);
 
+  // pour le switch
+  const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+
   return (
     // tout ce qu'il y a dans le return est affiché (en tout cas entre les <View>)
     <View style={{flex: 1}}>
@@ -57,6 +61,12 @@ const App = () => {
         {/* tout ça c'est du texte basique*/}
         <Text style={styles.innerText}>Bonjour les noobs comment ça va!</Text>
         <Text style={styles.innerText}>React go brrr et aussi {test(r)}</Text>
+
+        {/* test de switch (pas encore test avec une fonction autre que pour le faire changer de couleur) */}
+        <Switch trackColor={{ false: '#f00', true: '#0f0'}}
+                      thumbColor={isEnabled ? "#fff" : "#fff"}
+                      onValueChange={toggleSwitch}
+                      value={isEnabled}/>
 
         {/* ça ce sont les boutons classics où tu peux pas faire grand chose niveau style */}
         <Button color="#343434" title="clic bouffon" onPress={ ()=>{ Linking.openURL('https://thomann.de')}}/>
