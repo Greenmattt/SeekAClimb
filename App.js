@@ -49,6 +49,11 @@ const App = () => {
   // ça c'est la fonction qui va avec
   const onPress = () => setCount(prevCount => prevCount + 1);
 
+  let [bouttonQuiSwitch, UnOu0] = useState(0);
+  const changementCouleur = () => UnOu0(UnOu0 => 1 - UnOu0);
+  
+
+
   // pour le switch
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
@@ -57,16 +62,21 @@ const App = () => {
     // tout ce qu'il y a dans le return est affiché (en tout cas entre les <View>)
     <View style={{flex: 1}}>
       {/* permet comme son nom l'indique de scroll la page */}
-      <ScrollView contentContainerStyle={styles.contentContainer}>
+      {/* le styleDynamique est changé par le bouton "rip les yeux" */}
+      <ScrollView contentContainerStyle = {styleDynamique(bouttonQuiSwitch).fond}>
+
         {/* tout ça c'est du texte basique*/}
-        <Text style={styles.innerText}>Bonjour les noobs comment ça va!</Text>
-        <Text style={styles.innerText}>React go brrr et aussi {test(r)}</Text>
+        <Text style={styleDynamique(bouttonQuiSwitch).text}>Bonjour les noobs comment ça va!</Text>
+        <Text style={styleDynamique(bouttonQuiSwitch).text}>React go brrr et aussi {test(r)}</Text>
 
         {/* test de switch (pas encore test avec une fonction autre que pour le faire changer de couleur) */}
         <Switch trackColor={{ false: '#f00', true: '#0f0'}}
                       thumbColor={isEnabled ? "#fff" : "#fff"}
                       onValueChange={toggleSwitch}
                       value={isEnabled}/>
+
+        {/* le fameux bouton qui fait changer le style (et oui on pourrait utiliser un switch pour ça)*/}
+        <Button title= "rip les yeux" onPress={changementCouleur}/>
 
         {/* ça ce sont les boutons classics où tu peux pas faire grand chose niveau style */}
         <Button color="#343434" title="clic bouffon" onPress={ ()=>{ Linking.openURL('https://thomann.de')}}/>
@@ -96,8 +106,8 @@ const App = () => {
                           <Text style={styles.button}>Bonjour</Text>
         </TouchableOpacity>
 
-        <Text style={styles.innerText}>clics : {count}</Text>
-        <Text style={styles.innerText}>La taille du rectangle est :{rectanglllle.area}</Text>
+        <Text style={styleDynamique(bouttonQuiSwitch).text}>clics : {count}</Text>
+        <Text style={styleDynamique(bouttonQuiSwitch).text}>La taille du rectangle est :{rectanglllle.area}</Text>
 
         {/* Test de bouton avec des images */}
         <TouchableOpacity activeOpacity={0.2} style={styles.button} onPress={ ()=>{ alert("Voilà on a un boutton joli et qui sert à qqch")}}>
@@ -108,7 +118,7 @@ const App = () => {
         {/* Hello vient du fichier 2emepage.js */}
         <Hello/>
 
-        <TextInput style={styles.innerText}
+        <TextInput style={styleDynamique(bouttonQuiSwitch).text}
                   onChangeText={setText}
                   defaultValue={text}
                   placeholder={"CA MAAAARCHE"}
@@ -123,15 +133,6 @@ const App = () => {
 
 // style sheet de base :
 const styles = StyleSheet.create({
-  contentContainer: {
-    flexGrow: 1,
-    backgroundColor: '#000',
-    alignItems: 'center',
-    // justifyContent: 'space-evenly', // ça ça fait chier pour le scroll puisqu'il stack tout et on a pas besoin de scroll
-  },
-  innerText: {
-    color: '#ffffff',
-  },
   button: {
     backgroundColor: "green",
     padding: 2,
@@ -145,6 +146,31 @@ const styles = StyleSheet.create({
     resizeMode:"stretch"
   }
 });
+
+// dcp il vaut mieux pas utiliser la méthode StyleSheet.create() si on fait des styles dynamiques
+var styleDynamique = function(appuye) {
+  // au début on peut mettre des if else comme en js
+  if (appuye == 1) {
+    var colorF = "#ffffff";
+    var colorT = "#000000";}
+  else if (appuye == 0) {
+    var colorF = "#000000";
+    var colorT = "#ffffff";}
+
+  // et après le return on met comme ce qu'on mettait dans le StyleSheet.create()
+  return {
+    fond: {
+      backgroundColor: colorF,
+      alignItems: 'center',
+      flexGrow: 1,
+    },
+    text: {
+      color: colorT,
+    }
+  }
+};
+
+
 
 // on fait comme ça pour que App soit l'affichage de base
 export default App;
