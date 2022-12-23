@@ -85,9 +85,9 @@ const App =() => {
   return (
     <NavigationContainer>
       <Tab.Navigator>
-        <Tab.Screen name="Home" component={HomeScreen}/>
-        <Tab.Screen name="Settings" component={SettingsScreen}/>
-        <Tab.Screen name="Account" component={AccountScreen}/>
+        <Tab.Screen name="Home" component={HomeScreen} options={{headerShown: false}}/>
+        <Tab.Screen name="Settings" component={SettingsScreen} options={{headerShown: false}}/>
+        <Tab.Screen name="Account" component={AccountScreen} options={{headerShown: false}}/>
       </Tab.Navigator>
     </NavigationContainer>
   );
