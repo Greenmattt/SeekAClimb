@@ -1,4 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { Text, View, TouchableOpacity, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -7,7 +8,8 @@ import Entypo from '@expo/vector-icons/Entypo';
 import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
 // commande à faire : npx expo install expo-splash-screen
-// pour la nav bar : npm install @react-navigation/bottom-tabs
+// pour la nav bar : npm install @react-navigation/material-top-tabs react-native-tab-view
+// puis : npx expo install react-native-pager-view
 
 // je préviens toutes les fonctions compliquées pour le splash screen sortent de cette doc : 
 // https://docs.expo.dev/versions/latest/sdk/splash-screen/
@@ -64,6 +66,14 @@ const App =() => {
     );
   }
 
+  function WayScreen() {
+    return (
+      <View style={styleMain(false).fond} onLayout={onLayoutRootView}>
+        <Text style={styleMain(false).text}>page des voies</Text>
+      </View>
+    );
+  }
+
   function SettingsScreen() {
     return (
       <View style={styleMain(false).fond}>
@@ -80,14 +90,18 @@ const App =() => {
     );
   }
 
-  const Tab = createBottomTabNavigator();
+  function imageSettings () {return(<Image style={styleMain().icon} source={require('./assets/settings_icon.png')}/>)}
+  function imageAccueil () {return(<Image style={styleMain().icon} source={require('./assets/home_icon.png')}/>)}
+  function imageCompte () {return(<Image style={styleMain().icon} source={require('./assets/user_icon.png')}/>)}
+  const Tab = createMaterialTopTabNavigator();
 
   return (
     <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="Home" component={HomeScreen} options={{headerShown: false}}/>
-        <Tab.Screen name="Settings" component={SettingsScreen} options={{headerShown: false}}/>
-        <Tab.Screen name="Account" component={AccountScreen} options={{headerShown: false}}/>
+      <Tab.Navigator tabBarPosition='bottom'>
+        <Tab.Screen name="Home" component={HomeScreen} options={{headerShown : false, tabBarIcon:imageAccueil, tabBarShowIcon:true}}/>
+        <Tab.Screen name="Voies" component={WayScreen} options={{headerShown : false}}/>
+        <Tab.Screen name="Settings" component={SettingsScreen} options={{headerShown : false, tabBarIcon:imageSettings, tabBarShowIcon:true}}/>
+        <Tab.Screen name="Account" component={AccountScreen} options={{headerShown : false, tabBarIcon:imageCompte, tabBarShowIcon:true}}/>
       </Tab.Navigator>
     </NavigationContainer>
   );
@@ -107,7 +121,12 @@ var styleMain = function(clair) {
     },
     text: {
       color: couleurT,
-    }
+    },
+    icon: {
+      width: 30,
+      height: 30,
+      resizeMode: 'stretch',
+    },
   }
 };
 
