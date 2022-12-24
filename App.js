@@ -15,7 +15,9 @@ import * as Font from 'expo-font';
 // https://docs.expo.dev/versions/latest/sdk/splash-screen/
 // https://hackernoon.com/how-to-design-a-splash-screen-with-expo-and-react-native
 
-// import Barre from './Footer';
+import Settings from './Settings';
+import Account from './Account';
+import Routes from './Routes';
 
 
 // permet de garder le splash screen visible jusqu'à ce que toutes les ressources soient téléchargées
@@ -66,42 +68,37 @@ const App =() => {
     );
   }
 
-  function WayScreen() {
+  function RoutesScreen() {
     return (
-      <View style={styleMain(false).fond} onLayout={onLayoutRootView}>
-        <Text style={styleMain(false).text}>page des voies</Text>
-      </View>
+      <Routes/>
     );
   }
 
   function SettingsScreen() {
     return (
-      <View style={styleMain(false).fond}>
-        <Text style={styleMain(false).text}>page des paramètres</Text>
-      </View>
+      <Settings/>
     );
   }
 
   function AccountScreen() {
     return (
-      <View style={styleMain(false).fond}>
-        <Text style={styleMain(false).text}>page du compte</Text>
-      </View>
+      <Account/>
     );
   }
 
   function imageSettings () {return(<Image style={styleMain().icon} source={require('./assets/settings_icon.png')}/>)}
   function imageAccueil () {return(<Image style={styleMain().icon} source={require('./assets/home_icon.png')}/>)}
   function imageCompte () {return(<Image style={styleMain().icon} source={require('./assets/user_icon.png')}/>)}
+  function imageVoies () {return(<Image style={styleMain().icon} source={require('./assets/Sports_Climbing_icon.png')}/>)}
   const Tab = createMaterialTopTabNavigator();
 
   return (
     <NavigationContainer>
       <Tab.Navigator tabBarPosition='bottom'>
-        <Tab.Screen name="Home" component={HomeScreen} options={{headerShown : false, tabBarIcon:imageAccueil, tabBarShowIcon:true}}/>
-        <Tab.Screen name="Voies" component={WayScreen} options={{headerShown : false}}/>
-        <Tab.Screen name="Settings" component={SettingsScreen} options={{headerShown : false, tabBarIcon:imageSettings, tabBarShowIcon:true}}/>
-        <Tab.Screen name="Account" component={AccountScreen} options={{headerShown : false, tabBarIcon:imageCompte, tabBarShowIcon:true}}/>
+        <Tab.Screen name="Home" component={HomeScreen} options={{headerShown:false, tabBarIcon:imageAccueil, tabBarShowIcon:true}}/>
+        <Tab.Screen name="Voies" component={RoutesScreen} options={{headerShown:false, tabBarIcon:imageVoies, tabBarShowIcon:true}}/>
+        <Tab.Screen name="Settings" component={SettingsScreen} options={{headerShown:false, tabBarIcon:imageSettings, tabBarShowIcon:true}}/>
+        <Tab.Screen name="Account" component={AccountScreen} options={{headerShown:false, tabBarIcon:imageCompte, tabBarShowIcon:true}}/>
       </Tab.Navigator>
     </NavigationContainer>
   );
@@ -125,7 +122,7 @@ var styleMain = function(clair) {
     icon: {
       width: 30,
       height: 30,
-      resizeMode: 'stretch',
+      resizeMode: 'contain',
     },
   }
 };
