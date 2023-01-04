@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import { Text, View, TextInput, Switch, TouchableOpacity } from 'react-native';
+import DropDownPicker from 'react-native-dropdown-picker';
+import MultiSlider from '@ptomasroos/react-native-multi-slider';
+// commandes à faire :  npm install react-native-dropdown-picker
+//                      npm install --save @ptomasroos/react-native-multi-slider
 
 const Routes = () => {
   // const [lieu, onChangeLieu] = useState('');
@@ -15,16 +19,30 @@ const Routes = () => {
   const [typeID, onChangeTypeID] = useState(1);
   const changeType = (value) => onChangeTypeID(a => value)
 
+
+  const [open, setOpen] = useState(false);
+  const [value, setValue] = useState(['Blaise-pascal', 'Casamur']);
+  const [items, setItems] = useState([
+    {label: 'Blaise-Pascal', value: 'Blaise-Pascal'},
+    {label: 'Casamur', value: 'Casamur', },
+  ]);
+
+  enableScroll = () => this.setState({ scrollEnabled: true });
+  disableScroll = () => this.setState({ scrollEnabled: false });
+ 
+  const [
+    nonCollidingMultiSliderValue,
+    setNonCollidingMultiSliderValue,
+  ] = React.useState([0, 100]);
+  nonCollidingMultiSliderValuesChange = values =>
+    setNonCollidingMultiSliderValue(values);
+
   return (
-    <View style={styleMain(false).fond}>
+    <View style={styleMain().fond}>
       {/* Un petit view pour laisser de l'espace en haut */}
       <View style={styleMain().espace}></View>
 
       {/* Je mets absolument tout dans des View pour bien pouvoir faire des compartiments du screens équitables */}
-
-      <View style = {styleMain().textInfoView}>
-        <Text style={styleMain().text}>nécessaire : </Text>
-      </View>
 
       {/* <View style = {styleMain().inputHaut}>
         <TextInput style= {styleMain(false).input} 
@@ -32,16 +50,22 @@ const Routes = () => {
                    onChangeText={onChangeLieu}
                    value = {lieu}/>
       </View> */}
-      <View style = {{flex: 2, flexDirection:'row', justifyContent: "space-evenly", alignItems:'center'}}>
-        <Text style={styleMain().text}>Blaise-Pascal</Text>
 
-        <Switch trackColor={{false: "#f00", true: '#0f0'}}
-                thumbColor = {estBlaise ? "#fff" : "#fff"}
-                onValueChange = {switchBlaise}
-                value = {estBlaise}/>
+       <DropDownPicker
+              open={open}
+              value={value}
+              items={items}
+              setOpen={setOpen}
+              setValue={setValue}
+              setItems={setItems}
 
-        <Text style={styleMain().text}>Casamur</Text>
-      </View>
+              theme="DARK"
+              multiple={true}
+              mode="BADGE"
+              badgeDotColors={["#3a75b1", "#3ab175"]}
+              style= {{margin: 1}}/>
+
+
 
       {/* <View style = {styleMain().inputCentre}>
         <TextInput style= {styleMain(false).input} 
@@ -52,42 +76,55 @@ const Routes = () => {
 
       <View style = {{flex: 2, flexDirection:'row', justifyContent: "space-evenly", alignItems:'center'}}>
 
-        <TouchableOpacity style= {styleBoutton(typeID == 1)} onPress = {() => changeType(1)}>
-          <Text>Voie</Text>
+        <TouchableOpacity style= {styleBoutton(typeID == 1).button} onPress = {() => changeType(1)}>
+          <Text style={styleBoutton(typeID == 1).text}>Voie</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style= {styleBoutton(typeID == 2)} onPress = {() => changeType(2)}>
-          <Text>Bloc</Text>
+        <TouchableOpacity style= {styleBoutton(typeID == 2).button} onPress = {() => changeType(2)}>
+          <Text style={styleBoutton(typeID == 1).text}>Bloc</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style= {styleBoutton(typeID == 3)} onPress = {() => changeType(3)}>
-          <Text>Traversée</Text>
+        <TouchableOpacity style= {styleBoutton(typeID == 3).button} onPress = {() => changeType(3)}>
+          <Text style={styleBoutton(typeID == 1).text}>Traversée</Text>
         </TouchableOpacity>
 
       </View>      
 
       <View style = {{flex: 2, flexDirection:'row', justifyContent: "space-evenly", alignItems:'center'}}>
-        <Text style={styleMain().text}>Officiel</Text>
+        <Text style={{color: '#3a75b1'}}>Officiel</Text>
 
-        <Switch trackColor={{false: "#f00", true: '#0f0'}}
+        <Switch trackColor={{false: '#3a75b1', true: "#3ab175"}}
                 thumbColor = {estCustom ? "#fff" : "#fff"}
                 onValueChange = {toggleSwitch}
                 value = {estCustom}/>
 
-        <Text style={styleMain().text}>Custom</Text>
+        <Text style={{color: "#3ab175"}}>Custom</Text>
       </View>
 
-      <View style = {styleMain().textInfoView}>
-        <Text style={styleMain().text}>contingent : </Text>
-      </View>
-
-      <View style = {styleMain().inputBas}>
+      {/* <View style = {styleMain().inputBas}>
         <TextInput style= {styleMain(false).input} 
                    placeholder="Difficulté"
                    onChangeText={onChangeDiff}
                    value = {diff}/>
-      </View>
+      </View> */}
+      
+      <View style = {{flex: 2, flexDirection:'row', justifyContent: "space-evenly", alignItems:'center'}}>
+        <MultiSlider
+          values={[
+            nonCollidingMultiSliderValue[0],
+            nonCollidingMultiSliderValue[1],
+          ]}
+          sliderLength={280}
+          onValuesChange={nonCollidingMultiSliderValuesChange}
+          min={0}
+          max={100}
+          step={1}
+          allowOverlap={false}
+          snapped
+          minMarkerOverlapDistance={4}
 
+        />
+      </View>
 
 
       <View style ={styleMain().canvas}>
@@ -115,34 +152,34 @@ var styleMain = function(clair = false) {
     textInfoView: {
       flex: 1,
     },
-    inputHaut: {
-      flex: 2,
-      backgroundColor: "#cccccc",
-      justifyContent: 'center',
-      borderWidth: 2,
-      borderColor: "#aaaaaa",
-      borderTopLeftRadius: 5,
-      borderTopRightRadius: 5,
-      margin: 3
-    },
-    inputCentre: {
-      flex: 2,
-      backgroundColor: "#cccccc",
-      justifyContent: 'center',
-      borderWidth: 2,
-      borderColor: "#aaaaaa",
-      margin: 3,
-    },
-    inputBas: {
-      flex: 2,
-      backgroundColor: "#cccccc",
-      justifyContent: 'center',
-      borderWidth: 2,
-      borderColor: "#aaaaaa",
-      borderBottomLeftRadius: 5,
-      borderBottomRightRadius: 5,
-      margin: 3
-    },
+    // inputHaut: {
+    //   flex: 3,
+    //   backgroundColor: "#cccccc",
+    //   justifyContent: 'center',
+    //   borderWidth: 2,
+    //   borderColor: "#aaaaaa",
+    //   borderTopLeftRadius: 5,
+    //   borderTopRightRadius: 5,
+    //   margin: 3
+    // },
+    // inputCentre: {
+    //   flex: 2,
+    //   backgroundColor: "#cccccc",
+    //   justifyContent: 'center',
+    //   borderWidth: 2,
+    //   borderColor: "#aaaaaa",
+    //   margin: 3,
+    // },
+    // inputBas: {
+    //   flex: 2,
+    //   backgroundColor: "#cccccc",
+    //   justifyContent: 'center',
+    //   borderWidth: 2,
+    //   borderColor: "#aaaaaa",
+    //   borderBottomLeftRadius: 5,
+    //   borderBottomRightRadius: 5,
+    //   margin: 3
+    // },
     canvas: {
       flex: 24,
       backgroundColor: couleurF, 
@@ -163,15 +200,21 @@ var styleMain = function(clair = false) {
   }
 };
 
-var styleBoutton = function(appuye) {
+var styleBoutton = function(appuye, clair= false) {
   return {
-    backgroundColor: appuye ? "#ff0000" : "#777777",
-    height: "100%",
-    width: "20%",
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
+    button: {
+      backgroundColor: appuye ? "#ba513a" : clair ? "#ffffff" : "#000000",
+      height: "100%",
+      width: "20%",
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    text: {
+      color: clair ? "#000" : "#fff"
+    }
   }
+
 }
 
 export default Routes;
