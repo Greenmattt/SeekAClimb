@@ -27,6 +27,14 @@ const Routes = () => {
     {label: 'Casamur', value: 'Casamur', },
   ]);
 
+  const difficultes = ['3a', '3b', '3c', 
+                       '4a', '4b', '4c', 
+                       '5a', '5a+', '5b', '5b+', '5c', '5c+', 
+                       '6a', '6a+', '6b', '6b+', '6c', '6c+',
+                       '7a', '7a+', '7b', '7b+', '7c', '7c+',
+                       '8a', '8a+', '8b', '8b+', '8c', '8c+',
+                       '9a']
+
   enableScroll = () => this.setState({ scrollEnabled: true });
   disableScroll = () => this.setState({ scrollEnabled: false });
  
@@ -107,24 +115,32 @@ const Routes = () => {
                    onChangeText={onChangeDiff}
                    value = {diff}/>
       </View> */}
-      
-      <View style = {{flex: 2, flexDirection:'row', justifyContent: "space-evenly", alignItems:'center'}}>
-        <MultiSlider
-          values={[
-            nonCollidingMultiSliderValue[0],
-            nonCollidingMultiSliderValue[1],
-          ]}
-          sliderLength={280}
-          onValuesChange={nonCollidingMultiSliderValuesChange}
-          min={0}
-          max={100}
-          step={1}
-          allowOverlap={false}
-          snapped
-          minMarkerOverlapDistance={4}
+      <View style={{flex: 3, alignItems:'center'}}>
+        <View style={{flex: 1, flexDirection:'row', justifyContent: "space-around", alignItems:'center'}}>
+          <Text style={styleMain().text}>min : {difficultes[nonCollidingMultiSliderValue[0]]} </Text>
+          <Text style={styleMain().text}>max : {difficultes[nonCollidingMultiSliderValue[1]]} </Text>
+        </View>
 
-        />
+        <View style = {{flex: 2, flexDirection:'row', justifyContent: "space-evenly", alignItems:'center'}}>
+          <MultiSlider
+            values={[
+              nonCollidingMultiSliderValue[0],
+              nonCollidingMultiSliderValue[1],
+            ]}
+            sliderLength={250}
+            onValuesChange={nonCollidingMultiSliderValuesChange}
+            min={0}
+            max={30}
+            step={1}
+            allowOverlap={false}
+            snapped
+            minMarkerOverlapDistance={7}
+
+          />
+        </View>
       </View>
+
+
 
 
       <View style ={styleMain().canvas}>
