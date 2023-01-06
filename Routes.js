@@ -21,7 +21,7 @@ const Routes = () => {
 
 
   const [open, setOpen] = useState(false);
-  const [value, setValue] = useState(['Blaise-pascal', 'Casamur']);
+  const [value, setValue] = useState();
   const [items, setItems] = useState([
     {label: 'Blaise-Pascal', value: 'Blaise-Pascal'},
     {label: 'Casamur', value: 'Casamur', },
@@ -99,14 +99,14 @@ const Routes = () => {
       </View>      
 
       <View style = {{flex: 2, flexDirection:'row', justifyContent: "space-evenly", alignItems:'center'}}>
-        <Text style={{color: '#3a75b1'}}>Officiel</Text>
+        <Text style={switchText(estCustom).textOfficiel}>Officiel</Text>
 
         <Switch trackColor={{false: '#3a75b1', true: "#3ab175"}}
                 thumbColor = {estCustom ? "#fff" : "#fff"}
                 onValueChange = {toggleSwitch}
                 value = {estCustom}/>
 
-        <Text style={{color: "#3ab175"}}>Custom</Text>
+        <Text style={switchText(estCustom).textCustom}>Custom</Text>
       </View>
 
       {/* <View style = {styleMain().inputBas}>
@@ -115,10 +115,10 @@ const Routes = () => {
                    onChangeText={onChangeDiff}
                    value = {diff}/>
       </View> */}
-      <View style={{flex: 3, alignItems:'center'}}>
-        <View style={{flex: 1, flexDirection:'row', justifyContent: "space-around", alignItems:'center'}}>
+        <View style={{flex: 2, flexDirection:'row', justifyContent: "space-between", alignItems:'center'}}>
           <Text style={styleMain().text}>min : {difficultes[nonCollidingMultiSliderValue[0]]} </Text>
-          <Text style={styleMain().text}>max : {difficultes[nonCollidingMultiSliderValue[1]]} </Text>
+          <Text style={styleMain().text}>max : {difficultes[nonCollidingMultiSliderValue[1] < 31 ? nonCollidingMultiSliderValue[1] : 30 ]} </Text>
+
         </View>
 
         <View style = {{flex: 2, flexDirection:'row', justifyContent: "space-evenly", alignItems:'center'}}>
@@ -138,10 +138,15 @@ const Routes = () => {
 
           />
         </View>
+
+      <View style= {{flex: 3, alignItems:'center'}}>
+        <TouchableOpacity 
+          style = {{width: '90%', height: '90%', backgroundColor: '#fa5144', 
+                    justifyContent:'center', alignItems:'center', borderRadius: 20, margin:5}}
+                    >
+          <Text>Chercher ...</Text>
+        </TouchableOpacity>
       </View>
-
-
-
 
       <View style ={styleMain().canvas}>
         <Text style={styleMain().text}>Page des voies</Text>
@@ -230,7 +235,18 @@ var styleBoutton = function(appuye, clair= false) {
       color: clair ? "#000" : "#fff"
     }
   }
+};
 
+var switchText = function(estCustom, clair=false) {
+  return {
+    textOfficiel: {
+      color: estCustom ? (clair ? "#000000" : "#ffffff") : "#3a75b1",
+    },
+    textCustom: {
+      color: !estCustom ? (clair ? "#000000" : "#ffffff") : "#3ab175",
+    }
+
+  }
 }
 
 export default Routes;
