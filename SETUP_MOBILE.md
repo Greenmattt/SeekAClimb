@@ -1,15 +1,15 @@
 ## Setup de l'environnement react native: 
 
-/!\ Pour les deux installation suivantes, soyez sur que les PATH soient correctement créés
+/!\ Pour les deux installation suivantes, soyez sûr que les PATH soient correctement créés
 1. [Télécharger node.js](https://nodejs.org/en/download/)
 2. [Télécharger Android Studio](https://developer.android.com/studio)
 
 3. Configurer la variable ANDROID_HOME de la manière suivante :
-    - Ouvrir le panneau de configuration windows
-    - Aller dans *Comptes d'utilisateurs*, puis *Comptes d'utilisateurs* à nouveau 
-    - Cliquer sur *Modifier vos variables d'environnement* (à gauche de l'écran)
+    - Ouvrez le panneau de configuration windows
+    - Allez dans *Comptes d'utilisateurs*, puis *Comptes d'utilisateurs* à nouveau 
+    - Cliquez sur *Modifier vos variables d'environnement* (à gauche de l'écran)
 
-    - En parallèle lancer Android Studio
+    - En parallèle lancez Android Studio
     - Cliquer sur *More actions* puis *SDK Manager*
     - Copier le chemin à côté de **Android SDK Location**
     
@@ -20,7 +20,7 @@
     - Valider.
 
 4. Dans une fenêtre cmd (ou PowerShell) aller dans le dossier où vous voudrez créer votre projet
-5. tapper : `npx create-expo-app NomDuProjet`
+5. Tappez : `npx create-expo-app NomDuProjet`
 6. Puis `cd NomDuProjet`
 7. Enfin vous pouvez lancer le dossier dans vs code avec la commande : `code .` (Si votre variable PATH de vs code existe)
 
@@ -44,10 +44,10 @@ Plusieurs manières sont possibles pour lancer le code :
 - Vous pouvez aller sur un compileur en ligne tel que [Snack](https://snack.expo.dev/) pour lancer les pages une par une (Attention il est possible que cette méthode ne marche pas pour la page principale App.js). Vous pouvez dans cet éditeur copier et coller le code d'une page dans l'éditeur et cliquer sur Crtl+s pour voir le résultat sur la droite de l'écran
 
 - Pour voir l'application en entier suivez les étapes suivantes : 
-    1. Sur votre téléphone Android activez le mode développeur si ce n'est pas déjà fait dnas : Paramètres > A propos du téléphone > Informations sur le logiciel > Tapotez 7 fois sur le Numéro de version
-    2. Puis revenez en arrière et cliquez sur Option pour les développeurs > Débogage USB
+    1. Sur votre téléphone Android activez le mode développeur si ce n'est pas déjà fait dans : Paramètres > À propos du téléphone > Informations sur le logiciel > Tapotez 7 fois sur le Numéro de version
+    2. Puis revenez en arrière et cliquez sur Options pour les développeurs > Débogage USB
 
-    3. Connectez votre téléphone à votre ordinateur avec un cable USB-A - USB-C
+    3. Connectez votre téléphone à votre ordinateur avec un cable USB
     4. Dans une fenêtre cmd (ou PowerShell) aller dans le dossier de votre projet
     5. Lancer la commande : `npm run android`
 
