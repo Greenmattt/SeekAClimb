@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View, TextInput, Switch, TouchableOpacity } from 'react-native';
+import { Text, View, TextInput, Switch, TouchableOpacity, Image, ImageBackground } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
 // commandes à faire :  npm install react-native-dropdown-picker
@@ -45,6 +45,30 @@ const Routes = () => {
   nonCollidingMultiSliderValuesChange = values =>
     setNonCollidingMultiSliderValue(values);
 
+  const CustomMarkerG = () => {
+    return(
+      <Text style={styleMain().text}>[</Text>
+    )
+  }
+  const CustomBarImage = () => {
+    return(
+      <Image style= {{    width: 250,
+        height: 20,
+        resizeMode: 'stretch',}}
+      source={require('@expo/snack-static/react-native-logo.png')}/>
+    )
+  }
+  const CustomBar = () => {
+    return(
+      <View style={{flex:1}}>
+            <ImageBackground source={CustomBarImage} resizeMode="cover"></ImageBackground>
+      </View>
+    )
+  }
+
+
+
+  
   return (
     <View style={styleMain().fond}>
       {/* Un petit view pour laisser de l'espace en haut */}
@@ -116,8 +140,14 @@ const Routes = () => {
                    value = {diff}/>
       </View> */}
         <View style={{flex: 2, flexDirection:'row', justifyContent: "space-between", alignItems:'center'}}>
-          <Text style={styleMain().text}>min : {difficultes[nonCollidingMultiSliderValue[0]]} </Text>
-          <Text style={styleMain().text}>max : {difficultes[nonCollidingMultiSliderValue[1] < 31 ? nonCollidingMultiSliderValue[1] : 30 ]} </Text>
+          
+          <View style= {{flex: 1}}> 
+            <Text style={styleMain().text}>min : {difficultes[nonCollidingMultiSliderValue[0]]} </Text>
+          </View>
+          <View style = {{flex: 3}}></View>
+          <View style= {{flex: 1}}>
+            <Text style={styleMain().text}>max : {difficultes[nonCollidingMultiSliderValue[1] < 31 ? nonCollidingMultiSliderValue[1] : 30 ]} </Text>
+          </View>
 
         </View>
 
@@ -135,6 +165,17 @@ const Routes = () => {
             allowOverlap={false}
             snapped
             minMarkerOverlapDistance={7}
+            enableLabel = {true}
+            trackStyle={{
+              height: 10,
+              backgroundColor: 'red',
+            }}
+            selectedStyle={{
+              backgroundColor: 'gold',
+            }}
+            unselectedStyle={{
+              backgroundColor: 'silver',
+            }}
 
           />
         </View>
