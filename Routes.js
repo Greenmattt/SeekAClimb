@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Text, View, TextInput, Switch, TouchableOpacity, Image, ImageBackground } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
 // commandes à faire :  npm install react-native-dropdown-picker
 //                      npm install --save @ptomasroos/react-native-multi-slider
+
 
 const Routes = () => {
   // const [lieu, onChangeLieu] = useState('');
@@ -37,37 +38,41 @@ const Routes = () => {
 
   enableScroll = () => this.setState({ scrollEnabled: true });
   disableScroll = () => this.setState({ scrollEnabled: false });
+
  
   const [
     nonCollidingMultiSliderValue,
     setNonCollidingMultiSliderValue,
   ] = React.useState([0, 100]);
-  nonCollidingMultiSliderValuesChange = values =>
-    setNonCollidingMultiSliderValue(values);
+  nonCollidingMultiSliderValuesChange = values => setNonCollidingMultiSliderValue(values);
 
-  const CustomMarkerG = () => {
-    return(
-      <Text style={styleMain().text}>[</Text>
-    )
-  }
-  const CustomBarImage = () => {
-    return(
-      <Image style= {{    width: 250,
-        height: 20,
-        resizeMode: 'stretch',}}
-      source={require('@expo/snack-static/react-native-logo.png')}/>
-    )
-  }
-  const CustomBar = () => {
-    return(
-      <View style={{flex:1}}>
-            <ImageBackground source={CustomBarImage} resizeMode="cover"></ImageBackground>
-      </View>
-    )
-  }
+  // Variables pour représenter le résultat du fetch et l'état de la requête sur l'api
+  const [apiRes, setApiRes] = useState([]);
+  const [estCharge, setEstCharge] = useState(false);
 
+  // Fonction qui s'occupe de faire le fetch et de set les données
+  const testFetch = async () => {
+    try { // là c'est si tout va bien
+      let response = await fetch('http://91.164.5.221:50000/hello/arguments');
+      let json = await response.json();
+      setApiRes(json.hello);
+    } 
+    catch (error) { // là c'est si on a un pb
+      console.error(error);
+    }
+    finally { // là c'est une fois qu'on a vérifié qu'il n'y a pas d'erreur et que tout est fini
+      setEstCharge(true);
+    }
 
+    }
 
+    // et ça c'est juste pour lancer la fonction définie ci-dessus
+  useEffect(() => {
+    testFetch();
+  }, [])
+
+  
+    
   
   return (
     <View style={styleMain().fond}>
@@ -165,9 +170,9 @@ const Routes = () => {
             allowOverlap={false}
             snapped
             minMarkerOverlapDistance={7}
-            enableLabel = {true}
+            enableLabel = {false}
             trackStyle={{
-              height: 10,
+              height: 5,
               backgroundColor: 'red',
             }}
             selectedStyle={{
@@ -190,8 +195,12 @@ const Routes = () => {
       </View>
 
       <View style ={styleMain().canvas}>
-        <Text style={styleMain().text}>Page des voies</Text>
-      </View>
+        { estCharge ? <Text style={styleMain().text}>{apiRes}</Text>
+        : <Text style={styleMain().text}>Page des voies</Text>
+      }
+      </View> 
+
+      
     </View>
   );
 }
