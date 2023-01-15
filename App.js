@@ -18,6 +18,8 @@ import * as Font from 'expo-font';
 import Settings from './Settings';
 import Account from './Account';
 import Routes from './Routes';
+import Home from './Home';
+
 
 
 // permet de garder le splash screen visible jusqu'à ce que toutes les ressources soient téléchargées
@@ -62,9 +64,7 @@ const App =() => {
   // Page principale
   function HomeScreen() {
     return (
-      <View style={styleMain(false).fond} onLayout={onLayoutRootView}>
-        <Text style={styleMain(false).text}>page d'entrée</Text>
-      </View>
+      <Home/>
     );
   }
 
