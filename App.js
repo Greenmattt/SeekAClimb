@@ -35,7 +35,7 @@ const App =() => {
         await Font.loadAsync(Entypo.font);
         // Ici on met un timer de 2 secondes artificelle 
         // /!\ A ENELEVER QUAND ON FERA DES TRUCS UTILES ICI /!\
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        await new Promise(resolve => setTimeout(resolve, 200));
       } catch (e) {
         console.warn(e);
       } finally {

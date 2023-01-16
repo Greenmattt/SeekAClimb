@@ -59,6 +59,7 @@ const Routes = () => {
     } 
     catch (error) { // là c'est si on a un pb
       console.error(error);
+      setApiRes("<Pas de réponse de l'API>")
     }
     finally { // là c'est une fois qu'on a vérifié qu'il n'y a pas d'erreur et que tout est fini
       setEstCharge(true);
