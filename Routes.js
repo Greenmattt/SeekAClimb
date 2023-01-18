@@ -7,12 +7,6 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider';
 
 
 const Routes = () => {
-  // const [lieu, onChangeLieu] = useState('');
-  // const [type, onChangeType] = useState('');
-  const [diff, onChangeDiff] = useState('');
-
-  const [estBlaise, onChangeEstBlaise] = useState(false);
-  const switchBlaise = () => onChangeEstBlaise(a => !a)
 
   const [estCustom, onChangeEstCustom] = useState(false);
   const toggleSwitch = () => onChangeEstCustom(a => !a);
@@ -20,9 +14,8 @@ const Routes = () => {
   const [typeID, onChangeTypeID] = useState(1);
   const changeType = (value) => onChangeTypeID(a => value)
 
-
   const [open, setOpen] = useState(false);
-  const [value, setValue] = useState();
+  const [lieuPicker, setLieuPicker] = useState();
   const [items, setItems] = useState([
     {label: 'Blaise-Pascal', value: 'Blaise-Pascal'},
     {label: 'Casamur', value: 'Casamur', },
@@ -51,7 +44,7 @@ const Routes = () => {
   const [estCharge, setEstCharge] = useState(false);
 
   // Fonction qui s'occupe de faire le fetch et de set les données
-  const testFetch = async () => {
+  const testFetch = async (typeID, estCustom, lieuPicker, sliderMin, sliderMax) => {
     try { // là c'est si tout va bien
       let response = await fetch('http://91.164.5.221:50000/hello/arguments');
       let json = await response.json();
@@ -59,20 +52,13 @@ const Routes = () => {
     } 
     catch (error) { // là c'est si on a un pb
       console.error(error);
-      setApiRes("<Pas de réponse de l'API>")
+      setApiRes("<Pas de réponse de l'API>");
     }
     finally { // là c'est une fois qu'on a vérifié qu'il n'y a pas d'erreur et que tout est fini
       setEstCharge(true);
     }
 
-    }
-
-    // et ça c'est juste pour lancer la fonction définie ci-dessus
-  useEffect(() => {
-    testFetch();
-  }, [])
-
-  
+  }
     
   
   return (
@@ -82,19 +68,12 @@ const Routes = () => {
 
       {/* Je mets absolument tout dans des View pour bien pouvoir faire des compartiments du screens équitables */}
 
-      {/* <View style = {styleMain().inputHaut}>
-        <TextInput style= {styleMain(false).input} 
-                   placeholder="Lieu"
-                   onChangeText={onChangeLieu}
-                   value = {lieu}/>
-      </View> */}
-
        <DropDownPicker
               open={open}
-              value={value}
+              value={lieuPicker}
               items={items}
               setOpen={setOpen}
-              setValue={setValue}
+              setValue={setLieuPicker}
               setItems={setItems}
 
               theme="DARK"
@@ -104,13 +83,7 @@ const Routes = () => {
               style= {{margin: 1}}/>
 
 
-
-      {/* <View style = {styleMain().inputCentre}>
-        <TextInput style= {styleMain(false).input} 
-                   placeholder="Type de route"
-                   onChangeText={onChangeType}
-                   value = {type}/>
-      </View> */}
+      {/* Choix du type de route */}
 
       <View style = {{flex: 2, flexDirection:'row', justifyContent: "space-evenly", alignItems:'center'}}>
 
@@ -128,6 +101,9 @@ const Routes = () => {
 
       </View>      
 
+
+      {/* Switch Custom - Officiel */}
+
       <View style = {{flex: 2, flexDirection:'row', justifyContent: "space-evenly", alignItems:'center'}}>
         <Text style={switchText(estCustom).textOfficiel}>Officiel</Text>
 
@@ -139,61 +115,71 @@ const Routes = () => {
         <Text style={switchText(estCustom).textCustom}>Custom</Text>
       </View>
 
-      {/* <View style = {styleMain().inputBas}>
-        <TextInput style= {styleMain(false).input} 
-                   placeholder="Difficulté"
-                   onChangeText={onChangeDiff}
-                   value = {diff}/>
-      </View> */}
-        <View style={{flex: 2, flexDirection:'row', justifyContent: "space-between", alignItems:'center'}}>
-          
-          <View style= {{flex: 1}}> 
-            <Text style={styleMain().text}>min : {difficultes[nonCollidingMultiSliderValue[0]]} </Text>
-          </View>
-          <View style = {{flex: 3}}></View>
-          <View style= {{flex: 1}}>
-            <Text style={styleMain().text}>max : {difficultes[nonCollidingMultiSliderValue[1] < 31 ? nonCollidingMultiSliderValue[1] : 30 ]} </Text>
-          </View>
 
+      {/* Textes de difficultés */}
+
+      <View style={{flex: 2, flexDirection:'row', justifyContent: "space-between", alignItems:'center'}}>
+        
+        <View style= {{flex: 1}}> 
+          <Text style={styleMain().text}>min : {difficultes[nonCollidingMultiSliderValue[0]]} </Text>
+        </View>
+        <View style = {{flex: 3}}></View>
+        <View style= {{flex: 1}}>
+          <Text style={styleMain().text}>max : {difficultes[nonCollidingMultiSliderValue[1] < 31 ?           nonCollidingMultiSliderValue[1] : 30 ]} </Text>
         </View>
 
-        <View style = {{flex: 2, flexDirection:'row', justifyContent: "space-evenly", alignItems:'center'}}>
-          <MultiSlider
-            values={[
-              nonCollidingMultiSliderValue[0],
-              nonCollidingMultiSliderValue[1],
-            ]}
-            sliderLength={250}
-            onValuesChange={nonCollidingMultiSliderValuesChange}
-            min={0}
-            max={30}
-            step={1}
-            allowOverlap={false}
-            snapped
-            minMarkerOverlapDistance={7}
-            enableLabel = {false}
-            trackStyle={{
-              height: 5,
-              backgroundColor: 'red',
-            }}
-            selectedStyle={{
-              backgroundColor: 'gold',
-            }}
-            unselectedStyle={{
-              backgroundColor: 'silver',
-            }}
+      </View>
 
-          />
-        </View>
+
+      {/* Slider de difficultés */}
+
+      <View style = {{flex: 2, flexDirection:'row', justifyContent: "space-evenly", alignItems:'center'}}>
+        <MultiSlider
+          values={[
+            nonCollidingMultiSliderValue[0],
+            nonCollidingMultiSliderValue[1],
+          ]}
+          sliderLength={250}
+          onValuesChange={nonCollidingMultiSliderValuesChange}
+          min={0}
+          max={30}
+          step={1}
+          allowOverlap={false}
+          snapped
+          minMarkerOverlapDistance={7}
+          enableLabel = {false}
+          trackStyle={{
+            height: 5,
+            backgroundColor: 'red',
+          }}
+          selectedStyle={{
+            backgroundColor: 'gold',
+          }}
+          unselectedStyle={{
+            backgroundColor: 'silver',
+          }}
+
+        />
+      </View>
+
+
+     {/* Bouton Chercher... */}
 
       <View style= {{flex: 3, alignItems:'center'}}>
         <TouchableOpacity 
           style = {{width: '90%', height: '90%', backgroundColor: '#fa5144', 
                     justifyContent:'center', alignItems:'center', borderRadius: 20, margin:5}}
-                    >
+          onPress = {() => testFetch(typeID, 
+                                      estCustom, 
+                                      lieuPicker, 
+                                      nonCollidingMultiSliderValue[0], 
+                                      nonCollidingMultiSliderValue[1] < 31 ? nonCollidingMultiSliderValue[1] : 30 )}          >
           <Text>Chercher ...</Text>
         </TouchableOpacity>
       </View>
+
+
+       {/* Texte réponse de l'api */}
 
       <View style ={styleMain().canvas}>
         { estCharge ? <Text style={styleMain().text}>{apiRes}</Text>
@@ -224,34 +210,7 @@ var styleMain = function(clair = false) {
     textInfoView: {
       flex: 1,
     },
-    // inputHaut: {
-    //   flex: 3,
-    //   backgroundColor: "#cccccc",
-    //   justifyContent: 'center',
-    //   borderWidth: 2,
-    //   borderColor: "#aaaaaa",
-    //   borderTopLeftRadius: 5,
-    //   borderTopRightRadius: 5,
-    //   margin: 3
-    // },
-    // inputCentre: {
-    //   flex: 2,
-    //   backgroundColor: "#cccccc",
-    //   justifyContent: 'center',
-    //   borderWidth: 2,
-    //   borderColor: "#aaaaaa",
-    //   margin: 3,
-    // },
-    // inputBas: {
-    //   flex: 2,
-    //   backgroundColor: "#cccccc",
-    //   justifyContent: 'center',
-    //   borderWidth: 2,
-    //   borderColor: "#aaaaaa",
-    //   borderBottomLeftRadius: 5,
-    //   borderBottomRightRadius: 5,
-    //   margin: 3
-    // },
+
     canvas: {
       flex: 24,
       backgroundColor: couleurF, 
