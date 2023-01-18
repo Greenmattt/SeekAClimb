@@ -3,19 +3,17 @@ import { Text, View, StyleSheet } from 'react-native';
 
 const Home = () => {
   return (
-    <View style ={styles.container}>
+    <View style={{backgroundColor:'#214E34'}}
+    <View style={styles.container}>
+      <Text style={styles.header}> SeekAClimb </Text>
       <View style={styles.top}>
-        <Text style={styles.text}>
-          Main menudo
-        </Text>
+        <Text style={styles.text}>Main menudo</Text>
       </View>
-      <View style={styles.mid}>
-      </View>
-      <View style ={styles.bottom}>
-      </View>
+      <View style={styles.mid}></View>
+      <View style={styles.bottom}></View>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   text: {
@@ -23,24 +21,34 @@ const styles = StyleSheet.create({
     color: 'white',
     textAlign: 'center',
     flex: 1,
-    textTransform: 'capitalize' ,
+    textTransform: 'capitalize',
     fontStyle: 'italic',
   },
+
+  header: {
+    fontSize: 20,
+    color: 'white',
+    textAlign: 'center',
+    textTransform: 'capitalize',
+    fontStyle: 'italic',
+  },
+
   container: {
     flex: 1,
     justifyContent: 'space-between',
     backgroundColor: '#131514',
     borderTopColor: '#214E34',
-    borderTopWidth: 15,
+    borderTopWidth: 40,
     padding: 20,
-  
   },
+
   top: {
     flex: 0.32,
     backgroundColor: '#282828',
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
   },
+
   mid: {
     flex: 0.32,
     backgroundColor: '#282828',
@@ -51,6 +59,7 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 5,
     borderBottomRightRadius: 5,
   },
+
   bottom: {
     flex: 0.32,
     backgroundColor: '#282828',
@@ -63,6 +72,7 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 5,
     borderBottomRightRadius: 5,
   },
+
 });
 
 export default Home;
