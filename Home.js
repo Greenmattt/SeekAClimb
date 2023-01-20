@@ -3,7 +3,6 @@ import { Text, View, StyleSheet } from 'react-native';
 
 const Home = () => {
   return (
-    <View style={{backgroundColor:'#214E34'}}
     <View style={styles.container}>
       <Text style={styles.header}> SeekAClimb </Text>
       <View style={styles.top}>
@@ -69,8 +68,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderTopLeftRadius: 5,
     borderTopRightRadius: 5,
-    borderBottomLeftRadius: 5,
-    borderBottomRightRadius: 5,
   },
 
 });
