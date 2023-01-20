@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Text, View, Switch } from 'react-native';
+import { Text, View, Switch, TouchableOpacity } from 'react-native';
 
 const Settings = () => {
 
@@ -15,18 +15,18 @@ const Settings = () => {
           <Text style={styleMain(false).mainText}>Paramètres</Text>
         </View>
         <View style={styleMain(false).div2}>
+          <Text style={styleMain(false).text}>Thème Clair</Text>
+
           <Switch
           trackColor={{false: '#3a75b1', true: "#3ab175"}}
           thumbColor = {darkTheme ? "#fff" : "#fff"}
           onValueChange = {toggleSwitch}
           value = {darkTheme}/>
+          
+          <Text style={styleMain(false).text}>Thème Sombre</Text>
         </View>
         <View style={styleMain(false).div2}>
-          <Switch
-          trackColor={{false: '#3a75b1', true: "#3ab175"}}
-          thumbColor = {darkTheme ? "#fff" : "#fff"}
-          onValueChange = {toggleSwitch}
-          value = {darkTheme}/>
+          <TouchableOpacity><Text style={styleMain(false).text}>Informations</Text></TouchableOpacity>
         </View>
       </View>
     </View>
@@ -50,9 +50,9 @@ var styleMain = function(clair) {
         flex: 15,
         backgroundColor: '#131514',
         padding: 20,
+        margin: 10,
       },
       div1: {
-        flex: 1,
         backgroundColor: '#131514',
         alignItems: 'center',
         justifyContent: 'center',
@@ -63,14 +63,18 @@ var styleMain = function(clair) {
         fontSize: 20,
       },
       div2: {
-        flex: 2,
+        flexWrap: 'wrap',
         alignItems: 'center',
-        justifyContent: 'space-evenly',
+        justifyContent: 'center',
         flexDirection: 'row',
         backgroundColor: '#282828',
         borderRadius: 5,
         margin: 2,
-      }
+        flexFlow: 'columnWrap',
+      },
+      text: {
+        color: couleurT,
+      },
     }
   };
 
