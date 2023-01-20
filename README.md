@@ -1,5 +1,8 @@
-# Projet-2023-NSI (c'est quoi son nom ??) => SeekAClimb ?
+# Projet-2023-NSI : SeekAClimb
 Le repository du projet de Nsi 2022-2023, l'objectif c'est de faire un truc stylé, cool et si possible utile.
-# __Projet de Nicolas ANGLADE, Jules LASCRET et Mattéo VERT__
+# __Projet de Nicolas ANGLADE, Jules LACRaie et Mattéo VERT__
 
 Mettre une description et des liens ici !
+Il s'agit d'une application mobile regroupant plusieurs fonctionnalités utiles pour de l'escalade, comme un topo intégré, un classement avec des score. Il y a aussi des focntionnalités plus sociales comme des commmentaires.
+Tout le code s'organise autour d'une base de donnée et du React Native.
+
