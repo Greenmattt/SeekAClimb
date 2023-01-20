@@ -7,20 +7,27 @@ const Settings = () => {
   const toggleSwitch = () => onChangeDarkTheme(a => !a)
 
   return (
-    <View style={styleMain(false).fond}>
+    <View style={styleMain(false).main}>
       <View style={styleMain(false).header}>
-        <Text style = {styleMain(false).text}>Page des Paramètres</Text>
       </View>
-      <View style = {styleMain(false).container}>
-        <Text style = {styleMain(false).text2}>Theme Sombre</Text>
-
-        <Switch
-        trackColor={{false: '#3a75b1', true: "#3ab175"}}
-        thumbColor = {darkTheme ? "#fff" : "#fff"}
-        onValueChange = {toggleSwitch}
-        value = {darkTheme}/>
-
-        <Text style = {styleMain(false).text2}>Theme Clair</Text>
+      <View style={styleMain(false).container}>
+        <View style={styleMain(false).div1}>
+          <Text style={styleMain(false).mainText}>ParamÃ¨tres</Text>
+        </View>
+        <View style={styleMain(false).div2}>
+          <Switch
+          trackColor={{false: '#3a75b1', true: "#3ab175"}}
+          thumbColor = {darkTheme ? "#fff" : "#fff"}
+          onValueChange = {toggleSwitch}
+          value = {darkTheme}/>
+        </View>
+        <View style={styleMain(false).div2}>
+          <Switch
+          trackColor={{false: '#3a75b1', true: "#3ab175"}}
+          thumbColor = {darkTheme ? "#fff" : "#fff"}
+          onValueChange = {toggleSwitch}
+          value = {darkTheme}/>
+        </View>
       </View>
     </View>
   );
@@ -31,36 +38,39 @@ var styleMain = function(clair) {
     var couleurT = clair ? "#131514" : "#FFFFFF";
   
     return {
-      fond: {
+      main: {
         flex: 1,
         backgroundColor: couleurF,
-        padding: 10,
-      },
-      container: {
-        padding: 5,
-        flex: 10,
-        flexDirection: 'row',
-        justifyContent: 'space-evenly',
-        backgroundColor: '#282828',
-        borderRadius: 5,
       },
       header: {
         flex: 1,
+        backgroundColor: '#214E34',
       },
-      text: {
+      container: {
+        flex: 15,
+        backgroundColor: '#131514',
+        padding: 20,
+      },
+      div1: {
+        flex: 1,
+        backgroundColor: '#131514',
+        alignItems: 'center',
+        justifyContent: 'center',
+        margin: 2,
+      },
+      mainText: {
         color: couleurT,
         fontSize: 20,
-        textAlign: 'center',
       },
-      text2: {
-        color: couleurT,
-        textAlign: 'center',
-      },
-      icon: {
-        width: 30,
-        height: 30,
-        resizeMode: 'stretch',
-      },
+      div2: {
+        flex: 2,
+        alignItems: 'center',
+        justifyContent: 'space-evenly',
+        flexDirection: 'row',
+        backgroundColor: '#282828',
+        borderRadius: 5,
+        margin: 2,
+      }
     }
   };
 
