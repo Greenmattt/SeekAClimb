@@ -5,6 +5,21 @@ import { View, Text, StyleSheet, TouchableOpacity, Image, TextInput } from 'reac
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
+const ViewInput = props => {
+  return (
+    <View style = {styleMain().inputView}>
+      <TextInput
+        style={styleMain().input}
+        onChangeText={props.onChangeText}
+        value={props.value}
+        placeholder= {props.placeholder}
+        placeholderTextColor={styleMain().text.color}
+        secureTextEntry={props.secureTextEntry}
+      />
+    </View>
+  );
+}
+
 //Screen One
 const Options = (props) => {
   //onPress To Navigate
@@ -95,6 +110,10 @@ const onPressRetour = (props) => {
 };
 
 const SeConnecter = (props) => {
+  const [textEmail, onChangeEmail] = useState('');
+  const [textMdp, onChangeMdp] = useState('');
+
+
   return (
     <View style={styleMain().fond}>
       {/* Bouton de retour dans la barre verte */}
@@ -115,7 +134,15 @@ const SeConnecter = (props) => {
       </View>
 
       <View style={{ flex: 90, backgroundColor: '#025e82' }}>
-        <Text style={styleMain().text}>je me connecte </Text>
+        <View style={{flex:2}}></View>
+
+        {/*Input email */}
+        <ViewInput onChangeText={onChangeEmail} value={textEmail} placeholder={"Email"} secureTextEntry={false}/>
+
+        {/*Input mot de passe */}
+        <ViewInput onChangeText={onChangeMdp} value={textMdp} placeholder={"Mot de passe"} secureTextEntry={false}/>
+
+        <View style={{flex:2}}></View>        
       </View>
     </View>
   );
@@ -153,61 +180,23 @@ const CreerCompte = (props) => {
       <View style={{ flex: 90, backgroundColor: '#221405' }}>
         <View style = {{flex:1}}></View>
 
-        <View style = {styleMain().inputView}>
-          <TextInput
-            style={styleMain().input}
-            onChangeText={onChangeNom}
-            value={textNom}
-            placeholder= {"Nom"}
-          />
-        </View>
+        {/*Input nom */}
+        <ViewInput onChangeText={onChangeNom} value={textNom} placeholder={"Nom"} secureTextEntry={false}/>
 
-        <View style = {styleMain().inputView}>
-          <TextInput
-            style={styleMain().input}
-            onChangeText={onChangePrenom}
-            value={textPrenom}
-            placeholder= {"Prenom"}
-          />
-        </View>
+        {/*Input prénom */}
+        <ViewInput onChangeText={onChangePrenom} value={textPrenom} placeholder={"Prenom"} secureTextEntry={false}/>
 
-        <View style = {styleMain().inputView}>
-          <TextInput
-            style={styleMain().input}
-            onChangeText={onChangeEmail}
-            value={textEmail}
-            placeholder= {"Email"}
-          />
-        </View>
+        {/*Input email */}
+        <ViewInput onChangeText={onChangeEmail} value={textEmail} placeholder= {"Email"} secureTextEntry={false}/>
 
-        <View style = {styleMain().inputView}>
-          <TextInput
-            style={styleMain().input}
-            onChangeText={onChangeClasse}
-            value={textClasse}
-            placeholder= {"Classe"}
-          />
-        </View>
+        {/*Input classe */}
+        <ViewInput onChangeText={onChangeClasse} value={textClasse} placeholder= {"Classe"} secureTextEntry={false}/>
 
-        <View style = {styleMain().inputView}>
-          <TextInput
-            style={styleMain().input}
-            onChangeText={onChangeMdp}
-            value={textMdp}
-            placeholder= {"Mot de passe"}
-            secureTextEntry={true}
-          />
-        </View>
+        {/*Input mot de passe */}
+        <ViewInput onChangeText={onChangeMdp} value={textMdp} placeholder= {"Mot de passe"} secureTextEntry={true}/>
 
-        <View style = {styleMain().inputView}>
-          <TextInput
-            style={styleMain().input}
-            onChangeText={onChangeMdpConfirme}
-            value={textMdpConfirme}
-            placeholder= {"Mot de passe confirmation"}
-            secureTextEntry={true}
-          />
-        </View>
+        {/*Input validation du mot de passe */}
+        <ViewInput onChangeText={onChangeMdpConfirme} value={textMdpConfirme} placeholder= {"Valider le mot de passe"} secureTextEntry={true}/>
 
         <View style = {{flex:1}}></View>
       </View>
@@ -309,7 +298,7 @@ var styleMain = function (clair) {
       alignItems:'center',
       marginLeft:10,
       marginRight:10,
-      placeholderTextColor:couleurT
+      
     }
   };
 };
