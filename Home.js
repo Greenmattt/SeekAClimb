@@ -3,20 +3,23 @@ import { Text, View, StyleSheet } from 'react-native';
 
 const Home = () => {
   return (
-    <View style={styles.container}>
-      <View header={styles.header}>
+    <View style={styles.main}>
+      <View style={styles.header}>
         <Text style={styles.headText}> SeekAClimb </Text>
       </View>
-        <View style={styles.top}>
-          <Text style={styles.text}>Main menudo</Text>
-        </View>
-      <View style={styles.mid}></View>
-      <View style={styles.bottom}></View>
+      <View style={styles.container}>
+        <Text style={styles.text}> Main Menudo </Text>
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  main:{
+    flex:1,
+    backgroundColor : '#131514',
+  },
+  
   text: {
     fontSize: 40,
     color: 'white',
@@ -27,7 +30,7 @@ const styles = StyleSheet.create({
   },
 
   header:{
-    flex: 20,
+    flex: 1,
     backgroundColor: '#214E34'
   },
 
@@ -39,7 +42,7 @@ const styles = StyleSheet.create({
   },
 
   container: {
-    flex: 100,
+    flex: 15,
     justifyContent: 'space-between',
     backgroundColor: '#131514',
   },
