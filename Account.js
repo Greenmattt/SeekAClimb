@@ -248,30 +248,28 @@ const App = () => {
   const Stack = createStackNavigator();
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName={'Options'}>
-        <Stack.Screen
-          name="Options"
-          component={Options}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="SeConnecter"
-          component={SeConnecter}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="CreerCompte"
-          component={CreerCompte}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="SupprimerCompte"
-          component={SupprimerCompte}
-          options={{ headerShown: false }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Stack.Navigator initialRouteName={'Options'}>
+      <Stack.Screen
+        name="Options"
+        component={Options}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="SeConnecter"
+        component={SeConnecter}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="CreerCompte"
+        component={CreerCompte}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="SupprimerCompte"
+        component={SupprimerCompte}
+        options={{ headerShown: false }}
+      />
+    </Stack.Navigator>
   );
 };
 
@@ -311,6 +309,7 @@ var styleMain = function (clair) {
       alignItems:'center',
       marginLeft:10,
       marginRight:10,
+      placeholderTextColor:couleurT
     }
   };
 };
