@@ -6,19 +6,21 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider';
 //                      npm install --save @ptomasroos/react-native-multi-slider
 
 
+
 const Routes = () => {
 
   const [estCustom, onChangeEstCustom] = useState(false);
   const toggleSwitch = () => onChangeEstCustom(a => !a);
 
   const [typeID, onChangeTypeID] = useState(1);
-  const changeType = (value) => onChangeTypeID(a => value)
+  const changeType = (value) => onChangeTypeID(a => value);
+  const list_Type = ["", "voie", "bloc", "traversee"];
 
   const [open, setOpen] = useState(false);
   const [lieuPicker, setLieuPicker] = useState();
   const [items, setItems] = useState([
-    {label: 'Blaise-Pascal', value: 'Blaise-Pascal'},
-    {label: 'Casamur', value: 'Casamur', },
+    {label: 'Blaise-Pascal', value: '0001'},
+    {label: 'Casamur', value: '0002', },
   ]);
 
   const difficultes = ['3a', '3b', '3c', 
@@ -44,11 +46,20 @@ const Routes = () => {
   const [estCharge, setEstCharge] = useState(false);
 
   // Fonction qui s'occupe de faire le fetch et de set les données
-  const testFetch = async (typeID, estCustom, lieuPicker, sliderMin, sliderMax) => {
+  const testFetch = async (typeID, lieuPicker, sliderMinID, sliderMaxID) => {
     try { // là c'est si tout va bien
-      let response = await fetch('http://91.164.5.221:50000/hello/arguments');
-      let json = await response.json();
-      setApiRes(json.hello);
+      let response = await fetch('http://91.164.5.221:50000/route', {
+        method:'POST',
+        body: JSON.stringify( {
+          lieuID : lieuPicker,
+          type : list_Type[typeID],
+          diffMin: difficultes[sliderMinID],
+          diffMax:difficultes[sliderMaxID]
+        })
+      });
+      let json = await response.text();
+      console.log(json);
+      setApiRes(String(json)); // String() pour pouvoir l'afficher correctement (donc c'est temporaire)
     } 
     catch (error) { // là c'est si on a un pb
       console.error(error);
@@ -170,7 +181,6 @@ const Routes = () => {
           style = {{width: '90%', height: '90%', backgroundColor: '#fa5144', 
                     justifyContent:'center', alignItems:'center', borderRadius: 20, margin:5}}
           onPress = {() => testFetch(typeID, 
-                                      estCustom, 
                                       lieuPicker, 
                                       nonCollidingMultiSliderValue[0], 
                                       nonCollidingMultiSliderValue[1] < 31 ? nonCollidingMultiSliderValue[1] : 30 )}          >
@@ -188,8 +198,7 @@ const Routes = () => {
       </View> 
 
       
-    </View>
-  );
+    </View>  );
 }
 
 var styleMain = function(clair = false) {
