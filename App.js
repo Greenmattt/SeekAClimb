@@ -7,7 +7,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 // puis : npx expo install react-native-pager-view
 
 
-import Settings from './Settings';
+import Settings from './Settings/Main';
 import Account from './Account';
 import Routes from './Routes';
 import Home from './Home';

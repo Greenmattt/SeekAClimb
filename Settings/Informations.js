@@ -1,28 +1,10 @@
 import React, {useState} from 'react';
 import { Text, View, Switch } from 'react-native';
 
-const Settings = () => {
-
-  const [darkTheme, onChangeDarkTheme] = useState(false);
-  const toggleSwitch = () => onChangeDarkTheme(a => !a)
+const Informations = () => {
 
   return (
-    <View style={styleMain(false).fond}>
-      <View style={styleMain(false).header}>
-        <Text style = {styleMain(false).text}>Page des Paramètres</Text>
-      </View>
-      <View style = {styleMain(false).container}>
-        <Text style = {styleMain(false).text2}>Theme Sombre</Text>
-
-        <Switch
-        trackColor={{false: '#3a75b1', true: "#3ab175"}}
-        thumbColor = {darkTheme ? "#fff" : "#fff"}
-        onValueChange = {toggleSwitch}
-        value = {darkTheme}/>
-
-        <Text style = {styleMain(false).text2}>Theme Clair</Text>
-      </View>
-    </View>
+    <Text>Page des Informations</Text>
   );
 }
 
@@ -64,4 +46,4 @@ var styleMain = function(clair) {
     }
   };
 
-export default Settings;
+export default Informations;
