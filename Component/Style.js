@@ -8,7 +8,6 @@ const styles = StyleSheet.create({
   },
   
   text: {
-    fontSize: 40,
     color: 'white',
     textAlign: 'center',
     flex: 1,
@@ -59,6 +58,25 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 5,
     borderTopRightRadius: 5,
   },
+
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+    backgroundColor: "black",
+    color: "black",
+    borderRadius:10,
+    width:'100%',
+  },
+
+  inputView: {
+    flex:1, 
+    justifyContent:'center', 
+    alignItems:'center',
+    marginLeft:10,
+    marginRight:10,
+  }
 });
 
 export default styles;

@@ -115,7 +115,7 @@ const SeConnecter = (props) => {
           style={{ marginLeft: 10 }}>
           <Image
             style={styleMain().icon}
-            source={require('./assets/back_arrow_image.png')}
+            source={require('./../assets/back_arrow_image.png')}
           />
         </TouchableOpacity>
       </View>
@@ -159,7 +159,7 @@ const CreerCompte = (props) => {
           style={{ marginLeft: 10 }}>
           <Image
             style={styleMain().icon}
-            source={require('./assets/back_arrow_image.png')}
+            source={require('./../assets/back_arrow_image.png')}
           />
         </TouchableOpacity>
       </View>
@@ -208,7 +208,7 @@ const SupprimerCompte = (props) => {
           style={{ marginLeft: 10 }}>
           <Image
             style={styleMain().icon}
-            source={require('./assets/back_arrow_image.png')}
+            source={require('./../assets/back_arrow_image.png')}
           />
         </TouchableOpacity>
       </View>
