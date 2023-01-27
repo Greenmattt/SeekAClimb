@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import { Text, View, Switch } from 'react-native';
 
+import Informations from './Informations';
+
 const Settings = () => {
 
   const [darkTheme, onChangeDarkTheme] = useState(false);
@@ -9,7 +11,7 @@ const Settings = () => {
   return (
     <View style={styleMain(false).fond}>
       <View style={styleMain(false).header}>
-        <Text style = {styleMain(false).text}>Page des Paramètres</Text>
+        <Text style = {styleMain(false).text}>Page des Paramï¿½tres</Text>
       </View>
       <View style = {styleMain(false).container}>
         <Text style = {styleMain(false).text2}>Theme Sombre</Text>
