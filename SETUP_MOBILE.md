@@ -41,7 +41,7 @@
 ## Lancement du code : 
 
 Plusieurs manières sont possibles pour lancer le code : 
-- Vous pouvez aller sur un compileur en ligne tel que [Snack](https://snack.expo.dev/) pour lancer les pages une par une (Attention il est possible que cette méthode ne marche pas pour la page principale App.js). Vous pouvez dans cet éditeur copier et coller le code d'une page dans l'éditeur et cliquer sur Crtl+s pour voir le résultat sur la droite de l'écran
+- Vous pouvez aller sur un compileur en ligne tel que [Snack](https://snack.expo.dev/) ; pour importer le repo git, il suffit de copier le lien de la branche à tester. Puis vous pouvez le coller en cliquant en haut à gauche à droite de **Project** sur les trois petits points puis `import git repository`
 
 - Pour voir l'application en entier suivez les étapes suivantes : 
     1. Sur votre téléphone Android activez le mode développeur si ce n'est pas déjà fait dans : Paramètres > À propos du téléphone > Informations sur le logiciel > Tapotez 7 fois sur le Numéro de version
