@@ -12,6 +12,8 @@ import Account from './Account/Main';
 import Routes from './Routes';
 import Home from './Home';
 
+import styles from './Component/Styles'
+
 // permet de garder le splash screen visible jusqu'à ce que toutes les ressources soient téléchargées
 const App = () => {
 
@@ -40,10 +42,10 @@ const App = () => {
     );
   }
 
-  function imageSettings () {return(<Image style={styleMain().icon} source={require('./assets/settings_icon.png')}/>)}
-  function imageAccueil () {return(<Image style={styleMain().icon} source={require('./assets/home_icon.png')}/>)}
-  function imageCompte () {return(<Image style={styleMain().icon} source={require('./assets/user_icon.png')}/>)}
-  function imageVoies () {return(<Image style={styleMain().icon} source={require('./assets/Sports_Climbing_icon.png')}/>)}
+  function imageSettings () {return(<Image style={styles.icon} source={require('./assets/settings_icon.png')}/>)}
+  function imageAccueil () {return(<Image style={styles.icon} source={require('./assets/home_icon.png')}/>)}
+  function imageCompte () {return(<Image style={styles.icon} source={require('./assets/user_icon.png')}/>)}
+  function imageVoies () {return(<Image style={styles.icon} source={require('./assets/Sports_Climbing_icon.png')}/>)}
   const Tab = createMaterialTopTabNavigator();
 
   return (
@@ -61,87 +63,5 @@ const App = () => {
     </NavigationContainer>
   );
 }
-const styles = StyleSheet.create({
-  main: {
-    flex: 1,
-    backgroundColor : '#131514',
-  },
-  
-  text: {
-    fontSize: 40,
-    color: 'white',
-    textAlign: 'center',
-    flex: 1,
-    textTransform: 'capitalize',
-    fontStyle: 'italic',
-  },
-
-  header:{
-    flex: .07,
-    backgroundColor: '#214E34'
-  },
-
-  headText: {
-    fontSize: 20,
-    color: 'white',
-    textAlign: 'center',
-    fontStyle: 'italic',
-  },
-
-  container: {
-    flex: 15,
-    justifyContent: 'space-between',
-    backgroundColor: '#131514',
-  },
-
-  top: {
-    flex: 20,
-    backgroundColor: '#282828',
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-  },
-
-  mid: {
-    flex: 20,
-    backgroundColor: '#282828',
-    borderColor: '#364156',
-    borderWidth: 1,
-    borderRadius: 5,
-  },
-
-  bottom: {
-    flex: 20,
-    backgroundColor: '#282828',
-    borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20,
-    borderColor: '#364156',
-    borderWidth: 1,
-    borderTopLeftRadius: 5,
-    borderTopRightRadius: 5,
-  },
-});
-// clair est un booléen
-var styleMain = function(clair) {
-  var couleurF = clair ? "#FFFFFF" : "#000000";
-  var couleurT = clair ? "#000000" : "#FFFFFF";
-
-  return {
-    fond: {
-      flex: 1,
-      backgroundColor: couleurF, 
-      alignItems: 'center',
-      justifyContent: 'space-evenly',
-    },
-    text: {
-      color: couleurT,
-    },
-    icon: {
-      width: 30,
-      height: 30,
-      resizeMode: 'contain',
-    },
-  }
-};
-
 
 export default App;

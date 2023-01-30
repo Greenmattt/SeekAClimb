@@ -1,21 +1,35 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-  main:{
-    flex:1,
-    backgroundColor : '#131514',
+  bottom: {
+    flex: 20,
+    backgroundColor: '#282828',
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
+    borderColor: '#364156',
+    borderWidth: 1,
+    borderTopLeftRadius: 5,
+    borderTopRightRadius: 5,
   },
-  
-  text: {
-    color: 'white',
-    textAlign: 'center',
-    flex: 1,
-    textTransform: 'capitalize',
-    fontStyle: 'italic',
+
+  button: {
+    width: '90%',
+    height: '90%',
+    backgroundColor: '#282828',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 20,
+    margin: 5,
+  },
+
+  container: {
+    flex: 15,
+    justifyContent: 'space-between',
+    backgroundColor: '#131514',
   },
 
   header:{
-    flex: 1,
+    flex: .07,
     backgroundColor: '#214E34'
   },
 
@@ -26,36 +40,10 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
   },
 
-  container: {
-    flex: 15,
-    justifyContent: 'space-between',
-    backgroundColor: '#131514',
-  },
-
-  top: {
-    flex: 20,
-    backgroundColor: '#282828',
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-  },
-
-  mid: {
-    flex: 20,
-    backgroundColor: '#282828',
-    borderColor: '#364156',
-    borderWidth: 1,
-    borderRadius: 5,
-  },
-
-  bottom: {
-    flex: 20,
-    backgroundColor: '#282828',
-    borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20,
-    borderColor: '#364156',
-    borderWidth: 1,
-    borderTopLeftRadius: 5,
-    borderTopRightRadius: 5,
+  icon: {
+    width: 30,
+    height: 30,
+    resizeMode: 'contain',
   },
 
   input: {
@@ -75,7 +63,41 @@ const styles = StyleSheet.create({
     alignItems:'center',
     marginLeft:10,
     marginRight:10,
-  }
+  },
+
+  main:{
+    flex:1,
+    backgroundColor : '#131514',
+  },
+  
+  mid: {
+    flex: 20,
+    backgroundColor: '#282828',
+    borderColor: '#364156',
+    borderWidth: 1,
+    borderRadius: 5,
+  },
+
+  text : {
+    color : 'white',
+    textAlign:'center',
+  },
+
+  textTitre: {
+    color: 'white',
+    textAlign: 'center',
+    flex: 1,
+    textTransform: 'capitalize',
+    fontStyle: 'italic',
+  },
+
+  top: {
+    flex: 20,
+    backgroundColor: '#282828',
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+  },
+  
 });
 
 export default styles;
