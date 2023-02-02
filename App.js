@@ -9,7 +9,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 
 import Settings from './Settings/Main';
 import Account from './Account/Main';
-import Routes from './Routes';
+import Routes from './Routes/Main';
 import Home from './Home';
 
 import styles from './Component/Styles'

@@ -5,7 +5,7 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider';
 // commandes à faire :  npm install react-native-dropdown-picker
 //                      npm install --save @ptomasroos/react-native-multi-slider
 
-
+import JsonToButtons from './HandlingResponse';
 
 const Routes = () => {
 
@@ -44,6 +44,7 @@ const Routes = () => {
   // Variables pour représenter le résultat du fetch et l'état de la requête sur l'api
   const [apiRes, setApiRes] = useState([]);
   const [estCharge, setEstCharge] = useState(false);
+  const [estApiError, setEstApiError] = useState(false);
 
   // Fonction qui s'occupe de faire le fetch et de set les données
   const testFetch = async (typeID, lieuPicker, sliderMinID, sliderMaxID) => {
@@ -57,9 +58,8 @@ const Routes = () => {
           diffMax:difficultes[sliderMaxID]
         })
       });
-      let json = await response.text();
-      console.log(json);
-      setApiRes(String(json)); // String() pour pouvoir l'afficher correctement (donc c'est temporaire)
+      let json = await response.json();
+      setApiRes(json); // String() pour pouvoir l'afficher correctement (donc c'est temporaire)
     } 
     catch (error) { // là c'est si on a un pb
       console.error(error);
@@ -67,9 +67,25 @@ const Routes = () => {
     }
     finally { // là c'est une fois qu'on a vérifié qu'il n'y a pas d'erreur et que tout est fini
       setEstCharge(true);
+      setEstApiError(false);
     }
 
-  }
+  };
+
+  const verification_validite_boutton = () => {
+    setEstCharge(false);
+    if (lieuPicker === undefined ) {
+      setApiRes("Veuillez séléctionner un ou plusieurs lieux");
+      setEstCharge(true); 
+      setEstApiError(true);
+    }
+    else {
+          testFetch(typeID, 
+                lieuPicker, 
+                nonCollidingMultiSliderValue[0], 
+                nonCollidingMultiSliderValue[1] < 31 ? nonCollidingMultiSliderValue[1] : 30);
+    }
+  };
     
   
   return (
@@ -180,10 +196,7 @@ const Routes = () => {
         <TouchableOpacity 
           style = {{width: '90%', height: '90%', backgroundColor: '#fa5144', 
                     justifyContent:'center', alignItems:'center', borderRadius: 20, margin:5}}
-          onPress = {() => testFetch(typeID, 
-                                      lieuPicker, 
-                                      nonCollidingMultiSliderValue[0], 
-                                      nonCollidingMultiSliderValue[1] < 31 ? nonCollidingMultiSliderValue[1] : 30 )}          >
+          onPress = {verification_validite_boutton} >
           <Text>Chercher ...</Text>
         </TouchableOpacity>
       </View>
@@ -192,7 +205,7 @@ const Routes = () => {
        {/* Texte réponse de l'api */}
 
       <View style ={styleMain().canvas}>
-        { estCharge ? <Text style={styleMain().text}>{apiRes}</Text>
+        { estCharge ? <JsonToButtons json = {apiRes}/> 
         : <Text style={styleMain().text}>Page des voies</Text>
       }
       </View> 
