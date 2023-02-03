@@ -93,6 +93,18 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
   },
+
+  routeOptions: {
+    flex: 40,
+    justifyContent: 'space-between',
+    backgroundColor: '#131514',
+  },
+
+  routeReponse: {
+    flex: 60,
+    justifyContent: 'space-between',
+    backgroundColor: '#131514',
+  },
   
 });
 

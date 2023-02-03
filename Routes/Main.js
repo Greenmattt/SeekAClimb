@@ -6,6 +6,8 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider';
 //                      npm install --save @ptomasroos/react-native-multi-slider
 
 import JsonToButtons from './HandlingResponse';
+import EnumButtons from '../Component/EnumButtons';
+import styles from '../Component/Styles';
 
 const Routes = () => {
 
@@ -14,7 +16,7 @@ const Routes = () => {
 
   const [typeID, onChangeTypeID] = useState(1);
   const changeType = (value) => onChangeTypeID(a => value);
-  const list_Type = ["", "voie", "bloc", "traversee"];
+  const list_Type = ["voie", "bloc", "traversee"];
 
   const [open, setOpen] = useState(false);
   const [lieuPicker, setLieuPicker] = useState();
@@ -53,7 +55,7 @@ const Routes = () => {
         method:'POST',
         body: JSON.stringify( {
           lieuID : lieuPicker,
-          type : list_Type[typeID],
+          type : list_Type[typeID-1],
           diffMin: difficultes[sliderMinID],
           diffMax:difficultes[sliderMaxID]
         })
@@ -89,11 +91,9 @@ const Routes = () => {
     
   
   return (
-    <View style={styleMain().fond}>
-      {/* Un petit view pour laisser de l'espace en haut */}
-      <View style={styleMain().espace}></View>
-
-      {/* Je mets absolument tout dans des View pour bien pouvoir faire des compartiments du screens équitables */}
+    <View style={styles.container}>
+      <View style={styles.routeOptions}>
+        {/* Je mets absolument tout dans des View pour bien pouvoir faire des compartiments du screens équitables */}
 
        <DropDownPicker
               open={open}
@@ -112,34 +112,20 @@ const Routes = () => {
 
       {/* Choix du type de route */}
 
-      <View style = {{flex: 2, flexDirection:'row', justifyContent: "space-evenly", alignItems:'center'}}>
-
-        <TouchableOpacity style= {styleBoutton(typeID == 1).button} onPress = {() => changeType(1)}>
-          <Text style={styleBoutton(typeID == 1).text}>Voie</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style= {styleBoutton(typeID == 2).button} onPress = {() => changeType(2)}>
-          <Text style={styleBoutton(typeID == 1).text}>Bloc</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style= {styleBoutton(typeID == 3).button} onPress = {() => changeType(3)}>
-          <Text style={styleBoutton(typeID == 1).text}>Traversée</Text>
-        </TouchableOpacity>
-
-      </View>      
+      <EnumButtons text={['Voie', 'Bloc', 'Traversée']} typeID={typeID} changeType={changeType}/>
 
 
       {/* Switch Custom - Officiel */}
 
       <View style = {{flex: 2, flexDirection:'row', justifyContent: "space-evenly", alignItems:'center'}}>
-        <Text style={switchText(estCustom).textOfficiel}>Officiel</Text>
+        <Text style={styles.text}>Officiel</Text>
 
         <Switch trackColor={{false: '#3a75b1', true: "#3ab175"}}
                 thumbColor = {estCustom ? "#fff" : "#fff"}
                 onValueChange = {toggleSwitch}
                 value = {estCustom}/>
 
-        <Text style={switchText(estCustom).textCustom}>Custom</Text>
+        <Text style={styles.text}>Custom</Text>
       </View>
 
 
@@ -148,11 +134,11 @@ const Routes = () => {
       <View style={{flex: 2, flexDirection:'row', justifyContent: "space-between", alignItems:'center'}}>
         
         <View style= {{flex: 1}}> 
-          <Text style={styleMain().text}>min : {difficultes[nonCollidingMultiSliderValue[0]]} </Text>
+          <Text style={styles.text}>min : {difficultes[nonCollidingMultiSliderValue[0]]} </Text>
         </View>
         <View style = {{flex: 3}}></View>
         <View style= {{flex: 1}}>
-          <Text style={styleMain().text}>max : {difficultes[nonCollidingMultiSliderValue[1] < 31 ?           nonCollidingMultiSliderValue[1] : 30 ]} </Text>
+          <Text style={styles.text}>max : {difficultes[nonCollidingMultiSliderValue[1] < 31 ?           nonCollidingMultiSliderValue[1] : 30 ]} </Text>
         </View>
 
       </View>
@@ -201,84 +187,19 @@ const Routes = () => {
         </TouchableOpacity>
       </View>
 
+      </View>
+
+      
 
        {/* Texte réponse de l'api */}
 
-      <View style ={styleMain().canvas}>
+      <View style ={styles.routeReponse}>
         { estCharge ? <JsonToButtons json = {apiRes}/> 
-        : <Text style={styleMain().text}>Page des voies</Text>
+        : <Text style={styles.text}>Page des voies</Text>
       }
       </View> 
 
-      
-    </View>  );
-}
-
-var styleMain = function(clair = false) {
-  var couleurF = clair ? "#FFFFFF" : "#000000";
-  var couleurT = clair ? "#000000" : "#FFFFFF";
-
-  // Pour l'instant les couleurs donnent à peu près envie de vomir donc c'est à changer
-  return {
-    fond: {
-      flex: 1,
-      backgroundColor: couleurF, 
-      flexDirection : 'column',
-      justifyContent: 'space-evenly',
-    },
-    espace: {
-      flex: 2,
-    },
-    textInfoView: {
-      flex: 1,
-    },
-
-    canvas: {
-      flex: 24,
-      backgroundColor: couleurF, 
-      alignItems: 'stretch',
-      flexDirection : 'column',
-      justifyContent: 'flex-start',
-    },
-    text: {
-      color: couleurT,
-    },
-    input: {
-      backgroundColor: couleurT,
-      marginLeft: 10,
-      marginRight: 10,
-      borderWidth: 1,
-      borderColor: "#000000"
-    },
-  }
-};
-
-var styleBoutton = function(appuye, clair= false) {
-  return {
-    button: {
-      backgroundColor: appuye ? "#ba513a" : clair ? "#ffffff" : "#000000",
-      height: "100%",
-      width: "20%",
-      flexDirection: 'row',
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-    text: {
-      color: clair ? "#000" : "#fff"
-    }
-  }
-};
-
-var switchText = function(estCustom, clair=false) {
-  return {
-    textOfficiel: {
-      color: estCustom ? (clair ? "#000000" : "#ffffff") : "#3a75b1",
-    },
-    textCustom: {
-      color: !estCustom ? (clair ? "#000000" : "#ffffff") : "#3ab175",
-    }
-
-  }
-}
+    </View>); 
+} 
 
 export default Routes;
