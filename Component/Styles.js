@@ -23,17 +23,18 @@ const styles = StyleSheet.create({
   },
 
   container: {
-    flex: 15,
+    flex: 1,
     justifyContent: 'space-between',
     backgroundColor: '#131514',
   },
 
-  header:{
+  header: {
     flex: .07,
-    backgroundColor: '#214E34'
+    backgroundColor: '#214E34',
+    justifyContent: 'center',
   },
 
-  headText: {
+  headerText: {
     fontSize: 20,
     color: 'white',
     textAlign: 'center',
@@ -63,11 +64,6 @@ const styles = StyleSheet.create({
     alignItems:'center',
     marginLeft:10,
     marginRight:10,
-  },
-
-  main:{
-    flex:1,
-    backgroundColor : '#131514',
   },
   
   mid: {
