@@ -52,10 +52,10 @@ const App = () => {
     
     <NavigationContainer>
     <View style = {styles.header}>
-    <Text style = {styles.headText}> SeekAclimb </Text>
+      <Text style = {styles.headerText}> SeekAclimb </Text>
     </View>
       <Tab.Navigator tabBarPosition='bottom'>
-        <Tab.Screen name="Home" component={HomeScreen} options={{headerShown:false, tabBarIcon:imageAccueil, tabBarShowIcon:true}}/>
+        <Tab.Screen name="Home" component={HomeScreen} options={{headerShown:false, tabBarIcon:imageAccueil,                  tabBarShowIcon:true}}/>
         <Tab.Screen name="Voies" component={RoutesScreen} options={{headerShown:false, tabBarIcon:imageVoies, tabBarShowIcon:true}}/>
         <Tab.Screen name="Settings" component={SettingsScreen} options={{headerShown:false, tabBarIcon:imageSettings, tabBarShowIcon:true}}/>
         <Tab.Screen name="Account" component={AccountScreen} options={{headerShown:false, tabBarIcon:imageCompte, tabBarShowIcon:true}}/>

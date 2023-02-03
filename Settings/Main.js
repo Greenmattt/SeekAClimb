@@ -11,7 +11,7 @@ const Settings = () => {
   return (
     <View style={styleMain(false).fond}>
       <View style={styleMain(false).header}>
-        <Text style = {styleMain(false).text}>Page des Param�tres</Text>
+        <Text style = {styleMain(false).text}>Page des Paramètres</Text>
       </View>
       <View style = {styleMain(false).container}>
         <Text style = {styleMain(false).text2}>Theme Sombre</Text>
