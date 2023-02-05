@@ -43,6 +43,8 @@ const Routes = () => {
   ] = React.useState([0, 100]);
   nonCollidingMultiSliderValuesChange = values => setNonCollidingMultiSliderValue(values);
 
+  const imageCursor = <Image source={require("../assets/green_circle.png")} style={styles.icon}/>
+
   // Variables pour représenter le résultat du fetch et l'état de la requête sur l'api
   const [apiRes, setApiRes] = useState([]);
   const [estCharge, setEstCharge] = useState(false);
@@ -103,6 +105,7 @@ const Routes = () => {
               setValue={setLieuPicker}
               setItems={setItems}
 
+              placeholder="Choisissez un lieu"
               theme="DARK"
               multiple={true}
               mode="BADGE"
@@ -161,15 +164,15 @@ const Routes = () => {
           snapped
           minMarkerOverlapDistance={7}
           enableLabel = {false}
+          customMarker = {(e) =>imageCursor}
           trackStyle={{
             height: 5,
-            backgroundColor: 'red',
           }}
           selectedStyle={{
-            backgroundColor: 'gold',
+            backgroundColor: '#7282A8',
           }}
           unselectedStyle={{
-            backgroundColor: 'silver',
+            backgroundColor: '#364154',
           }}
 
         />
@@ -180,10 +183,9 @@ const Routes = () => {
 
       <View style= {{flex: 3, alignItems:'center'}}>
         <TouchableOpacity 
-          style = {{width: '90%', height: '90%', backgroundColor: '#fa5144', 
-                    justifyContent:'center', alignItems:'center', borderRadius: 20, margin:5}}
+          style = {styles.routeBoutonChercherTouchableOpacity}
           onPress = {verification_validite_boutton} >
-          <Text>Chercher ...</Text>
+          <Text style={styles.text}>Chercher ...</Text>
         </TouchableOpacity>
       </View>
 

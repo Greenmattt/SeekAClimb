@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   },
 
   header: {
-    flex: .07,
+    flex: 0.07,
     backgroundColor: '#214E34',
     justifyContent: 'center',
   },
@@ -52,20 +52,20 @@ const styles = StyleSheet.create({
     margin: 12,
     borderWidth: 1,
     padding: 10,
-    backgroundColor: "black",
-    color: "black",
-    borderRadius:10,
-    width:'100%',
+    backgroundColor: 'black',
+    color: 'black',
+    borderRadius: 10,
+    width: '100%',
   },
 
   inputView: {
-    flex:1, 
-    justifyContent:'center', 
-    alignItems:'center',
-    marginLeft:10,
-    marginRight:10,
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: 10,
+    marginRight: 10,
   },
-  
+
   mid: {
     flex: 20,
     backgroundColor: '#282828',
@@ -74,9 +74,9 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
 
-  text : {
-    color : 'white',
-    textAlign:'center',
+  text: {
+    color: 'white',
+    textAlign: 'center',
   },
 
   textTitre: {
@@ -105,7 +105,16 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     backgroundColor: '#131514',
   },
-  
+
+  routeBoutonChercherTouchableOpacity: {
+    width: '90%',
+    height: '90%',
+    backgroundColor: '#364156',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 20,
+    margin: 5,
+  },
 });
 
 export default styles;
