@@ -115,6 +115,16 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     margin: 5,
   },
+
+  routeReponseBouton: {
+    width: '40%',
+    height: '40%',
+    backgroundColor: '#364156',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 20,
+    margin: 5,
+  },
 });
 
 export default styles;

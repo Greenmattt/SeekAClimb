@@ -14,7 +14,7 @@ const Routes = () => {
   const [estCustom, onChangeEstCustom] = useState(false);
   const toggleSwitch = () => onChangeEstCustom(a => !a);
 
-  const [typeID, onChangeTypeID] = useState(1);
+  const [typeID, onChangeTypeID] = useState(0);
   const changeType = (value) => onChangeTypeID(a => value);
   const list_Type = ["voie", "bloc", "traversee"];
 
@@ -57,7 +57,7 @@ const Routes = () => {
         method:'POST',
         body: JSON.stringify( {
           lieuID : lieuPicker,
-          type : list_Type[typeID-1],
+          type : list_Type[typeID],
           diffMin: difficultes[sliderMinID],
           diffMax:difficultes[sliderMaxID]
         })

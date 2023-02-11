@@ -1,21 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import { Text, View, TextInput, Switch, TouchableOpacity} from 'react-native';
+import React from 'react';
+import { Text, View, TouchableOpacity } from 'react-native';
 
-const JsonToButtons = props => {
-  var buttons = <View></View>
+import styles from '../Component/Styles';
 
-  Object.keys(props.json.resultat).forEach(function(key){
-      buttons += <TouchableOpacity>
-                  <Text>{props.json.resultat.nom}</Text>
-                 </TouchableOpacity>
-  })
+const JsonToButtons = (props) => {
+  var buttons = [];
 
-  return (
-    <View>
-      {buttons}
-    </View>
-  );
-}
+  Object.keys(props.json.resultat).forEach(function (key) {
+    buttons.push(
+      <TouchableOpacity style={styles.routeReponseBouton} key={key}>
+        <Text style={styles.text}>{props.json.resultat[key].nom}</Text>
+      </TouchableOpacity>
+    );
+  });
 
+  return <View>{buttons}</View>;
+};
 
 export default JsonToButtons;
