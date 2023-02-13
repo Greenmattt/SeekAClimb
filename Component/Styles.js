@@ -73,7 +73,8 @@ const darkStyles = StyleSheet.create({
   infoSettingsButton: {
     height: '100%',
     justifyContent: 'center',
-    backgroundColor: '#282828'
+    backgroundColor: '#282828',
+    borderRadius: 5,
   },
 
   input: {
@@ -111,6 +112,7 @@ const darkStyles = StyleSheet.create({
     borderRadius: 5,
     margin: 7,
     marginBottom: 3.5,
+    alignItems: 'center',
   },
   
   text: {
@@ -220,8 +222,26 @@ const lightStyles = StyleSheet.create({
 
   icon: {
     width: 30,
-    height: 30,
+    height: 20,
     resizeMode: 'contain',
+  },
+  
+  infoSettingsBox: {
+    flex: 1,
+    backgroundColor: '#f7fffb',
+    borderColor: '#364156',
+    borderWidth: 1,
+    borderRadius: 5,
+    margin: 7,
+    marginTop: 3.5,
+    justifyContent: 'center',
+  },
+  
+  infoSettingsButton: {
+    height: '100%',
+    justifyContent: 'center',
+    backgroundColor: '#CDCDCD',
+    borderRadius: 5,
   },
 
   input: {
@@ -251,18 +271,30 @@ const lightStyles = StyleSheet.create({
     borderRadius: 5,
   },
 
+  settingsBox: {
+    flex: 10,
+    backgroundColor: '#CDCDCD',
+    borderColor: '#364156',
+    borderWidth: 1,
+    borderRadius: 5,
+    margin: 7,
+    marginBottom: 3.5,
+    alignItems: 'center',
+  },
+  
   text: {
     color: 'black',
     textAlign: 'center',
+    fontSize: 18,
   },
-
+  
   textTitre: {
     color: 'black',
     textAlign: 'center',
     flex: 1,
-    textTransform: 'capitalize',
+    textTransformations: 'capitalize',
+    textAlignVertical: 'center',
     fontStyle: 'italic',
-    fontSize: 20,
   },
 
   top: {

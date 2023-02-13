@@ -1,7 +1,7 @@
 import React, {useState,useEffect} from 'react';
 import { Text, View, Switch, TouchableOpacity } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {useAsyncStorage} from '@react-native-async-storage/async-storage';
+import {useAsyncStorage} from '@react-native-async-storage/async-storage'; // npm install @react-native-async-storage/async-storage
 
 import Styles from '../Component/Styles';
 
@@ -55,7 +55,11 @@ const Settings = (props) => {
     <View style={Styles.container}>
 
       <View style={Styles.settingsBox}>
-        <Text style={Styles.textTitre}>Page des Paramètres</Text>
+      <Switch
+        trackColor={{false: '#3a75b1', true: "#3ab175"}}
+        thumbColor = {"#fff"}
+        onValueChange = {() => changeTheme()}
+        value = {theme}/>
       </View>
 
       <View style={Styles.infoSettingsBox}>

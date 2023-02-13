@@ -1,5 +1,5 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator } from '@react-navigation/stack'; //npm install @react-navigation/stack
 
 import Informations from './Informations';
 import Settings from './Settings';
