@@ -1,6 +1,18 @@
 import { StyleSheet } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const styles = StyleSheet.create({
+const theme = async () => {
+  try {
+    return await AsyncStorage.getItem('@themeState')
+  } catch(e) {
+    // read error
+    }
+
+}
+
+let styles;
+
+const darkStyles = StyleSheet.create({
   bottom: {
     flex: 20,
     backgroundColor: '#282828',
@@ -27,7 +39,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     backgroundColor: '#131514',
   },
-
+  
   header: {
     flex: 0.07,
     backgroundColor: '#214E34',
@@ -85,6 +97,7 @@ const styles = StyleSheet.create({
     flex: 1,
     textTransform: 'capitalize',
     fontStyle: 'italic',
+    fontSize: 20,
   },
 
   top: {
@@ -125,6 +138,158 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     margin: 5,
   },
+  
+  container2: {
+    padding: 5,
+    flex: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    backgroundColor: '#282828',
+    borderRadius: 5,
+  },
 });
+
+const lightStyles = StyleSheet.create({
+  bottom: {
+    flex: 20,
+    backgroundColor: '#CDCDCD',
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
+    borderColor: '#364156',
+    borderWidth: 1,
+    borderTopLeftRadius: 5,
+    borderTopRightRadius: 5,
+  },
+
+  button: {
+    width: '90%',
+    height: '90%',
+    backgroundColor: '#CDCDCD',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 20,
+    margin: 5,
+  },
+
+  container: {
+    flex: 1,
+    justifyContent: 'space-between',
+    backgroundColor: '#F7FFFB',
+  },
+  
+  header: {
+    flex: 0.07,
+    backgroundColor: '#214E34',
+    justifyContent: 'center',
+  },
+
+  headerText: {
+    fontSize: 20,
+    color: 'black',
+    textAlign: 'center',
+    fontStyle: 'italic',
+  },
+
+  icon: {
+    width: 30,
+    height: 30,
+    resizeMode: 'contain',
+  },
+
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+    backgroundColor: 'white',
+    color: 'white',
+    borderRadius: 10,
+    width: '100%',
+  },
+
+  inputView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: 10,
+    marginRight: 10,
+  },
+
+  mid: {
+    flex: 20,
+    backgroundColor: '#CDCDCD',
+    borderColor: '#364156',
+    borderWidth: 1,
+    borderRadius: 5,
+  },
+
+  text: {
+    color: 'black',
+    textAlign: 'center',
+  },
+
+  textTitre: {
+    color: 'black',
+    textAlign: 'center',
+    flex: 1,
+    textTransform: 'capitalize',
+    fontStyle: 'italic',
+    fontSize: 20,
+  },
+
+  top: {
+    flex: 20,
+    backgroundColor: '#CDCDCD',
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+  },
+
+  routeOptions: {
+    flex: 40,
+    justifyContent: 'space-between',
+    backgroundColor: '#F7FFFB',
+  },
+
+  routeReponse: {
+    flex: 60,
+    justifyContent: 'space-between',
+    backgroundColor: '#F7FFFB',
+  },
+
+  routeBoutonChercherTouchableOpacity: {
+    width: '90%',
+    height: '90%',
+    backgroundColor: '#364156',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 20,
+    margin: 5,
+  },
+
+  routeReponseBouton: {
+    width: '40%',
+    height: '40%',
+    backgroundColor: '#364156',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 20,
+    margin: 5,
+  },
+  
+  container2: {
+    padding: 5,
+    flex: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    backgroundColor: '#CDCDCD',
+    borderRadius: 5,
+  },
+});
+
+if (theme == 'sombre'){
+  styles = darkStyles;
+} else {
+  styles = lightStyles;
+}
 
 export default styles;
