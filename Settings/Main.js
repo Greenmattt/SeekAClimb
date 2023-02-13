@@ -1,69 +1,69 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import { Text, View, Switch } from 'react-native';
-
+import styles from '../Component/Styles';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {useAsyncStorage} from '@react-native-async-storage/async-storage';
 import Informations from './Informations';
 
 const Settings = () => {
 
-  const [darkTheme, onChangeDarkTheme] = useState(false);
-  const toggleSwitch = () => onChangeDarkTheme(a => !a)
+  const [theme, setTheme] = useState('sombre');
+  const {getItheme, setItheme } = useAsyncStorage('@themeState');
 
+  const initTheme = async () => {
+    const itheme = await getItheme();
+    setTheme(itheme);
+  };
+  
+  const writeTheme = async newTheme => {
+    await setItheme(newTheme);
+    setTheme(newValue);
+  };
+
+  useEffect(() => {
+    initTheme();
+  }, []);
+  
+  let changeTheme = () =>{
+    if (theme != 'sombre'){
+      writeTheme('sombre');
+    } else{
+      writeTheme('clair')
+    }
+  };
+  
+  /*initTheme2 = async () => {
+    try{
+      return await AsyncStorage.getItem('@themeState')
+    } catch{
+      return await AsyncStorage.setItem('@themeState', 'sombre')
+    }
+  }
+  let setTheme2 = async () => {
+    if (initTheme !="sombre"){
+      return await AsyncStorage.setItem('@themeState', 'sombre');
+    } else{
+      return await AsyncStorage.setItem('@themeState', 'clair');
+    }
+  }*/
   return (
-    <View style={styleMain(false).fond}>
-      <View style={styleMain(false).header}>
-        <Text style = {styleMain(false).text}>Page des Paramètres</Text>
+    <View style={styles.container}>
+      <View style={{flex: 1}}>
+        <Text style = {styles.textTitre}>* Paramètres</Text>
       </View>
-      <View style = {styleMain(false).container}>
-        <Text style = {styleMain(false).text2}>Theme Sombre</Text>
+      <View style = {styles.container2}>
+        <Text style = {styles.text}>Theme Sombre</Text>
 
         <Switch
         trackColor={{false: '#3a75b1', true: "#3ab175"}}
-        thumbColor = {darkTheme ? "#fff" : "#fff"}
-        onValueChange = {toggleSwitch}
-        value = {darkTheme}/>
+        thumbColor = {"#fff"}
+        onValueChange = {() => changeTheme()}
+        value = {theme}/>
 
-        <Text style = {styleMain(false).text2}>Theme Clair</Text>
+        <Text style = {styles.text}>Theme Clair</Text>
       </View>
     </View>
   );
 }
-
-var styleMain = function(clair) {
-    var couleurF = clair ? "#FFFFFF" : "#131514";
-    var couleurT = clair ? "#131514" : "#FFFFFF";
   
-    return {
-      fond: {
-        flex: 1,
-        backgroundColor: couleurF,
-        padding: 10,
-      },
-      container: {
-        padding: 5,
-        flex: 10,
-        flexDirection: 'row',
-        justifyContent: 'space-evenly',
-        backgroundColor: '#282828',
-        borderRadius: 5,
-      },
-      header: {
-        flex: 1,
-      },
-      text: {
-        color: couleurT,
-        fontSize: 20,
-        textAlign: 'center',
-      },
-      text2: {
-        color: couleurT,
-        textAlign: 'center',
-      },
-      icon: {
-        width: 30,
-        height: 30,
-        resizeMode: 'stretch',
-      },
-    }
-  };
-
 export default Settings;
