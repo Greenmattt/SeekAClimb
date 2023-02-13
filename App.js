@@ -1,11 +1,10 @@
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import { Text, View, TouchableOpacity, Image, StyleSheet } from 'react-native';
+import { Text, View, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import React, { useCallback, useEffect, useState } from 'react';
+import React from 'react';
 
 // pour la nav bar : npm install @react-navigation/material-top-tabs react-native-tab-view
 // puis : npx expo install react-native-pager-view
-
 
 import Settings from './Settings/Main';
 import Account from './Account/Main';
@@ -14,7 +13,6 @@ import Home from './Home';
 
 import styles from './Component/Styles'
 
-// permet de garder le splash screen visible jusqu'à ce que toutes les ressources soient téléchargées
 const App = () => {
 
   // Page principale
@@ -54,8 +52,9 @@ const App = () => {
     <View style = {styles.header}>
       <Text style = {styles.headerText}> SeekAclimb </Text>
     </View>
-      <Tab.Navigator tabBarPosition='bottom'>
-        <Tab.Screen name="Home" component={HomeScreen} options={{headerShown:false, tabBarIcon:imageAccueil,                  tabBarShowIcon:true}}/>
+      <Tab.Navigator tabBarPosition='bottom' screenOptions={{tabBarStyle: {height: '9%', backgroundColor: '#025e82'}, tabBarIconStyle: {width: '40%', height: '35%'}}}>
+
+        <Tab.Screen name="Home" component={HomeScreen} options={{headerShown:false, tabBarIcon:imageAccueil, tabBarShowIcon:true}}/>
         <Tab.Screen name="Voies" component={RoutesScreen} options={{headerShown:false, tabBarIcon:imageVoies, tabBarShowIcon:true}}/>
         <Tab.Screen name="Settings" component={SettingsScreen} options={{headerShown:false, tabBarIcon:imageSettings, tabBarShowIcon:true}}/>
         <Tab.Screen name="Account" component={AccountScreen} options={{headerShown:false, tabBarIcon:imageCompte, tabBarShowIcon:true}}/>

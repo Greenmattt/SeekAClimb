@@ -55,8 +55,25 @@ const darkStyles = StyleSheet.create({
 
   icon: {
     width: 30,
-    height: 30,
+    height: 20,
     resizeMode: 'contain',
+  },
+  
+  infoSettingsBox: {
+    flex: 1,
+    backgroundColor: '#1c1c1c',
+    borderColor: '#364156',
+    borderWidth: 1,
+    borderRadius: 5,
+    margin: 7,
+    marginTop: 3.5,
+    justifyContent: 'center',
+  },
+  
+  infoSettingsButton: {
+    height: '100%',
+    justifyContent: 'center',
+    backgroundColor: '#282828'
   },
 
   input: {
@@ -86,18 +103,29 @@ const darkStyles = StyleSheet.create({
     borderRadius: 5,
   },
 
+  settingsBox: {
+    flex: 10,
+    backgroundColor: '#282828',
+    borderColor: '#364156',
+    borderWidth: 1,
+    borderRadius: 5,
+    margin: 7,
+    marginBottom: 3.5,
+  },
+  
   text: {
     color: 'white',
     textAlign: 'center',
+    fontSize: 18,
   },
-
+  
   textTitre: {
     color: 'white',
     textAlign: 'center',
     flex: 1,
-    textTransform: 'capitalize',
+    textTransformations: 'capitalize',
+    textAlignVertical: 'center',
     fontStyle: 'italic',
-    fontSize: 20,
   },
 
   top: {

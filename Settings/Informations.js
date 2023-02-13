@@ -1,10 +1,14 @@
-import React, {useState} from 'react';
-import { Text, View, Switch } from 'react-native';
+import React from 'react';
+import { Text, View } from 'react-native';
+
+import Styles from '.././Component/Styles';
 
 const Informations = () => {
 
   return (
-    <Text>Page des Informations</Text>
+    <View style={Styles.container}>
+      <Text style={Styles.textTitre}>Page des Informations</Text>
+    </View>
   );
 }
 
