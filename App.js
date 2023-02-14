@@ -52,7 +52,7 @@ const App = () => {
     <View style = {styles.header}>
       <Text style = {styles.headerText}> SeekAclimb </Text>
     </View>
-      <Tab.Navigator tabBarPosition='bottom' screenOptions={{tabBarStyle: {height: '9%', backgroundColor: '#025e82'}, tabBarIconStyle: {width: '40%', height: '35%'}}}>
+      <Tab.Navigator tabBarPosition='bottom' screenOptions={{tabBarStyle: {height: '9%', backgroundColor: '#364156'}, tabBarIconStyle: {width: '40%', height: '35%'}}}>
 
         <Tab.Screen name="Home" component={HomeScreen} options={{headerShown:false, tabBarIcon:imageAccueil, tabBarShowIcon:true}}/>
         <Tab.Screen name="Voies" component={RoutesScreen} options={{headerShown:false, tabBarIcon:imageVoies, tabBarShowIcon:true}}/>

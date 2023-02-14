@@ -13,21 +13,18 @@ const SeConnecter = (props) => {
   const [textEmail, onChangeEmail] = useState('');
   const [textMdp, onChangeMdp] = useState('');
 
-
   return (
     <View style={styles.container}>
       <GoBackButton onPress = {() => onPressRetour(props)} />
-
-      <View style={{ flex: 90, backgroundColor: '#025e82' }}>
-        <View style={{flex:2}}></View>
+      
+      <View style={styles.informationsBox}>
 
         {/*Input email */}
         <StrInput onChangeText={onChangeEmail} value={textEmail} placeholder={"Email"} secureTextEntry={false}/>
 
         {/*Input mot de passe */}
         <StrInput onChangeText={onChangeMdp} value={textMdp} placeholder={"Mot de passe"} secureTextEntry={false}/>
-
-        <View style={{flex:2}}></View>        
+      
       </View>
     </View>
   );

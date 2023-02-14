@@ -24,8 +24,7 @@ const CreerCompte = (props) => {
       {/* Bouton de retour dans la barre verte */}
       <GoBackButton onPress = {() => onPressRetour(props)} />
 
-      <View style={{ flex: 90, backgroundColor: '#221405' }}>
-        <View style = {{flex:1}}></View>
+      <View style={styles.informationsBox}>
 
         {/*Input nom */}
         <StrInput onChangeText={onChangeNom} value={textNom} placeholder={"Nom"} secureTextEntry={false}/>
@@ -44,9 +43,7 @@ const CreerCompte = (props) => {
 
         {/*Input validation du mot de passe */}
         <StrInput onChangeText={onChangeMdpConfirme} value={textMdpConfirme} placeholder= {"Valider le mot de passe"} secureTextEntry={true}/>
-
-        <View style = {{flex:1}}></View>
-      </View>
+        </View>
     </View>
   );
 };

@@ -12,6 +12,16 @@ const theme = async () => {
 let styles;
 
 const darkStyles = StyleSheet.create({
+  accountBox: {
+    flex: 1,
+    backgroundColor: '#282828',
+    margin: 7,
+    borderColor: '#364156',
+    borderWidth: 1,
+    borderRadius: 5,
+    margin: 7,
+  },
+
   backIcon: {
     width: '10%',
     height: '100%',
@@ -30,13 +40,11 @@ const darkStyles = StyleSheet.create({
   },
 
   button: {
-    width: '90%',
-    height: '90%',
+    width: '100%',
+    height: '100%',
     backgroundColor: '#282828',
+    borderRadius: 5,
     justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 20,
-    margin: 5,
   },
 
   container: {
@@ -58,6 +66,7 @@ const darkStyles = StyleSheet.create({
     width: '100%',
     height: '100%',
     backgroundColor: '#282828',
+    borderRadius: 5,
   },
   
   header: {
@@ -86,6 +95,9 @@ const darkStyles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 5,
     margin: 7,
+    marginTop: 3.5,
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
   },
   
   infoSettingsBox: {
@@ -107,22 +119,13 @@ const darkStyles = StyleSheet.create({
   },
 
   input: {
-    height: 40,
-    margin: 12,
+    height: '10%',
     borderWidth: 1,
     padding: 10,
-    backgroundColor: 'black',
-    color: 'black',
-    borderRadius: 10,
-    width: '100%',
-  },
-
-  inputView: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginLeft: 10,
-    marginRight: 10,
+    backgroundColor: '#131514',
+    color: '#F7FFFB',
+    borderRadius: 5,
+    width: '95%',
   },
 
   mid: {
@@ -209,6 +212,26 @@ const darkStyles = StyleSheet.create({
 });
 
 const lightStyles = StyleSheet.create({
+  accountBox: {
+    flex: 2,
+    backgroundColor: '#cdcdcd',
+    marginHorizontal: 7,
+    marginVertical: 7,
+    borderColor: '#364156',
+    borderWidth: 1,
+    borderRadius: 5,
+  },
+
+  accountBox1: {
+    flex: 1,
+    backgroundColor: '#cdcdcd',
+    marginHorizontal: 7,
+    marginVertical: 7,
+    borderColor: '#364156',
+    borderWidth: 1,
+    borderRadius: 5,
+  },
+
   backIcon: {
     width: '10%',
     height: '100%',
@@ -227,13 +250,11 @@ const lightStyles = StyleSheet.create({
   },
 
   button: {
-    width: '90%',
-    height: '90%',
-    backgroundColor: '#CDCDCD',
+    width: '100%',
+    height: '100%',
+    backgroundColor: '#cdcdcd',
+    borderRadius: 5,
     justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 20,
-    margin: 5,
   },
 
   container: {
@@ -255,6 +276,7 @@ const lightStyles = StyleSheet.create({
     width: '100%',
     height: '100%',
     backgroundColor: '#CDCDCD',
+    borderRadius: 5,
   },
 
   header: {
@@ -284,6 +306,8 @@ const lightStyles = StyleSheet.create({
     borderRadius: 5,
     margin: 7,
     marginTop: 3.5,
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
   },
   
   infoSettingsBox: {
@@ -305,22 +329,13 @@ const lightStyles = StyleSheet.create({
   },
 
   input: {
-    height: 40,
-    margin: 12,
+    height: '10%',
     borderWidth: 1,
     padding: 10,
-    backgroundColor: 'white',
-    color: 'white',
-    borderRadius: 10,
-    width: '100%',
-  },
-
-  inputView: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginLeft: 10,
-    marginRight: 10,
+    backgroundColor: '#F7FFFB',
+    color: '#F7FFFB',
+    borderRadius: 5,
+    width: '95%',
   },
 
   mid: {

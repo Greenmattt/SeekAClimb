@@ -1,10 +1,9 @@
-import { View, TextInput } from 'react-native';
+import { TextInput } from 'react-native';
 
 import styles from './Styles';
 
 const StrInput = props => {
   return (
-    <View style = {styles.inputView}>
       <TextInput
         style={styles.input}
         onChangeText={props.onChangeText}
@@ -13,7 +12,6 @@ const StrInput = props => {
         placeholderTextColor={styles.text.color}
         secureTextEntry={props.secureTextEntry}
       />
-    </View>
   );
 }
 
