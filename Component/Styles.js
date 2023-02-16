@@ -82,6 +82,24 @@ const darkStyles = StyleSheet.create({
     fontStyle: 'italic',
   },
 
+  homeBox: {
+    flex: 1,
+    backgroundColor: '#282828',
+    margin: 5,
+    borderWidth: 1,
+    borderColor: '#364156',
+    borderRadius: 5,
+    width: '50%',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+
+  homeMainBox: {
+    flex: 1,
+    flexDirection: 'row',
+    backgroundColor: '#131514'
+  },
+
   icon: {
     width: 30,
     height: 20,
@@ -200,15 +218,6 @@ const darkStyles = StyleSheet.create({
     borderRadius: 20,
     margin: 5,
   },
-  
-  container2: {
-    padding: 5,
-    flex: 10,
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    backgroundColor: '#282828',
-    borderRadius: 5,
-  },
 });
 
 const lightStyles = StyleSheet.create({
@@ -290,6 +299,24 @@ const lightStyles = StyleSheet.create({
     color: 'black',
     textAlign: 'center',
     fontStyle: 'italic',
+  },
+
+  homeBox: {
+    flex: 1,
+    backgroundColor: '#CDCDCD',
+    margin: 5,
+    borderWidth: 1,
+    borderColor: '#364156',
+    borderRadius: 5,
+    width: '50%',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+
+  homeMainBox: {
+    flex: 1,
+    flexDirection: 'row',
+    backgroundColor: '#f7fffb'
   },
 
   icon: {
@@ -410,15 +437,6 @@ const lightStyles = StyleSheet.create({
     borderRadius: 20,
     margin: 5,
   },
-  
-  container2: {
-    padding: 5,
-    flex: 10,
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    backgroundColor: '#CDCDCD',
-    borderRadius: 5,
-  },
 });
 
 if (theme == 'sombre'){
@@ -427,4 +445,4 @@ if (theme == 'sombre'){
   styles = lightStyles;
 }
 
-export default styles;
+export default darkStyles;
