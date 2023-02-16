@@ -8,7 +8,7 @@ const EnumButtons = props => {
 
     for(let i = 0 ; i < props.text.length; i++) {
       buttonsListArr.push(
-        <TouchableOpacity style= {styleBoutton(props.typeID == i).button} onPress = {() => props.changeType(i)}>
+        <TouchableOpacity key = {i} style= {styleBoutton(props.typeID == i).button} onPress = {() => props.changeType(i)}>
           <Text style={styleBoutton(props.typeID == i).text}>{props.text[i]}</Text>
         </TouchableOpacity>
       )

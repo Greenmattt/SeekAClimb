@@ -10,7 +10,7 @@ const Main = () => { // Page de navigation entre Settings.js et Informations.js
 
   return (
     <Stack.Navigator initialRouteName={'Settings'}>
-      <Stack.Screen name='Settings' component={Settings} options={{ headerShown: false }}/>
+      <Stack.Screen name='Parametres' component={Settings} options={{ headerShown: false }}/>
       <Stack.Screen name='Informations' component={Informations} options={{ headerShown: false }}/>
     </Stack.Navigator>
   );

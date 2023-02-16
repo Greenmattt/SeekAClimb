@@ -1,9 +1,20 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
 
-import styles from '../Component/Styles';
+import style from '../Component/Styles';
 
 const JsonToButtons = (props) => {
+  // load du style
+  const [styles, setLeStyle] = useState({});
+
+  useEffect(() => {
+    async function getStyle (){
+      const s = await style();
+      setLeStyle(s);
+    }
+    getStyle();
+  }, [])
+
   var buttons = [];
 
   if (props.json.resultat != undefined) {
@@ -16,10 +27,10 @@ const JsonToButtons = (props) => {
     }); 
   }
   else if (props.json.Erreur != undefined) {
-    buttons.push(<Text style={styles.text}> {props.json.Erreur}</Text>)
+    buttons.push(<Text key = {1} style={styles.text}> {props.json.Erreur}</Text>)
   }
   else {
-    buttons.push(<Text style={styles.text}>API indisponnible</Text>)
+    buttons.push(<Text key = {1} style={styles.text}>API indisponnible</Text>)
   }
 
   return <View>{buttons}</View>;

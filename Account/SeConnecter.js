@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { View } from 'react-native';
 
-import styles from '../Component/Styles';
+import style from '../Component/Styles';
 import StrInput from '../Component/StrInput';
 import GoBackButton from '../Component/GoBackButton'
 
@@ -12,6 +12,17 @@ const onPressRetour = (props) => {
 const SeConnecter = (props) => {
   const [textEmail, onChangeEmail] = useState('');
   const [textMdp, onChangeMdp] = useState('');
+
+  // load du style
+  const [styles, setLeStyle] = useState({});
+
+  useEffect(() => {
+    async function getStyle (){
+      const s = await style();
+      setLeStyle(s);
+    }
+    getStyle();
+  }, [])
 
   return (
     <View style={styles.container}>

@@ -1,16 +1,6 @@
 import { StyleSheet } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const theme = async () => {
-  try {
-    return await AsyncStorage.getItem('@themeState')
-  } catch(e) {
-    // read error
-    }
-}
-
-let styles;
-
 const darkStyles = StyleSheet.create({
   accountBox: {
     flex: 1,
@@ -437,12 +427,26 @@ const lightStyles = StyleSheet.create({
     borderRadius: 20,
     margin: 5,
   },
+  
 });
 
-if (theme == 'sombre'){
-  styles = darkStyles;
-} else {
-  styles = lightStyles;
+const style = async () => {
+  
+  var estClair = true;
+
+  try {
+    const val =  await AsyncStorage.getItem('@theme');
+    if (val != null) {
+      estClair = await JSON.parse(val);
+    }
+    else {
+      console.warn('valeur lue dans style = null')
+    }
+  } catch(e) {
+    console.warn(e)
+    }
+
+  return estClair ? lightStyles : darkStyles;
 }
 
-export default darkStyles;
+export default style;

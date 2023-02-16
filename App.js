@@ -1,7 +1,7 @@
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { Text, View, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import React from 'react';
+import React, { useEffect , useState} from 'react';
 
 // pour la nav bar : npm install @react-navigation/material-top-tabs react-native-tab-view
 // puis : npx expo install react-native-pager-view
@@ -11,9 +11,19 @@ import Account from './Account/Main';
 import Routes from './Routes/Main';
 import Home from './Home';
 
-import styles from './Component/Styles'
+import style from './Component/Styles'
 
 const App = () => {
+  // load du style
+  const [styles, setLeStyle] = useState({});
+
+  useEffect(() => {
+    async function getStyle (){
+      const s = await style();
+      setLeStyle(s);
+    }
+    getStyle();
+  }, [])
 
   // Page principale
   function HomeScreen() {
@@ -37,7 +47,7 @@ const App = () => {
   function AccountScreen() {
     return (
       <Account/>
-    );
+    ); 
   }
 
   function imageSettings () {return(<Image style={styles.icon} source={require('./assets/settings_icon.png')}/>)}

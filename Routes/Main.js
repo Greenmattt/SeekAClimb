@@ -7,9 +7,20 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider';
 
 import JsonToButtons from './ReponseRoute';
 import EnumButtons from '../Component/EnumButtons';
-import styles from '../Component/Styles';
+import style from '../Component/Styles';
 
 const Routes = () => {
+
+  // load du style
+  const [styles, setLeStyle] = useState({});
+
+  useEffect(() => {
+    async function getStyle (){
+      const s = await style();
+      setLeStyle(s);
+    }
+    getStyle();
+  }, []);
 
   const [estCustom, onChangeEstCustom] = useState(false);
   const toggleSwitch = () => onChangeEstCustom(a => !a);
