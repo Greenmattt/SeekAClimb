@@ -1,5 +1,5 @@
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import { Text, View, Image } from 'react-native';
+import { Text, View, Image, ActivityIndicator } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import React, { useEffect , useState} from 'react';
 
@@ -16,11 +16,13 @@ import style from './Component/Styles'
 const App = () => {
   // load du style
   const [styles, setLeStyle] = useState({});
+  const [styleCharge, setStyleCharge] = useState(false);
 
   useEffect(() => {
     async function getStyle (){
       const s = await style();
       setLeStyle(s);
+      setStyleCharge(true);
     }
     getStyle();
   }, [])
@@ -57,8 +59,9 @@ const App = () => {
   const Tab = createMaterialTopTabNavigator();
 
   return (
-    
-    <NavigationContainer>
+    <View style = {{flex:1}}>
+    {styleCharge 
+    ? <NavigationContainer>
     <View style = {styles.header}>
       <Text style = {styles.headerText}> SeekAclimb </Text>
     </View>
@@ -69,7 +72,15 @@ const App = () => {
         <Tab.Screen name="Settings" component={SettingsScreen} options={{headerShown:false, tabBarIcon:imageSettings, tabBarShowIcon:true}}/>
         <Tab.Screen name="Account" component={AccountScreen} options={{headerShown:false, tabBarIcon:imageCompte, tabBarShowIcon:true}}/>
       </Tab.Navigator>
+
     </NavigationContainer>
+
+    : <ActivityIndicator sier="large" color="#0000ff"/>}
+    </View>
+
+    
+
+    
   );
 }
 

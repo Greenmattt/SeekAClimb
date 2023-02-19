@@ -221,16 +221,6 @@ const lightStyles = StyleSheet.create({
     borderRadius: 5,
   },
 
-  accountBox1: {
-    flex: 1,
-    backgroundColor: '#cdcdcd',
-    marginHorizontal: 7,
-    marginVertical: 7,
-    borderColor: '#364156',
-    borderWidth: 1,
-    borderRadius: 5,
-  },
-
   backIcon: {
     width: '10%',
     height: '100%',
