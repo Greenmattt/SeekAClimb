@@ -16,6 +16,7 @@ const darkStyles = StyleSheet.create({
     width: '10%',
     height: '100%',
     resizeMode: 'center',
+    tintColor:'#ffffff',
   },
 
   bottom: {
@@ -94,6 +95,7 @@ const darkStyles = StyleSheet.create({
     width: 30,
     height: 20,
     resizeMode: 'contain',
+    tintColor: '#ffffff'
   },
 
   informationsBox: {
@@ -225,6 +227,7 @@ const lightStyles = StyleSheet.create({
     width: '10%',
     height: '100%',
     resizeMode: 'center',
+    tintColor:'#000000',
   },
 
   bottom: {
@@ -303,6 +306,7 @@ const lightStyles = StyleSheet.create({
     width: 30,
     height: 20,
     resizeMode: 'contain',
+    tintColor:'#000000',
   },
 
   informationsBox: {

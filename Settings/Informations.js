@@ -8,9 +8,8 @@ import GoBackButton from '../Component/GoBackButton';
 const Informations = (props) => {
 
   const GoBackToSettings = () => {
-    props.navigation.navigate('Settings');
+    props.navigation.navigate('Parametres');
   }
-
 
   // load du style
   const [styles, setLeStyle] = useState({});
