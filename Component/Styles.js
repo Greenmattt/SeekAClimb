@@ -9,7 +9,6 @@ const darkStyles = StyleSheet.create({
     borderColor: '#364156',
     borderWidth: 1,
     borderRadius: 5,
-    margin: 7,
   },
 
   backIcon: {
@@ -73,6 +72,11 @@ const darkStyles = StyleSheet.create({
     fontStyle: 'italic',
   },
 
+  homeBigBox: {
+    flex: 1,
+    backgroundColor: '#131514',
+  },
+
   homeBox: {
     flex: 1,
     backgroundColor: '#282828',
@@ -95,7 +99,7 @@ const darkStyles = StyleSheet.create({
     width: 30,
     height: 20,
     resizeMode: 'contain',
-    tintColor: '#ffffff'
+    tintColor: '#dedede'
   },
 
   informationsBox: {
@@ -155,6 +159,20 @@ const darkStyles = StyleSheet.create({
     margin: 7,
     marginBottom: 3.5,
     alignItems: 'center',
+  },
+
+  tabBarIconStyle: {
+    width: '40%',
+    height: '35%'
+  },
+
+  tabBarStyle: {
+    height: '9%',
+    backgroundColor: '#364156'
+  },
+
+  tabBarLabelStyle: {
+    color: 'white',
   },
   
   text: {
@@ -284,12 +302,15 @@ const lightStyles = StyleSheet.create({
     fontStyle: 'italic',
   },
 
+  homeBigBox: {
+    flex: 1,
+    backgroundColor: '#f7fffb',
+  },
+
   homeBox: {
     flex: 1,
     backgroundColor: '#CDCDCD',
     margin: 5,
-    borderWidth: 1,
-    borderColor: '#364156',
     borderRadius: 5,
     width: '50%',
     justifyContent: 'center',
@@ -306,7 +327,7 @@ const lightStyles = StyleSheet.create({
     width: 30,
     height: 20,
     resizeMode: 'contain',
-    tintColor:'#000000',
+    tintColor:'#ccc',
   },
 
   informationsBox: {
@@ -367,6 +388,21 @@ const lightStyles = StyleSheet.create({
     marginBottom: 3.5,
     alignItems: 'center',
   },
+
+  tabBarIconStyle: {
+    width: '40%',
+    height: '35%',
+    tintColor: "#fff",
+  },
+
+  tabBarStyle: {
+    height: '9%',
+    backgroundColor: '#364156'
+  },
+
+  tabBarLabelStyle: {
+    color: 'white',
+  },
   
   text: {
     color: 'black',
@@ -426,7 +462,7 @@ const lightStyles = StyleSheet.create({
 
 const style = async () => {
   
-  var estClair = true;
+  var estClair = false;
 
   try {
     const val =  await AsyncStorage.getItem('@theme');
