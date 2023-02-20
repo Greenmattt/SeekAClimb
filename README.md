@@ -8,4 +8,4 @@ Tout le code s'organise autour d'une base de donnée et du React Native.
 
 [Thème sombre](https://coolors.co/011638-364156-282828-131514-214e34)
 ##
-[Thème clair](https://coolors.co/011638-364156-cdcdcd-f7fffb-214e34)
+[Thème clair](https://coolors.co/011638-364156-bbd2c8-f7fffb-214e34)
