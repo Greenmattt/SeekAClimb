@@ -27,7 +27,7 @@ const Routes = () => {
 
   const [typeID, onChangeTypeID] = useState(0);
   const changeType = (value) => onChangeTypeID(a => value);
-  const list_Type = ["voie", "bloc", "traversee"];
+  const list_Type = ["voie", "bloc", "vitesse"];
 
   const [open, setOpen] = useState(false);
   const [lieuPicker, setLieuPicker] = useState();
@@ -121,12 +121,12 @@ const Routes = () => {
               multiple={true}
               mode="BADGE"
               badgeDotColors={["#3a75b1", "#3ab175"]}
-              style= {{margin: 1}}/>
+              style={{borderWidth: 0}}/>
 
 
       {/* Choix du type de route */}
 
-      <EnumButtons text={['Voie', 'Bloc', 'Traversée']} typeID={typeID} changeType={changeType}/>
+      <EnumButtons text={['Voie', 'Bloc', 'Vitesse']} typeID={typeID} changeType={changeType}/>
 
 
       {/* Switch Custom - Officiel */}
