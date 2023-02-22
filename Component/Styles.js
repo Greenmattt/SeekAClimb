@@ -60,7 +60,7 @@ const darkStyles = StyleSheet.create({
   },
   
   header: {
-    flex: 0.07,
+    flex: 0.06,
     backgroundColor: '#214E34',
     justifyContent: 'center',
   },
@@ -198,13 +198,18 @@ const darkStyles = StyleSheet.create({
   },
 
   routeOptions: {
-    flex: 40,
+    flex: 4,
     justifyContent: 'space-between',
-    backgroundColor: '#131514',
+    backgroundColor: '#282828',
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: '#364156',
+    margin: 5,
+    padding: 5,
   },
 
   routeReponse: {
-    flex: 60,
+    flex: 6,
     justifyContent: 'space-between',
     backgroundColor: '#131514',
   },
@@ -290,14 +295,14 @@ const lightStyles = StyleSheet.create({
   },
 
   header: {
-    flex: 0.07,
+    flex: 0.06,
     backgroundColor: '#214E34',
     justifyContent: 'center',
   },
 
   headerText: {
     fontSize: 20,
-    color: 'black',
+    color: 'white',
     textAlign: 'center',
     fontStyle: 'italic',
   },
@@ -427,13 +432,18 @@ const lightStyles = StyleSheet.create({
   },
 
   routeOptions: {
-    flex: 40,
+    flex: 4,
     justifyContent: 'space-between',
-    backgroundColor: '#F7FFFB',
+    backgroundColor: '#CDCDCD',
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: '#364156',
+    margin: 5,
+    padding: 5,
   },
 
   routeReponse: {
-    flex: 60,
+    flex: 6,
     justifyContent: 'space-between',
     backgroundColor: '#F7FFFB',
   },
