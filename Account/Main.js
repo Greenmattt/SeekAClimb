@@ -1,10 +1,16 @@
 //Navigation import
-import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack';
 
 import Options from './Options';
 import SeConnecter from './SeConnecter';
 import CreerCompte from './CreerCompte';
 
+const config = {
+  animation: 'timing',
+  config: {
+    duration : 400,
+  },
+};
 
 const App = () => {
   const Stack = createStackNavigator();
@@ -14,17 +20,31 @@ const App = () => {
       <Stack.Screen
         name="Options"
         component={Options}
-        options={{ headerShown: false }}
+        options={{ 
+          headerShown: false,
+          cardStyleInterpolator: CardStyleInterpolators.forFadeFromBottomAndroid,
+          
+        }}
       />
       <Stack.Screen
         name="SeConnecter"
         component={SeConnecter}
-        options={{ headerShown: false }}
+        options={{ 
+          headerShown: false,
+          cardStyleInterpolator: CardStyleInterpolators.forFadeFromBottomAndroid,
+          transitionSpec:{
+            open:{},
+            close: config,
+          }
+        }}
       />
       <Stack.Screen
         name="CreerCompte"
         component={CreerCompte}
-        options={{ headerShown: false }}
+        options={{ 
+          headerShown: false,
+          cardStyleInterpolator: CardStyleInterpolators.forFadeFromBottomAndroid,
+        }}
       />
     </Stack.Navigator>
   );
