@@ -89,7 +89,7 @@ const darkStyles = StyleSheet.create({
     alignItems: 'center'
   },
 
-  homeQuart: {
+  homeMainBox: {
     flex: 1,
     flexDirection: 'row',
     backgroundColor: '#131514'
@@ -158,7 +158,25 @@ const darkStyles = StyleSheet.create({
     borderRadius: 5,
     margin: 7,
     marginBottom: 3.5,
+  },
+
+  settingsLanguageBox: {
+    flex: 1,
+    backgroundColor: '#2A2A2A',
     alignItems: 'center',
+    justifyContent: 'center',
+    borderColor: '#364156',
+    borderTopWidth: 1,
+  },
+
+  settingsThemeBox: {
+    flex: 1,
+    backgroundColor: '#2A2A2A',
+    borderColor: '#364156',
+    borderBottomWidth: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around',
   },
 
   tabBarIconStyle: {
@@ -322,7 +340,7 @@ const lightStyles = StyleSheet.create({
     alignItems: 'center'
   },
 
-  homeQuart: {
+  homeMainBox: {
     flex: 1,
     flexDirection: 'row',
     backgroundColor: '#f7fffb'
