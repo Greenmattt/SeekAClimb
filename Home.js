@@ -15,16 +15,33 @@ const Home = () => {
   }, [])
 
   return (
-    <View style={styles.homeBigBox}>
-      <View style={styles.homeMainBox}>
+    <View style={styles.container}>
+
+      <View style={styles.homeQuart}>
         <View style={styles.homeBox}>
-          <Text style={styles.text}>Page 1</Text>
-        </View>
-        <View style={styles.homeBox}>
-          <Text style={styles.text}>Page 2</Text>
+          <Text style={styles.text}>Actus</Text>
         </View>
       </View>
-      <View style={styles.homeMainBox}>
+
+      <View style={styles.homeQuart}>
+        <View style={styles.homeBox}>
+          <Text style={styles.text}>Leaderboard 1 </Text>
+        </View>
+        <View style={styles.homeBox}>
+          <Text style={styles.text}>Leaderboard 2 </Text>
+        </View>
+        <View style={styles.homeBox}>
+          <Text style={styles.text}>Leaderboard 3 </Text>
+        </View>
+      </View>
+
+      <View style={styles.homeQuart}>
+        <View style={styles.homeBox}>
+          <Text style={styles.text}>Bloc de la semaine</Text>
+        </View>
+      </View>
+
+      <View style={styles.homeQuart}>
         <View style={styles.homeBox}>
           <Text style={styles.text}>Page 3</Text>
         </View>
@@ -32,6 +49,7 @@ const Home = () => {
           <Text style={styles.text}>Page 4</Text>
         </View>
       </View>
+
   </View>
   );
 };
