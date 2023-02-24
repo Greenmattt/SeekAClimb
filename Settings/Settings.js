@@ -50,27 +50,35 @@ const Settings = (props) => {
     }
   }
 
+  let ThemeLabel = 'Sombre';
+
   const changeTheme = () => {
     if (estClair) {
       setEstClair(false);
       storeTheme(false).then(Updates.reloadAsync());
-      
+      ThemeLabel = 'Clair';
     } else {
       setEstClair(true);
       storeTheme(true).then(Updates.reloadAsync());
+      ThemeLabel = 'Sombre';
     }
   }
-
 
   return (
     <View style={styles.container}>
 
       <View style={styles.settingsBox}>
-      <Switch
-        trackColor={{false: '#3a75b1', true: "#3ab175"}}
-        thumbColor = {"#fff"}
-        onValueChange = {() => changeTheme()}
-        value = {estClair}/>
+        <View style={styles.settingsThemeBox}>
+          <Switch
+            trackColor={{false: '#3a75b1', true: "#3ab175"}}
+            thumbColor = {"#fff"}
+            onValueChange = {() => changeTheme()}
+            value = {estClair}/>
+          <Text style={styles.text}>{ThemeLabel}</Text>
+        </View>
+        <View style={styles.settingsLanguageBox}>
+          <Text style={styles.text}>Changemement de langue</Text>
+        </View>
       </View>
 
       <View style={styles.infoSettingsBox}>
