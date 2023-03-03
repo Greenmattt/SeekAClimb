@@ -9,7 +9,7 @@ import React, { useEffect , useState} from 'react';
 import Settings from './Settings/Main';
 import Account from './Account/Main';
 import Routes from './Routes/Main';
-import Home from './Home';
+import Home from './Home/Home';
 
 import style from './Component/Styles'
 
