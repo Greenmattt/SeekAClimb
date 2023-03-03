@@ -58,10 +58,20 @@ const App = () => {
   function imageVoies () {return(<Image style={styles.icon} source={require('./assets/Sports_Climbing_icon.png')}/>)}
   const Tab = createMaterialTopTabNavigator();
 
+
   return (
     <View style = {{flex:1}}>
     {styleCharge 
-    ? <NavigationContainer>
+    ? <NavigationContainer theme={{  
+  dark: true,
+  colors: {
+    primary: '#e1758a',
+    background: 'black',
+    card: '#0000',
+    text: 'black',
+    border: 'gray',
+    notification: 'green',
+  },}}>
     <View style = {styles.header}>
       <Text style = {styles.headerText}> SeekAclimb </Text>
     </View>
