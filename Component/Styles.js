@@ -89,7 +89,7 @@ const darkStyles = StyleSheet.create({
     alignItems: 'center'
   },
 
-  homeMainBox: {
+  homeQuart: {
     flex: 1,
     flexDirection: 'row',
     backgroundColor: '#131514'
@@ -340,7 +340,7 @@ const lightStyles = StyleSheet.create({
     alignItems: 'center'
   },
 
-  homeMainBox: {
+  homeQuart: {
     flex: 1,
     flexDirection: 'row',
     backgroundColor: '#f7fffb'
