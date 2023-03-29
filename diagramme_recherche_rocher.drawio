@@ -1,9 +1,201 @@
-<mxfile host="app.diagrams.net" modified="2023-03-29T08:30:06.085Z" agent="Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0" version="21.1.1" etag="jlq8v_4NaSYmFs0AgdVe" type="github">
+<mxfile host="app.diagrams.net" modified="2023-03-29T09:26:42.923Z" agent="Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0" etag="jEhJV1oHjT3bPtPpt83j" version="21.1.1" type="github">
   <diagram name="Page-1" id="jCD82jmgZVjNla-3jcNC">
-    <mxGraphModel>
+    <mxGraphModel dx="2232" dy="852" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="-kuFf1sqpvpgjg36afKU-1" value="&lt;div&gt;Client&lt;/div&gt;&amp;nbsp;(téléphone pour les camarades)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-210" y="70" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-2" value="Serveur physique ou machine plutôt en vrai machine c&#39;est plus logique" style="swimlane;whiteSpace=wrap;html=1;startSize=40;" vertex="1" parent="1">
+          <mxGeometry x="280" y="10" width="530" height="410" as="geometry" />
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-3" value="&lt;div&gt;Serveur HTTP &lt;br&gt;&lt;/div&gt;&lt;div&gt;(python)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="-kuFf1sqpvpgjg36afKU-2">
+          <mxGeometry x="40" y="60" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-4" value="Serveur FTP" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="-kuFf1sqpvpgjg36afKU-2">
+          <mxGeometry x="40" y="310" width="126" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-37" value="FIchiers" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="-kuFf1sqpvpgjg36afKU-2">
+          <mxGeometry x="280" y="60" width="200" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-38" value="Main (toutes les images &quot;identifiées&quot;)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="-kuFf1sqpvpgjg36afKU-37">
+          <mxGeometry x="40" y="40" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-39" value="Utilisateurs" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="-kuFf1sqpvpgjg36afKU-37">
+          <mxGeometry x="40" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-6" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="-kuFf1sqpvpgjg36afKU-8" target="-kuFf1sqpvpgjg36afKU-4">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-90" y="100" as="sourcePoint" />
+            <mxPoint x="320" y="100" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-7" value="nom Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="110" y="77.5" width="80" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-8" value="Image avec comme nom coordonnées + date et heure + IDUser" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="90" y="215" width="110" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-9" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="-kuFf1sqpvpgjg36afKU-7" target="-kuFf1sqpvpgjg36afKU-3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="130" y="200" as="sourcePoint" />
+            <mxPoint x="180" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-10" value="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="-kuFf1sqpvpgjg36afKU-1" target="-kuFf1sqpvpgjg36afKU-8">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="310" y="240" as="sourcePoint" />
+            <mxPoint x="360" y="190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-11" value="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="-kuFf1sqpvpgjg36afKU-1" target="-kuFf1sqpvpgjg36afKU-7">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-60" y="50" as="sourcePoint" />
+            <mxPoint x="120" y="165" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-12" value="&lt;div&gt;Client&lt;/div&gt;&amp;nbsp;(téléphone pour les camarades)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-210" y="530" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-13" value="Serveur physique ou machine plutôt en vrai machine c&#39;est plus logique" style="swimlane;whiteSpace=wrap;html=1;startSize=40;" vertex="1" parent="1">
+          <mxGeometry x="280" y="470" width="530" height="410" as="geometry" />
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-14" value="&lt;div&gt;Serveur HTTP &lt;br&gt;&lt;/div&gt;&lt;div&gt;(python)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="-kuFf1sqpvpgjg36afKU-13">
+          <mxGeometry x="40" y="60" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-15" value="Serveur FTP" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="-kuFf1sqpvpgjg36afKU-13">
+          <mxGeometry x="40" y="310" width="126" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-24" value="Image avec le nom" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="-kuFf1sqpvpgjg36afKU-13">
+          <mxGeometry x="210" y="310" width="70" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-25" value="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="-kuFf1sqpvpgjg36afKU-13" source="-kuFf1sqpvpgjg36afKU-15" target="-kuFf1sqpvpgjg36afKU-24">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="100" y="50" as="sourcePoint" />
+            <mxPoint x="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-40" value="FIchiers" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="-kuFf1sqpvpgjg36afKU-13">
+          <mxGeometry x="320" y="90" width="170" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-41" value="&lt;div&gt;Main&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="-kuFf1sqpvpgjg36afKU-40">
+          <mxGeometry x="30" y="50" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-42" value="Utilisateurs" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="-kuFf1sqpvpgjg36afKU-40">
+          <mxGeometry x="30" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-43" value="Création de dossier de travail client si besoin" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="-kuFf1sqpvpgjg36afKU-40">
+          <mxGeometry x="-40" y="160" width="90" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-23" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="-kuFf1sqpvpgjg36afKU-13" source="-kuFf1sqpvpgjg36afKU-24" target="-kuFf1sqpvpgjg36afKU-42">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="100" y="80" as="sourcePoint" />
+            <mxPoint x="343" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-27" value="&lt;div&gt;Client&lt;/div&gt;&amp;nbsp;(téléphone pour les camarades)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-200" y="1000" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-28" value="Serveur physique ou machine plutôt en vrai machine c&#39;est plus logique" style="swimlane;whiteSpace=wrap;html=1;startSize=40;" vertex="1" parent="1">
+          <mxGeometry x="290" y="940" width="530" height="410" as="geometry" />
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-29" value="&lt;div&gt;Serveur HTTP &lt;br&gt;&lt;/div&gt;&lt;div&gt;(python)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="-kuFf1sqpvpgjg36afKU-28">
+          <mxGeometry x="40" y="60" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-30" value="Serveur FTP" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="-kuFf1sqpvpgjg36afKU-28">
+          <mxGeometry x="40" y="310" width="126" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-46" value="FIchiers" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="-kuFf1sqpvpgjg36afKU-28">
+          <mxGeometry x="320" y="80" width="170" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-47" value="&lt;div&gt;Main&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="-kuFf1sqpvpgjg36afKU-46">
+          <mxGeometry x="30" y="40" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-48" value="Utilisateurs" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="-kuFf1sqpvpgjg36afKU-46">
+          <mxGeometry x="30" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-36" value="Récupération de l&#39;image de l&#39;utilisateur" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="-kuFf1sqpvpgjg36afKU-28">
+          <mxGeometry x="220" y="190" width="80" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-35" value="" style="endArrow=classic;html=1;rounded=0;entryX=1;entryY=1;entryDx=0;entryDy=0;exitX=0;exitY=0.114;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="-kuFf1sqpvpgjg36afKU-28" source="-kuFf1sqpvpgjg36afKU-36" target="-kuFf1sqpvpgjg36afKU-29">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="240" y="130" as="sourcePoint" />
+            <mxPoint x="350" y="110" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-50" value="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="-kuFf1sqpvpgjg36afKU-28" source="-kuFf1sqpvpgjg36afKU-36" target="-kuFf1sqpvpgjg36afKU-48">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="130" y="200" as="sourcePoint" />
+            <mxPoint x="180" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-51" value="Récupération des images avec les coordonnées GPS proches" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="-kuFf1sqpvpgjg36afKU-28">
+          <mxGeometry x="190" y="90" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-52" value="" style="endArrow=none;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="-kuFf1sqpvpgjg36afKU-28" source="-kuFf1sqpvpgjg36afKU-47" target="-kuFf1sqpvpgjg36afKU-51">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="130" y="200" as="sourcePoint" />
+            <mxPoint x="180" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-53" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="-kuFf1sqpvpgjg36afKU-28" source="-kuFf1sqpvpgjg36afKU-51" target="-kuFf1sqpvpgjg36afKU-29">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="130" y="200" as="sourcePoint" />
+            <mxPoint x="180" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-54" value="&lt;div&gt;Client&lt;/div&gt;&amp;nbsp;(téléphone pour les camarades)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-200" y="1460" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-55" value="Serveur physique ou machine plutôt en vrai machine c&#39;est plus logique" style="swimlane;whiteSpace=wrap;html=1;startSize=40;" vertex="1" parent="1">
+          <mxGeometry x="290" y="1400" width="530" height="410" as="geometry" />
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-56" value="&lt;div&gt;Serveur HTTP &lt;br&gt;&lt;/div&gt;&lt;div&gt;(python)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="-kuFf1sqpvpgjg36afKU-55">
+          <mxGeometry x="40" y="60" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-57" value="Serveur FTP" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="-kuFf1sqpvpgjg36afKU-55">
+          <mxGeometry x="40" y="310" width="126" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-58" value="FIchiers" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="-kuFf1sqpvpgjg36afKU-55">
+          <mxGeometry x="320" y="80" width="170" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-59" value="&lt;div&gt;Main&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="-kuFf1sqpvpgjg36afKU-58">
+          <mxGeometry x="30" y="40" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-60" value="Utilisateurs" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="-kuFf1sqpvpgjg36afKU-58">
+          <mxGeometry x="30" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-61" value="Récupération de l&#39;image de l&#39;utilisateur" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="-kuFf1sqpvpgjg36afKU-55">
+          <mxGeometry x="220" y="190" width="80" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-62" value="" style="endArrow=classic;html=1;rounded=0;entryX=1;entryY=1;entryDx=0;entryDy=0;exitX=0;exitY=0.114;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="-kuFf1sqpvpgjg36afKU-55" source="-kuFf1sqpvpgjg36afKU-61" target="-kuFf1sqpvpgjg36afKU-56">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="240" y="130" as="sourcePoint" />
+            <mxPoint x="350" y="110" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-63" value="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="-kuFf1sqpvpgjg36afKU-55" source="-kuFf1sqpvpgjg36afKU-61" target="-kuFf1sqpvpgjg36afKU-60">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="130" y="200" as="sourcePoint" />
+            <mxPoint x="180" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-64" value="Récupération des images avec les coordonnées GPS proches" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="-kuFf1sqpvpgjg36afKU-55">
+          <mxGeometry x="190" y="90" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-65" value="" style="endArrow=none;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="-kuFf1sqpvpgjg36afKU-55" source="-kuFf1sqpvpgjg36afKU-59" target="-kuFf1sqpvpgjg36afKU-64">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="130" y="200" as="sourcePoint" />
+            <mxPoint x="180" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-kuFf1sqpvpgjg36afKU-66" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="-kuFf1sqpvpgjg36afKU-55" source="-kuFf1sqpvpgjg36afKU-64" target="-kuFf1sqpvpgjg36afKU-56">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="130" y="200" as="sourcePoint" />
+            <mxPoint x="180" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
