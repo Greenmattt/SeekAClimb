@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, TextInput, Switch, TouchableOpacity, Image, ImageBackground } from 'react-native';
+import { Text, View, TextInput, Switch, TouchableOpacity, Image, ImageBackground, ScrollView, SafeAreaView} from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
 // commandes à faire :  npm install react-native-dropdown-picker
@@ -27,13 +27,14 @@ const Routes = () => {
 
   const [typeID, onChangeTypeID] = useState(0);
   const changeType = (value) => onChangeTypeID(a => value);
-  const list_Type = ["voie", "bloc", "vitesse"];
+  const list_Type = ["voie", "bloc", "vitesse", "circuit"];
 
   const [open, setOpen] = useState(false);
   const [lieuPicker, setLieuPicker] = useState();
   const [items, setItems] = useState([
     {label: 'Blaise-Pascal', value: '0001'},
     {label: 'Casamur', value: '0002', },
+    {label: 'Cournols', value: '0003'},
   ]);
 
   const difficultes = ['3a', '3b', '3c', 
@@ -105,6 +106,7 @@ const Routes = () => {
   
   return (
     <View style={styles.container}>
+
       <View style={styles.routeOptions}>
         {/* Je mets absolument tout dans des View pour bien pouvoir faire des compartiments du screens équitables */}
 
@@ -126,21 +128,7 @@ const Routes = () => {
 
       {/* Choix du type de route */}
 
-      <EnumButtons text={['Voie', 'Bloc', 'Vitesse']} typeID={typeID} changeType={changeType}/>
-
-
-      {/* Switch Custom - Officiel */}
-
-      <View style = {{flex: 2, flexDirection:'row', justifyContent: "space-evenly", alignItems:'center'}}>
-        <Text style={styles.text}>Officiel</Text>
-
-        <Switch trackColor={{false: '#3a75b1', true: "#3ab175"}}
-                thumbColor = {estCustom ? "#fff" : "#fff"}
-                onValueChange = {toggleSwitch}
-                value = {estCustom}/>
-
-        <Text style={styles.text}>Custom</Text>
-      </View>
+      <EnumButtons text={['Voie', 'Bloc', 'Vitesse', 'Circuit']} typeID={typeID} changeType={changeType}/>
 
 
       {/* Textes de difficultés */}
@@ -148,7 +136,7 @@ const Routes = () => {
       <View style={{flex: 2, flexDirection:'row', justifyContent: "space-between", alignItems:'center'}}>
         
         <View style= {{flex: 1}}> 
-          <Text style={styles.text}>min : {difficultes[nonCollidingMultiSliderValue[0]]} </Text>
+          <Text style={styles.text}>min : {difficultes[nonCollidingMultiSliderValue[0]]}</Text>
         </View>
         <View style = {{flex: 3}}></View>
         <View style= {{flex: 1}}>
@@ -210,9 +198,61 @@ const Routes = () => {
         { estCharge ? <JsonToButtons json = {apiRes}/> 
         : <Text style={styles.text}>Page des voies</Text>
       }
+        <ScrollView style={{flex:1}}>
+
+        <Text style = {{flex:1, color:"#fff"}}> A </Text> 
+        <Text style = {{flex:1, color:"#fff"}}> A </Text>
+        <Text style = {{flex:1, color:"#fff"}}> A </Text>
+        <Text style = {{flex:1, color:"#fff"}}> A </Text>
+        <Text style = {{flex:1, color:"#fff"}}> A </Text>
+        <Text style = {{flex:1, color:"#fff"}}> A </Text>
+        <Text style = {{flex:1, color:"#fff"}}> A </Text>
+                <Text style = {{flex:1, color:"#fff"}}> A </Text> 
+        <Text style = {{flex:1, color:"#fff"}}> A </Text>
+        <Text style = {{flex:1, color:"#fff"}}> A </Text>
+        <Text style = {{flex:1, color:"#fff"}}> A </Text>
+        <Text style = {{flex:1, color:"#fff"}}> A </Text>
+        <Text style = {{flex:1, color:"#fff"}}> A </Text>
+        <Text style = {{flex:1, color:"#fff"}}> A </Text>
+                <Text style = {{flex:1, color:"#fff"}}> A </Text> 
+        <Text style = {{flex:1, color:"#fff"}}> A </Text>
+        <Text style = {{flex:1, color:"#fff"}}> A </Text>
+        <Text style = {{flex:1, color:"#fff"}}> A </Text>
+        <Text style = {{flex:1, color:"#fff"}}> A </Text>
+        <Text style = {{flex:1, color:"#fff"}}> A </Text>
+        <Text style = {{flex:1, color:"#fff"}}> A </Text>
+                <Text style = {{flex:1, color:"#fff"}}> A </Text> 
+        <Text style = {{flex:1, color:"#fff"}}> A </Text>
+        <Text style = {{flex:1, color:"#fff"}}> A </Text>
+        <Text style = {{flex:1, color:"#fff"}}> A </Text>
+        <Text style = {{flex:1, color:"#fff"}}> A </Text>
+        <Text style = {{flex:1, color:"#fff"}}> A </Text>
+        <Text style = {{flex:1, color:"#fff"}}> A </Text>
+                <Text style = {{flex:1, color:"#fff"}}> A </Text> 
+        <Text style = {{flex:1, color:"#fff"}}> A </Text>
+        <Text style = {{flex:1, color:"#fff"}}> A </Text>
+        <Text style = {{flex:1, color:"#fff"}}> A </Text>
+        <Text style = {{flex:1, color:"#fff"}}> A </Text>
+        <Text style = {{flex:1, color:"#fff"}}> A </Text>
+        <Text style = {{flex:1, color:"#fff"}}> A </Text>
+                <Text style = {{flex:1, color:"#fff"}}> A </Text> 
+        <Text style = {{flex:1, color:"#fff"}}> A </Text>
+        <Text style = {{flex:1, color:"#fff"}}> A </Text>
+        <Text style = {{flex:1, color:"#fff"}}> A </Text>
+        <Text style = {{flex:1, color:"#fff"}}> A </Text>
+        <Text style = {{flex:1, color:"#fff"}}> A </Text>
+        <Text style = {{flex:1, color:"#fff"}}> A </Text>
+                <Text style = {{flex:1, color:"#fff"}}> A </Text> 
+        <Text style = {{flex:1, color:"#fff"}}> A </Text>
+        <Text style = {{flex:1, color:"#fff"}}> A </Text>
+        <Text style = {{flex:1, color:"#fff"}}> A </Text>
+        <Text style = {{flex:1, color:"#fff"}}> A </Text>
+        <Text style = {{flex:1, color:"#fff"}}> A </Text>
+        <Text style = {{flex:1, color:"#fff"}}> A </Text>
+        </ScrollView>
       </View> 
 
-    </View>); 
+    </View> ); 
 } 
 
 export default Routes;
