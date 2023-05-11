@@ -115,7 +115,7 @@ const darkStyles = StyleSheet.create({
   },
   
   infoSettingsBox: {
-    flex: 1,
+    flex: 2,
     backgroundColor: '#1c1c1c',
     borderColor: '#364156',
     borderWidth: 1,
