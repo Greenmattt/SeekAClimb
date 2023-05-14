@@ -81,20 +81,16 @@ const App = () => {
           labelStyle: styles.tabBarLabelStyle,
          }}>
 
-        <Tab.Screen name="Home" component={HomeScreen} options={{headerShown:false, tabBarIcon:imageAccueil, tabBarShowIcon:true}}/>
+        <Tab.Screen name="Accueil" component={HomeScreen} options={{headerShown:false, tabBarIcon:imageAccueil, tabBarShowIcon:true}}/>
         <Tab.Screen name="Voies" component={RoutesScreen} options={{headerShown:false, tabBarIcon:imageVoies, tabBarShowIcon:true}}/>
-        <Tab.Screen name="Settings" component={SettingsScreen} options={{headerShown:false, tabBarIcon:imageSettings, tabBarShowIcon:true}}/>
-        <Tab.Screen name="Account" component={AccountScreen} options={{headerShown:false, tabBarIcon:imageCompte, tabBarShowIcon:true}}/>
+        <Tab.Screen name="Carte" component={SettingsScreen} options={{headerShown:false}}/>
+        <Tab.Screen name="Options" component={AccountScreen} options={{headerShown:false, tabBarIcon:imageSettings, tabBarShowIcon:true}}/>
       </Tab.Navigator>
 
     </NavigationContainer>
 
     : <ActivityIndicator sier="large" color="#0000ff"/>}
     </View>
-
-    
-
-    
   );
 }
 

@@ -166,14 +166,14 @@ const darkStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderColor: '#364156',
-    borderTopWidth: 1,
+    borderTopWidth: 0.5,
   },
 
   settingsThemeBox: {
     flex: 1,
     backgroundColor: '#2A2A2A',
     borderColor: '#364156',
-    borderBottomWidth: 1,
+    borderBottomWidth: 0.5,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-around',
@@ -409,7 +409,25 @@ const lightStyles = StyleSheet.create({
     borderRadius: 5,
     margin: 7,
     marginBottom: 3.5,
+  },
+
+  settingsLanguageBox: {
+    flex: 1,
+    backgroundColor: '#CDCDCD',
     alignItems: 'center',
+    justifyContent: 'center',
+    borderColor: '#364156',
+    borderTopWidth: 0.5,
+  },
+
+  settingsThemeBox: {
+    flex: 1,
+    backgroundColor: '#CDCDCD',
+    borderColor: '#364156',
+    borderBottomWidth: 0.5,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around',
   },
 
   tabBarIconStyle: {

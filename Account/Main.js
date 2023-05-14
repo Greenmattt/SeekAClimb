@@ -4,6 +4,7 @@ import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/
 import Options from './Options';
 import SeConnecter from './SeConnecter';
 import CreerCompte from './CreerCompte';
+import Informations from './Informations';
 
 const config = {
   animation: 'timing',
@@ -45,6 +46,14 @@ const App = () => {
           headerShown: false,
           cardStyleInterpolator: CardStyleInterpolators.forFadeFromBottomAndroid,
         }}
+      />
+      <Stack.Screen 
+      name='Informations' 
+      component={Informations} 
+      options={{ 
+        headerShown: false,
+        cardStyleInterpolator: CardStyleInterpolators.forFadeFromBottomAndroid,
+       }}
       />
     </Stack.Navigator>
   );

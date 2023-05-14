@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, TextInput, Switch, TouchableOpacity, Image, ImageBackground, ScrollView, SafeAreaView} from 'react-native';
+import { Text, View, TouchableOpacity, Image, ScrollView } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
 // commandes à faire :  npm install react-native-dropdown-picker
@@ -21,9 +21,6 @@ const Routes = () => {
     }
     getStyle();
   }, []);
-
-  const [estCustom, onChangeEstCustom] = useState(false);
-  const toggleSwitch = () => onChangeEstCustom(a => !a);
 
   const [typeID, onChangeTypeID] = useState(0);
   const changeType = (value) => onChangeTypeID(a => value);
@@ -49,10 +46,7 @@ const Routes = () => {
   disableScroll = () => this.setState({ scrollEnabled: false });
 
  
-  const [
-    nonCollidingMultiSliderValue,
-    setNonCollidingMultiSliderValue,
-  ] = React.useState([0, 100]);
+  const [nonCollidingMultiSliderValue, setNonCollidingMultiSliderValue,] = React.useState([0, 100]);
   nonCollidingMultiSliderValuesChange = values => setNonCollidingMultiSliderValue(values);
 
   const imageCursor = <Image source={require("../assets/green_circle.png")} style={styles.icon}/>
@@ -122,11 +116,12 @@ const Routes = () => {
               theme="DARK"
               multiple={true}
               mode="BADGE"
-              badgeDotColors={["#3a75b1", "#3ab175"]}
+              badgeDotColors={["#3a75b1", "#3ab175", "#C4137F"]}
               style={{borderWidth: 0}}/>
 
-
       {/* Choix du type de route */}
+
+      <View style={{flex: 1}}></View>
 
       <EnumButtons text={['Voie', 'Bloc', 'Vitesse', 'Circuit']} typeID={typeID} changeType={changeType}/>
 
