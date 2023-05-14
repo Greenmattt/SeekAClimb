@@ -251,6 +251,13 @@ const darkStyles = StyleSheet.create({
     borderRadius: 20,
     margin: 5,
   },
+
+  routeSlider: {
+    flex: 2,
+    flexDirection:'row',
+    justifyContent: "space-evenly",
+    alignItems:'center',
+  },
 });
 
 const lightStyles = StyleSheet.create({
@@ -504,6 +511,12 @@ const lightStyles = StyleSheet.create({
     margin: 5,
   },
   
+  routeSlider: {
+    flex: 2,
+    flexDirection:'row',
+    justifyContent: "space-evenly",
+    alignItems:'center',
+  },
 });
 
 const style = async () => {

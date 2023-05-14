@@ -128,7 +128,7 @@ const Routes = () => {
 
       {/* Textes de difficultés */}
 
-      <View style={{flex: 2, flexDirection:'row', justifyContent: "space-between", alignItems:'center'}}>
+      <View style={styles.routeSlider}>
         
         <View style= {{flex: 1}}> 
           <Text style={styles.text}>min : {difficultes[nonCollidingMultiSliderValue[0]]}</Text>
@@ -143,7 +143,7 @@ const Routes = () => {
 
       {/* Slider de difficultés */}
 
-      <View style = {{flex: 2, flexDirection:'row', justifyContent: "space-evenly", alignItems:'center'}}>
+      <View style = {styles.routeSlider}>
         <MultiSlider
           values={[
             nonCollidingMultiSliderValue[0],
