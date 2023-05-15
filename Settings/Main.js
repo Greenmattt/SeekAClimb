@@ -1,9 +1,22 @@
 import React, {useState, useEffect} from 'react';
 import MapView, {Marker} from 'react-native-maps';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import * as Location from 'expo-location'
 
 const Main = () => { // Page de navigation entre Settings.js et Informations.js
+
+  const [mapRegion, setMapRegion] = useState({
+    latitude: 45.777222,
+    longitude: 3.087025,
+    latitudeDelta: 0.05,
+    longitudeDelta: 0.05,
+  });
+
+  const [casaMarker, setCasaMarker] = useState({
+    latitude: 45.77530786164406,
+    longitude: 3.0787410539556155,
+  })
+
   const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
   useEffect(() => {
