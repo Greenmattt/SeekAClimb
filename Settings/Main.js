@@ -3,6 +3,32 @@ import MapView, {Marker} from 'react-native-maps';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 
 // commmande pour la map : npx expo install react-native-maps
+import * as Location from 'expo-location'
+
+const Main = () => { // Page de navigation entre Settings.js et Informations.js
+  const [location, setLocation] = useState(null);
+  const [errorMsg, setErrorMsg] = useState(null);
+  useEffect(() => {
+    (async () => {
+      
+      let { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== 'granted') {
+        setErrorMsg("L'accès à la localisation a été refusé");
+        return;
+      }
+
+      let location = await Location.getCurrentPositionAsync({});
+      setLocation(location);
+    })();
+  }, []);
+
+  let text = 'En attente';
+  if (errorMsg) {
+    text = errorMsg;
+  } else if (location) {
+    text = JSON.stringify(location);
+  }
+
 
 const Main = () => { // Page de navigation entre Settings.js et Informations.js
 
