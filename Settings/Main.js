@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import MapView, {Marker} from 'react-native-maps';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+
+// commmande pour la map : npx expo install react-native-maps
 
 const Main = () => { // Page de navigation entre Settings.js et Informations.js
 
@@ -18,8 +20,17 @@ const Main = () => { // Page de navigation entre Settings.js et Informations.js
 
   return (
     <View style={styles.container}>
-      <MapView style={styles.map} region={mapRegion}>
-        <Marker coordinate={casaMarker} icon={{uri: '../assets/pinPoint.png'}}><Text style={{color: '#F00'}}>Casaaa</Text></Marker>
+      <MapView style={styles.map} 
+                initialRegion={mapRegion} 
+                showsPointsOfInterest = {false}
+                onRegionChange = {setMapRegion}>
+        
+        { mapRegion.latitudeDelta < 0.2 && mapRegion.longitudeDelta < 0.2?
+        <Marker coordinate={casaMarker} image={require('../assets/pinpoint_.png')}>
+          <TouchableOpacity onPress={{}}>
+            <Text style={{color: '#F00'}}>Casaaa</Text>
+          </TouchableOpacity>
+        </Marker> : <View></View>}
       </MapView>
     </View>
   );
