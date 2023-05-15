@@ -11,6 +11,12 @@ import style from '../Component/Styles';
 
 const Routes = () => {
 
+  // venant de l'autre page
+  const venantDeCarte = (lieu) => {
+    setLieuPicker(lieu);
+    testFetch("all")
+  }
+
   // load du style
   const [styles, setLeStyle] = useState({});
 
@@ -24,10 +30,10 @@ const Routes = () => {
 
   const [typeID, onChangeTypeID] = useState(0);
   const changeType = (value) => onChangeTypeID(a => value);
-  const list_Type = ["voie", "bloc", "vitesse", "circuit"];
+  const list_Type = ["voie", "bloc", "circuit"];
 
   const [open, setOpen] = useState(false);
-  const [lieuPicker, setLieuPicker] = useState();
+  const [lieuPicker, setLieuPicker] = useState(['0001']); 
   const [items, setItems] = useState([
     {label: 'Blaise-Pascal', value: '0001'},
     {label: 'Casamur', value: '0002', },
@@ -123,7 +129,7 @@ const Routes = () => {
 
       <View style={{flex: 1}}></View>
 
-      <EnumButtons text={['Voie', 'Bloc', 'Vitesse', 'Circuit']} typeID={typeID} changeType={changeType}/>
+      <EnumButtons text={['Voie', 'Bloc', 'Circuit']} typeID={typeID} changeType={changeType}/>
 
 
       {/* Textes de difficultés */}
@@ -194,60 +200,59 @@ const Routes = () => {
         : <Text style={styles.text}>Page des voies</Text>
       }
         <ScrollView style={{flex:1}}>
-
-        <Text style = {{flex:1, color:"#fff"}}> A </Text> 
-        <Text style = {{flex:1, color:"#fff"}}> A </Text>
-        <Text style = {{flex:1, color:"#fff"}}> A </Text>
-        <Text style = {{flex:1, color:"#fff"}}> A </Text>
-        <Text style = {{flex:1, color:"#fff"}}> A </Text>
-        <Text style = {{flex:1, color:"#fff"}}> A </Text>
-        <Text style = {{flex:1, color:"#fff"}}> A </Text>
-                <Text style = {{flex:1, color:"#fff"}}> A </Text> 
-        <Text style = {{flex:1, color:"#fff"}}> A </Text>
-        <Text style = {{flex:1, color:"#fff"}}> A </Text>
-        <Text style = {{flex:1, color:"#fff"}}> A </Text>
-        <Text style = {{flex:1, color:"#fff"}}> A </Text>
-        <Text style = {{flex:1, color:"#fff"}}> A </Text>
-        <Text style = {{flex:1, color:"#fff"}}> A </Text>
-                <Text style = {{flex:1, color:"#fff"}}> A </Text> 
-        <Text style = {{flex:1, color:"#fff"}}> A </Text>
-        <Text style = {{flex:1, color:"#fff"}}> A </Text>
-        <Text style = {{flex:1, color:"#fff"}}> A </Text>
-        <Text style = {{flex:1, color:"#fff"}}> A </Text>
-        <Text style = {{flex:1, color:"#fff"}}> A </Text>
-        <Text style = {{flex:1, color:"#fff"}}> A </Text>
-                <Text style = {{flex:1, color:"#fff"}}> A </Text> 
-        <Text style = {{flex:1, color:"#fff"}}> A </Text>
-        <Text style = {{flex:1, color:"#fff"}}> A </Text>
-        <Text style = {{flex:1, color:"#fff"}}> A </Text>
-        <Text style = {{flex:1, color:"#fff"}}> A </Text>
-        <Text style = {{flex:1, color:"#fff"}}> A </Text>
-        <Text style = {{flex:1, color:"#fff"}}> A </Text>
-                <Text style = {{flex:1, color:"#fff"}}> A </Text> 
-        <Text style = {{flex:1, color:"#fff"}}> A </Text>
-        <Text style = {{flex:1, color:"#fff"}}> A </Text>
-        <Text style = {{flex:1, color:"#fff"}}> A </Text>
-        <Text style = {{flex:1, color:"#fff"}}> A </Text>
-        <Text style = {{flex:1, color:"#fff"}}> A </Text>
-        <Text style = {{flex:1, color:"#fff"}}> A </Text>
-                <Text style = {{flex:1, color:"#fff"}}> A </Text> 
-        <Text style = {{flex:1, color:"#fff"}}> A </Text>
-        <Text style = {{flex:1, color:"#fff"}}> A </Text>
-        <Text style = {{flex:1, color:"#fff"}}> A </Text>
-        <Text style = {{flex:1, color:"#fff"}}> A </Text>
-        <Text style = {{flex:1, color:"#fff"}}> A </Text>
-        <Text style = {{flex:1, color:"#fff"}}> A </Text>
-                <Text style = {{flex:1, color:"#fff"}}> A </Text> 
-        <Text style = {{flex:1, color:"#fff"}}> A </Text>
-        <Text style = {{flex:1, color:"#fff"}}> A </Text>
-        <Text style = {{flex:1, color:"#fff"}}> A </Text>
-        <Text style = {{flex:1, color:"#fff"}}> A </Text>
-        <Text style = {{flex:1, color:"#fff"}}> A </Text>
-        <Text style = {{flex:1, color:"#fff"}}> A </Text>
+          <Text style = {{flex:1, color:"#f00"}}> A </Text> 
+          <Text style = {{flex:1, color:"#f00"}}> A </Text>
+          <Text style = {{flex:1, color:"#f00"}}> A </Text>
+          <Text style = {{flex:1, color:"#f00"}}> A </Text>
+          <Text style = {{flex:1, color:"#f00"}}> A </Text>
+          <Text style = {{flex:1, color:"#f00"}}> A </Text>
+          <Text style = {{flex:1, color:"#f00"}}> A </Text>
+          <Text style = {{flex:1, color:"#f00"}}> A </Text> 
+          <Text style = {{flex:1, color:"#f00"}}> A </Text>
+          <Text style = {{flex:1, color:"#f00"}}> A </Text>
+          <Text style = {{flex:1, color:"#f00"}}> A </Text>
+          <Text style = {{flex:1, color:"#f00"}}> A </Text>
+          <Text style = {{flex:1, color:"#f00"}}> A </Text>
+          <Text style = {{flex:1, color:"#f00"}}> A </Text>
+          <Text style = {{flex:1, color:"#f00"}}> A </Text> 
+          <Text style = {{flex:1, color:"#f00"}}> A </Text>
+          <Text style = {{flex:1, color:"#f00"}}> A </Text>
+          <Text style = {{flex:1, color:"#f00"}}> A </Text>
+          <Text style = {{flex:1, color:"#f00"}}> A </Text>
+          <Text style = {{flex:1, color:"#f00"}}> A </Text>
+          <Text style = {{flex:1, color:"#f00"}}> A </Text>
+          <Text style = {{flex:1, color:"#f00"}}> A </Text> 
+          <Text style = {{flex:1, color:"#f00"}}> A </Text>
+          <Text style = {{flex:1, color:"#f00"}}> A </Text>
+          <Text style = {{flex:1, color:"#f00"}}> A </Text>
+          <Text style = {{flex:1, color:"#f00"}}> A </Text>
+          <Text style = {{flex:1, color:"#f00"}}> A </Text>
+          <Text style = {{flex:1, color:"#f00"}}> A </Text>
+          <Text style = {{flex:1, color:"#f00"}}> A </Text> 
+          <Text style = {{flex:1, color:"#f00"}}> A </Text>
+          <Text style = {{flex:1, color:"#f00"}}> A </Text>
+          <Text style = {{flex:1, color:"#f00"}}> A </Text>
+          <Text style = {{flex:1, color:"#f00"}}> A </Text>
+          <Text style = {{flex:1, color:"#f00"}}> A </Text>
+          <Text style = {{flex:1, color:"#f00"}}> A </Text>
+          <Text style = {{flex:1, color:"#f00"}}> A </Text> 
+          <Text style = {{flex:1, color:"#f00"}}> A </Text>
+          <Text style = {{flex:1, color:"#f00"}}> A </Text>
+          <Text style = {{flex:1, color:"#f00"}}> A </Text>
+          <Text style = {{flex:1, color:"#f00"}}> A </Text>
+          <Text style = {{flex:1, color:"#f00"}}> A </Text>
+          <Text style = {{flex:1, color:"#f00"}}> A </Text>
+          <Text style = {{flex:1, color:"#f00"}}> A </Text> 
+          <Text style = {{flex:1, color:"#f00"}}> A </Text>
+          <Text style = {{flex:1, color:"#f00"}}> A </Text>
+          <Text style = {{flex:1, color:"#f00"}}> A </Text>
+          <Text style = {{flex:1, color:"#f00"}}> A </Text>
+          <Text style = {{flex:1, color:"#f00"}}> A </Text>
+          <Text style = {{flex:1, color:"#f00"}}> A </Text>
         </ScrollView>
       </View> 
 
-    </View> ); 
+    </View> )
 } 
 
 export default Routes;
