@@ -1,8 +1,6 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import MapView, {Marker} from 'react-native-maps';
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
-
-// commmande pour la map : npx expo install react-native-maps
+import { StyleSheet, View, Text } from 'react-native';
 import * as Location from 'expo-location'
 
 const Main = () => { // Page de navigation entre Settings.js et Informations.js
@@ -28,7 +26,6 @@ const Main = () => { // Page de navigation entre Settings.js et Informations.js
   } else if (location) {
     text = JSON.stringify(location);
   }
-
   return (
     <View style={styles.container}>
       <MapView style={styles.map} 
