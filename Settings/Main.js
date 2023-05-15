@@ -29,21 +29,6 @@ const Main = () => { // Page de navigation entre Settings.js et Informations.js
     text = JSON.stringify(location);
   }
 
-
-const Main = () => { // Page de navigation entre Settings.js et Informations.js
-
-  const [mapRegion, setMapRegion] = useState({
-    latitude: 45.777222,
-    longitude: 3.087025,
-    latitudeDelta: 0.05,
-    longitudeDelta: 0.05,
-  });
-
-  const [casaMarker, setCasaMarker] = useState({
-    latitude: 45.77530786164406,
-    longitude: 3.0787410539556155,
-  })
-
   return (
     <View style={styles.container}>
       <MapView style={styles.map} 
