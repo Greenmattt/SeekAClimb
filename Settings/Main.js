@@ -33,26 +33,56 @@ const Main = () => { // Page de navigation entre Settings.js et Informations.js
     })();
   }, []);
 
-  let text = 'En attente';
-  if (errorMsg) {
-    text = errorMsg;
-  } else if (location) {
-    text = JSON.stringify(location);
-  }
+  const [apiRes, setApiRes] = useState([]);
+  const [estCharge, setEstCharge] = useState(false);
+  const [estApiError, setEstApiError] = useState(false);
+  const [liste_marqueurs, setLM] = useState([]);
+
+  const markerFetch = async () => {
+    setEstCharge(false);
+    setLM([]);
+    try { // là c'est si tout va bien
+      let response = await fetch('http://91.164.5.221:50000/Marker?posLat='+String(mapRegion.latitude)+'&posLong='+String(mapRegion.longitude)+
+                                 '&dLat='+String(mapRegion.latitudeDelta)+"&dLong="+String(mapRegion.longitudeDelta), {
+        method:'GET',
+      });
+      let json = await response.json();
+      console.log(String(json));
+      setApiRes(json); // String() pour pouvoir l'afficher correctement (donc c'est temporaire)
+    } 
+    catch (error) { // là c'est si on a un pb
+      console.error(error);
+      setApiRes("<Pas de réponse de l'API>");
+    }
+    finally { // là c'est une fois qu'on a vérifié qu'il n'y a pas d'erreur et que tout est fini
+
+
+      Object.keys(apiRes).forEach(function (key) {
+          liste_marqueurs.push(
+            <Marker coordinate={{latitude:apiRes[key][0], longitude:apiRes[key][1]}} key={key} image={require('../assets/pinpoint_.png')}>
+              <Text style={{color:"#f00"}}>{key}</Text>
+            </Marker>
+          ); 
+        }); 
+
+        setEstCharge(true);
+        setEstApiError(false);
+    }
+  };
+
   return (
     <View style={styles.container}>
       <MapView style={styles.map} 
                 initialRegion={mapRegion} 
                 showsPointsOfInterest = {false}
-                onRegionChange = {setMapRegion}>
+                onRegionChange = {setMapRegion}
+                onRegionChangeComplete={markerFetch}>
         
         { mapRegion.latitudeDelta < 0.2 && mapRegion.longitudeDelta < 0.2?
-        <Marker coordinate={casaMarker} image={require('../assets/pinpoint_.png')}>
-          <TouchableOpacity onPress={{}}>
-            <Text style={{color: '#F00'}}>Casaaa</Text>
-          </TouchableOpacity>
-        </Marker> : <View></View>}
+          estCharge ? <View>{liste_marqueurs}</View>: <View></View> : <View></View>}
       </MapView>
+      
+      
     </View>
   );
 }
