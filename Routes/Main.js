@@ -55,7 +55,7 @@ const Routes = () => {
   const [nonCollidingMultiSliderValue, setNonCollidingMultiSliderValue,] = React.useState([0, 100]);
   nonCollidingMultiSliderValuesChange = values => setNonCollidingMultiSliderValue(values);
 
-  const imageCursor = <Image source={require("../assets/green_circle.png")} style={styles.icon}/>
+  const imageCursor = <Image source={require("../assets/green_circle.png")} style={styles.routeSliderRond}/>
 
   // Variables pour représenter le résultat du fetch et l'état de la requête sur l'api
   const [apiRes, setApiRes] = useState([]);
