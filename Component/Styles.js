@@ -225,6 +225,13 @@ const darkStyles = StyleSheet.create({
     margin: 5,
     padding: 5,
   },
+  
+  routeSliderRond: {
+    width: 30,
+    height: 20,
+    resizeMode: 'contain',
+    tintColor:'#333',
+  },
 
   routeReponse: {
     flex: 6,
@@ -483,6 +490,13 @@ const lightStyles = StyleSheet.create({
     borderColor: '#364156',
     margin: 5,
     padding: 5,
+  },
+  
+  routeSliderRond: {
+    width: 30,
+    height: 20,
+    resizeMode: 'contain',
+    tintColor:'#333',
   },
 
   routeReponse: {
