@@ -161,7 +161,9 @@ const darkStyles = StyleSheet.create({
     width:60, 
     borderRadius:20, 
     alignItems: 'center', 
-    justifyContent:'center'
+    justifyContent:'center',
+    borderColor:"#F7FFFB",
+    borderWidth: 1
     },
 
   scanIcon: {
