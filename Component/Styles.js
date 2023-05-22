@@ -142,12 +142,32 @@ const darkStyles = StyleSheet.create({
     width: '95%',
   },
 
+  map: {
+    width: '100%',
+    height: '100%',
+  },
+
   mid: {
     flex: 20,
     backgroundColor: '#282828',
     borderColor: '#364156',
     borderWidth: 1,
     borderRadius: 5,
+  },
+
+  scanButton: {
+    backgroundColor:"#022050", 
+    height:60, 
+    width:60, 
+    borderRadius:20, 
+    alignItems: 'center', 
+    justifyContent:'center'
+    },
+
+  scanIcon: {
+    width:40,
+    height:40,
+    tintColor:"#F7FFFB",
   },
 
   settingsBox: {
@@ -380,7 +400,7 @@ const lightStyles = StyleSheet.create({
   },
   
   infoSettingsBox: {
-    flex: 1,
+    flex: 2,
     backgroundColor: '#f7fffb',
     borderColor: '#364156',
     borderWidth: 1,
@@ -407,12 +427,32 @@ const lightStyles = StyleSheet.create({
     width: '95%',
   },
 
+  map: {
+    width: '100%',
+    height: '100%',
+  },
+
   mid: {
     flex: 20,
     backgroundColor: '#CDCDCD',
     borderColor: '#364156',
     borderWidth: 1,
     borderRadius: 5,
+  },
+  
+  scanIcon: {
+    width:40,
+    height:40,
+    tintColor:"#F7FFFB"
+  },
+
+  scanButton: {
+    backgroundColor:"#022050", 
+    height:60, 
+    width:60, 
+    borderRadius:20, 
+    alignItems: 'center', 
+    justifyContent:'center'
   },
 
   settingsBox: {
