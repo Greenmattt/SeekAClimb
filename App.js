@@ -1,5 +1,5 @@
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import { Text, View, Image, ActivityIndicator } from 'react-native';
+import { Text, View, Image, ActivityIndicator, TouchableOpacity} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import React, { useEffect , useState} from 'react';
 
@@ -90,6 +90,13 @@ const App = () => {
     </NavigationContainer>
 
     : <ActivityIndicator sier="large" color="#0000ff"/>}
+
+  <View style={{position:'absolute', left :'82%', top:'82%'}}>
+    <TouchableOpacity style={styles.scanButton}>
+      <Image style={styles.scanIcon} source={require('./assets/ultra_icon.png')}/>
+    </TouchableOpacity>
+  </View>
+
     </View>
   );
 }
