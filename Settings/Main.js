@@ -1,9 +1,22 @@
 import React, {useState, useEffect} from 'react';
 import MapView, {Marker} from 'react-native-maps';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
-import * as Location from 'expo-location'
+import * as Location from 'expo-location';
+
+import style from '../Component/Styles';
 
 const Main = () => { // Page de navigation entre Settings.js et Informations.js
+
+ // load du style
+  const [styles, setLeStyle] = useState({});
+
+  useEffect(() => {
+    async function getStyle (){
+      const s = await style();
+      setLeStyle(s);
+    }
+    getStyle();
+  }, []);
 
   const [mapRegion, setMapRegion] = useState({
     latitude: 45.777222,
@@ -17,7 +30,7 @@ const Main = () => { // Page de navigation entre Settings.js et Informations.js
     longitude: 3.0787410539556155,
   })
 
-  const [location, setLocation] = useState(null);
+  const [location, setLocation] = useState();
   const [errorMsg, setErrorMsg] = useState(null);
   useEffect(() => {
     (async () => {
@@ -72,8 +85,14 @@ const Main = () => { // Page de navigation entre Settings.js et Informations.js
 
   return (
     <View style={styles.container}>
+
+    {location === undefined ? 
+    <View style= {styles.container}>
+      <Text style={styles.text}> Chargement de l'emplacement </Text>
+    </View>
+    : <View style={styles.container}>
       <MapView style={styles.map} 
-                initialRegion={mapRegion} 
+                initialRegion={{longitude:location.coords.longitude, latitude:location.coords.latitude, longitudeDelta:0.001, latitudeDelta:0.001}} 
                 showsPointsOfInterest = {false}
                 onRegionChange = {setMapRegion}
                 onRegionChangeComplete={markerFetch}>
@@ -82,19 +101,12 @@ const Main = () => { // Page de navigation entre Settings.js et Informations.js
           estCharge ? <View>{liste_marqueurs}</View>: <View></View> : <View></View>}
       </MapView>
       
-      
+  
+    </View>}
+
     </View>
+    
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  map: {
-    width: '100%',
-    height: '100%',
-  },
-});
 
 export default Main;
