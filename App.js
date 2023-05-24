@@ -1,7 +1,9 @@
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import { Text, View, Image, ActivityIndicator, TouchableOpacity} from 'react-native';
+import { Text, View, Image, ActivityIndicator, TouchableOpacity, StyleSheet} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import React, { useEffect , useState} from 'react';
+import SSHClient from 'react-native-ssh-sftp';
+
 
 // pour la nav bar : npm install @react-navigation/material-top-tabs react-native-tab-view
 // puis : npx expo install react-native-pager-view
@@ -14,6 +16,55 @@ import Home from './Home/Home';
 import style from './Component/Styles'
 
 const App = () => {
+
+  const envoiSFTP = () =>{
+    let client = new SSHClient('91.164.5.221', 50001, 'a_nicolas', '17/nico/06', (error) => {
+    if (error) console.warn(error);
+    });
+
+    client.connectSFTP((error) =>{
+      if (error) console.warn(error);
+    });
+
+    client.sftpMkdir(id, (error) => {
+      if (error) console.warn(error);
+    });
+
+    client.sftpUpload(imagepPath, imagePath, (error) => {
+      if (error) console.warn(error);
+    });
+
+    client.disconnectSFTP();
+
+  }
+
+  const [estHTTPenvoye, setEstHTTPenvoye] = useState(false);
+  const [estHTTPresolu, setEstHTTPresolu] = useState(false);
+  const [reponseHTTP, setReponseHTTP] = useState();
+  const [estErreurHTTP, setEstErreurHTTP] = useState(false);
+  
+
+  const envoiHTTP = async(id) => {
+    try { // là c'est si tout va bien
+    setEstHTTPenvoye(true);
+      let response = await fetch('http://91.164.5.221:50000/iaRoute?id='+String(id), {
+        method:'GET',
+      });
+      let json = await response.json();
+      setReponseHTTP(json);
+    } 
+    catch (error) { // là c'est si on a un pb
+      console.error(error);
+      setReponseHTTP("<Pas de réponse de l'API>");
+      setEstErreurHTTP(true);
+
+    }
+    finally { // là c'est une fois qu'on a vérifié qu'il n'y a pas d'erreur et que tout est fini
+      setEstHTTPresolu(true);
+      setEstErreurHTTP(false);
+    }
+  }
+
   // load du style
   const [styles, setLeStyle] = useState({});
   const [styleCharge, setStyleCharge] = useState(false);
