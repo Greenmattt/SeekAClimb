@@ -65,7 +65,7 @@ const App = () => {
     ? <NavigationContainer theme={{  
   dark: true,
   colors: {
-    primary: '#e1758a',
+    primary: '#a0d520',
     background: 'black',
     card: '#0000',
     text: 'black',
