@@ -156,20 +156,19 @@ const darkStyles = StyleSheet.create({
   },
 
   scanButton: {
-    backgroundColor:"#022050", 
+    backgroundColor:"#04899BBB", 
     height:60, 
     width:60, 
     borderRadius:20, 
     alignItems: 'center', 
     justifyContent:'center',
     borderColor:"#F7FFFB",
-    borderWidth: 1
     },
 
   scanIcon: {
     width:40,
     height:40,
-    tintColor:"#F7FFFB",
+    tintColor:"#F7FFFBDC",
   },
 
   settingsBox: {
@@ -445,11 +444,11 @@ const lightStyles = StyleSheet.create({
   scanIcon: {
     width:40,
     height:40,
-    tintColor:"#F7FFFB"
+    tintColor:"#FFFFFF"
   },
 
   scanButton: {
-    backgroundColor:"#022050", 
+    backgroundColor:"#04899BDE", 
     height:60, 
     width:60, 
     borderRadius:20, 
