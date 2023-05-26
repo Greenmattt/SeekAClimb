@@ -155,6 +155,28 @@ const darkStyles = StyleSheet.create({
     borderRadius: 5,
   },
 
+  photoButton: {
+    backgroundColor:"#ffffffdd", 
+    height:70, 
+    width:70, 
+    borderRadius:35, 
+    alignItems: 'center', 
+    justifyContent:'center',
+    position:'absolute', 
+    left :'42%', 
+    top:'88%'
+  },
+
+  photoVerrifButton: {
+    backgroundColor: '#364156',
+    flex:1,
+    borderRadius:2,
+    borderColor:"#7282B2",
+    borderWidth:1,
+    alignItems:'center',
+    justifyContent:'center'
+  },
+
   scanButton: {
     backgroundColor:"#04899BBB", 
     height:60, 
@@ -439,6 +461,28 @@ const lightStyles = StyleSheet.create({
     borderColor: '#364156',
     borderWidth: 1,
     borderRadius: 5,
+  },
+
+  photoButton: {
+    backgroundColor:"#ffffffdd", 
+    height:70, 
+    width:70, 
+    borderRadius:35, 
+    alignItems: 'center', 
+    justifyContent:'center',
+    position:'absolute', 
+    left :'42%', 
+    top:'88%'
+  },
+
+  photoVerrifButton: {
+    backgroundColor: '#364156',
+    flex:1,
+    borderRadius:2,
+    borderColor:"#7282B2",
+    borderWidth:1,
+    alignItems:'center',
+    justifyContent:'center'
   },
   
   scanIcon: {
