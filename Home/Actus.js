@@ -1,7 +1,6 @@
 import { Text, View, Image, ImageBackground, Linking } from 'react-native';
 import React, { useEffect , useState} from 'react';
 import style from './../Component/Styles'
-import PagerView from 'react-native-pager-view';
 
 const Actus = props => {
   // load du style
