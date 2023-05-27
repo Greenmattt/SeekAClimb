@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { View } from 'react-native';
+import { View, TouchableOpacity, Text } from 'react-native';
 
 import style from '../Component/Styles';
 import StrInput from '../Component/StrInput';
@@ -24,9 +24,39 @@ const CreerCompte = (props) => {
   const [textNom, onChangeNom] = useState('');
   const [textPrenom, onChangePrenom] = useState('');
   const [textEmail, onChangeEmail] = useState('');
-  const [textClasse, onChangeClasse] = useState('');
   const [textMdp, onChangeMdp] = useState('');
   const [textMdpConfirme, onChangeMdpConfirme] = useState('');
+
+  const [estMdpConcordant, setEstMdpConcordant] = useState(true);
+
+  const creerCompte = async() => {
+
+    if (textMdp != textMdpConfirme) {
+      setEstMdpConcordant(false);
+      console.log('different')
+    }
+    else {
+      try {
+        let res = await fetch('http://91.164.5.221:50000/creerCompte',{
+          method:'POST',
+          body: {
+            nom: textNom,
+            prenom: textPrenom,
+            email: textEmail,
+            mdp: textMdp,
+          }
+        });
+
+        var texte = await res.text();
+        console.log(texte);
+
+      } catch(error) {
+        console.warn(error);
+      }
+
+
+    }
+  }
 
   return (
 
@@ -45,15 +75,19 @@ const CreerCompte = (props) => {
         {/*Input email */}
         <StrInput onChangeText={onChangeEmail} value={textEmail} placeholder= {"Email"} secureTextEntry={false}/>
 
-        {/*Input classe */}
-        <StrInput onChangeText={onChangeClasse} value={textClasse} placeholder= {"Classe"} secureTextEntry={false}/>
-
         {/*Input mot de passe */}
         <StrInput onChangeText={onChangeMdp} value={textMdp} placeholder= {"Mot de passe"} secureTextEntry={true}/>
 
         {/*Input validation du mot de passe */}
         <StrInput onChangeText={onChangeMdpConfirme} value={textMdpConfirme} placeholder= {"Valider le mot de passe"} secureTextEntry={true}/>
-        </View>
+
+        {!estMdpConcordant ? <Text style={styles.text}>Les mots de passe ne concordent pas !</Text> : <View/>}
+
+      </View>
+
+      <TouchableOpacity style={styles.photoVerrifButton} onPress={creerCompte}>
+        <Text style={styles.text}>Valider</Text>
+      </TouchableOpacity>
     </View>
   );
 };
