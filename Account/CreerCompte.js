@@ -39,12 +39,13 @@ const CreerCompte = (props) => {
       try {
         let res = await fetch('http://91.164.5.221:50000/creerCompte',{
           method:'POST',
-          body: {
+          body: JSON.stringify({
             nom: textNom,
             prenom: textPrenom,
             email: textEmail,
-            mdp: textMdp,
-          }
+            mdp: textMdp
+          }),
+          headers: {'Content-Type':'application/json'}
         });
 
         var texte = await res.text();
