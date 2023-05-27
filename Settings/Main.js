@@ -97,11 +97,8 @@ const Main = () => { // Page de navigation entre Settings.js et Informations.js
                 showsPointsOfInterest = {false}
                 onRegionChange = {setMapRegion}
                 onRegionChangeComplete={markerFetch}
-<<<<<<< Updated upstream
                 mapType={changeMapType ? 'satellite' : 'standard'}>
-=======
-                mapType='satellite'>
->>>>>>> Stashed changes
+
         
         <View style={{position:'absolute', left :'82%', top:'88%'}}>
           <TouchableOpacity style={styles.scanButton} onPress={() => setChangeMapType(value => !value)}>
