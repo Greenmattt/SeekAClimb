@@ -165,14 +165,35 @@ const darkStyles = StyleSheet.create({
     top:'85%'
   },
 
+  photoConfMain: {
+    flex:10,
+    backgroundColor: '#131514'
+  },
+
+  photoConfPic: {
+    flex:5,
+    alignItems:'center',
+    marginBottom: '5%',
+    marginTop: '5%',
+    backgroundColor: '#131514'
+  },
+
+  photoConfButton: {
+    flex:0.6,
+    flexDirection:"row",
+    marginBottom: '5%', 
+    backgroundColor:'#131514'
+  },
+
   photoVerrifButton: {
     backgroundColor: '#364156',
     flex:1,
-    borderRadius:2,
+    borderRadius:5,
     borderColor:"#7282B2",
     borderWidth:1,
     alignItems:'center',
-    justifyContent:'center'
+    justifyContent:'center',
+    margin: '1%'
   },
 
   scanButton: {
@@ -466,21 +487,40 @@ const lightStyles = StyleSheet.create({
     height:70, 
     width:70, 
     borderRadius:35, 
-    alignItems: 'center', 
-    justifyContent:'center',
     position:'absolute', 
     left :'42%', 
-    top:'88%'
+    top:'85%'
+  },
+
+  photoConfMain: {
+    flex:10,
+    backgroundColor: '#f7fffb'
+  },
+
+  photoConfPic: {
+    flex:5,
+    alignItems:'center',
+    marginBottom: '5%',
+    marginTop: '5%',
+    backgroundColor: '#f7fffb'
+  },
+
+  photoConfButton: {
+    flex:0.6,
+    flexDirection:"row",
+    marginBottom: '5%', 
+    backgroundColor:'#f7fffb'
   },
 
   photoVerrifButton: {
-    backgroundColor: '#364156',
+    backgroundColor: '#CDCDCD',
     flex:1,
-    borderRadius:2,
+    borderRadius:5,
     borderColor:"#7282B2",
     borderWidth:1,
     alignItems:'center',
-    justifyContent:'center'
+    justifyContent:'center',
+    margin: '1%'
   },
   
   scanIcon: {

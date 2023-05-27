@@ -49,32 +49,24 @@ const CameraMain = (props) => {
       console.log(resizedImage);
 
       SetPhotoConfScreen(
-        <View style={{flex:10}}>
-          <View style={{flex:0.5}}/>
+        <View style={styles.photoConfMain}>
   
-          <View style={{flex:5, alignItems:'center'}}>
-            <Image source={{uri:image.uri}} style={{width:'75%', height:'100%'}}/>
+          <View style={styles.photoConfPic}>
+            <Image source={{uri:image.uri}} style={{width:'80%', height:'100%'}}/>
           </View>
 
-          <View style={{flex:0.5}}/>
-
-          <View style={{flex:0.5, flexDirection:"row"}}>
-            <View style={{flex:0.05}}/>
+          <View style={styles.photoConfButton}>
 
             <TouchableOpacity style={styles.photoVerrifButton} onPress = {() => setEstImagePrise(false)}>
               <Text style={styles.text}>Annuler</Text>
             </TouchableOpacity>
 
-            <View style={{flex:0.05}}/>
-
-            <TouchableOpacity style={styles.photoVerrifButton} onPress={envoiImage}>
+            <TouchableOpacity style={styles.photoVerrifButton onPress={envoiImage}}>
               <Text style={styles.text}>Envoyer</Text>
             </TouchableOpacity>
 
-            <View style={{flex:0.05}}/>
           </View>
-  
-          <View style={{flex:1}}/>
+
         </View>
       );
 
