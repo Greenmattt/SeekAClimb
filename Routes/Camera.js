@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {View, Text, Button, TouchableOpacity, Image} from "react-native";
 import { Camera, CameraType } from 'expo-camera';
+import * as ImageManipulator from 'expo-image-manipulator';
 
 import style from "../Component/Styles";
 import GoBackButton from "../Component/GoBackButton";
@@ -15,6 +16,7 @@ const CameraMain = (props) => {
   const [photoConfScreen, SetPhotoConfScreen] = useState();
 
 
+  var imageEnvoyer;
 
   const GoBackToRoutes = () => {
     props.navigation.navigate('Routes');
@@ -34,7 +36,17 @@ const CameraMain = (props) => {
 
   const takePicture = async() => {
     if (cameraRef !== null) {
-      const image = await cameraRef.takePictureAsync();
+      const image = await cameraRef.takePictureAsync({quality:1});
+
+      const resizedImage = await ImageManipulator.manipulateAsync(
+        image.uri,
+        [{resize : {width:600}}],
+        {compress: 0.7, format:'jpeg'}
+      );
+
+      imageEnvoyer = resizedImage;
+
+      console.log(resizedImage);
 
       SetPhotoConfScreen(
         <View style={{flex:10}}>
@@ -55,7 +67,7 @@ const CameraMain = (props) => {
 
             <View style={{flex:0.05}}/>
 
-            <TouchableOpacity style={styles.photoVerrifButton}>
+            <TouchableOpacity style={styles.photoVerrifButton} onPress={envoiImage}>
               <Text style={styles.text}>Envoyer</Text>
             </TouchableOpacity>
 
@@ -68,6 +80,36 @@ const CameraMain = (props) => {
 
       setEstImagePrise(true);
     }
+  }
+
+  const envoiImage = async() => {
+    const form = new FormData();
+
+    const image = await imageEnvoyer.uri
+    
+    form.append('id', {
+      uri: image,
+      type: 'image/jpg',
+      name:'image.jpg'
+    });
+
+    console.log(form._parts[0][1]);
+
+    try {
+
+      let res = await fetch('http://91.164.5.221:50000/uploadImage',
+      {method:'POST',
+       body: form,
+       headers: {'Content-Type': 'multipart/form-data'}}
+      );
+
+      const texte = await res.text()
+      console.log(String(texte));
+    }
+    catch(error) {
+      console.warn(error);
+    }
+
   }
 
 
@@ -95,13 +137,3 @@ const CameraMain = (props) => {
 }
 
 export default CameraMain;
-
-
-
-
-
-
-
-
-
-
