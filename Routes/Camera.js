@@ -61,7 +61,7 @@ const CameraMain = (props) => {
               <Text style={styles.text}>Annuler</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.photoVerrifButton onPress={envoiImage}}>
+            <TouchableOpacity style={styles.photoVerrifButton} onPress={envoiImage}>
               <Text style={styles.text}>Envoyer</Text>
             </TouchableOpacity>
 
@@ -101,6 +101,8 @@ const CameraMain = (props) => {
     catch(error) {
       console.warn(error);
     }
+
+    setEstImagePrise(false);
 
   }
 
