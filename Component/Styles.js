@@ -160,11 +160,9 @@ const darkStyles = StyleSheet.create({
     height:70, 
     width:70, 
     borderRadius:35, 
-    alignItems: 'center', 
-    justifyContent:'center',
     position:'absolute', 
     left :'42%', 
-    top:'88%'
+    top:'85%'
   },
 
   photoVerrifButton: {
