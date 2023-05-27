@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import MapView, {Marker} from 'react-native-maps';
-import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import * as Location from 'expo-location';
 
 import style from '../Component/Styles';
@@ -50,7 +50,6 @@ const Main = () => { // Page de navigation entre Settings.js et Informations.js
   const [estCharge, setEstCharge] = useState(false);
   const [estApiError, setEstApiError] = useState(false);
   const [liste_marqueurs, setLM] = useState([]);
-  const [changeMapType, setChangeMapType] = useState(false);
 
   const markerFetch = async () => {
     setEstCharge(false);
@@ -93,22 +92,11 @@ const Main = () => { // Page de navigation entre Settings.js et Informations.js
     </View>
     : <View style={styles.container}>
       <MapView style={styles.map} 
-                initialRegion={{longitude:location.coords.longitude, latitude:location.coords.latitude, longitudeDelta:0.003, latitudeDelta:0.003}} 
+                initialRegion={{longitude:location.coords.longitude, latitude:location.coords.latitude, longitudeDelta:0.001, latitudeDelta:0.001}} 
                 showsPointsOfInterest = {false}
                 onRegionChange = {setMapRegion}
-                onRegionChangeComplete={markerFetch}
-<<<<<<< Updated upstream
-                mapType={changeMapType ? 'satellite' : 'standard'}>
-=======
-                mapType='satellite'>
->>>>>>> Stashed changes
+                onRegionChangeComplete={markerFetch}>
         
-        <View style={{position:'absolute', left :'82%', top:'88%'}}>
-          <TouchableOpacity style={styles.scanButton} onPress={() => setChangeMapType(value => !value)}>
-            <Image style={styles.scanIcon} source={require('../assets/ultra_icon.png')}/>
-          </TouchableOpacity>
-        </View>
-
         { mapRegion.latitudeDelta < 0.2 && mapRegion.longitudeDelta < 0.2?
           estCharge ? <View>{liste_marqueurs}</View>: <View></View> : <View></View>}
       </MapView>
