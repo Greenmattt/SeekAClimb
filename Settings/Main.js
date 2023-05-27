@@ -99,16 +99,18 @@ const Main = () => { // Page de navigation entre Settings.js et Informations.js
                 onRegionChangeComplete={markerFetch}
                 mapType={changeMapType ? 'satellite' : 'standard'}>
 
-        
-        <View style={{position:'absolute', left :'82%', top:'88%'}}>
-          <TouchableOpacity style={styles.scanButton} onPress={() => setChangeMapType(value => !value)}>
-            <Image style={styles.scanIcon} source={require('../assets/ultra_icon.png')}/>
-          </TouchableOpacity>
-        </View>
+
 
         { mapRegion.latitudeDelta < 0.2 && mapRegion.longitudeDelta < 0.2?
           estCharge ? <View>{liste_marqueurs}</View>: <View></View> : <View></View>}
       </MapView>
+
+              
+      <View style={{position:'absolute', left :'82%', top:'88%'}}>
+        <TouchableOpacity style={styles.scanButton} onPress={() => setChangeMapType(value => !value)}>
+          <Image style={styles.scanIcon} source={require('../assets/ultra_icon.png')}/>
+        </TouchableOpacity>
+      </View>
       
   
     </View>}
