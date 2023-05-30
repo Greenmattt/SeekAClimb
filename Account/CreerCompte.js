@@ -72,19 +72,23 @@ const CreerCompte = (props) => {
   }
 
   const validerCode = async() => {
-    try {
-      codeChiffre = ParseInt(textCode);
-    } catch(error) {
-      setEstCompteRefuse(true)
-      setTextErreurRefus("Le code n'est pas composé de chiffres")
-    }
+    // try {
+    //   let x = await textCode;
+    //   console.log(x);
+    //   let codeChiffre = await ParseInt(x);
+    //   console.log(codeChiffre);
+    // } catch(error) {
+
+    //   setEstCompteRefuse(true)
+    //   setTextErreurRefus("Le code n'est pas composé de chiffres")
+    // }
 
     try {
       let res = await fetch('http://91.164.5.221:50000/verrifMail',{
         method:'POST',
         body: JSON.stringify({
           email: textEmail,
-          code : codeChiffre
+          code : textCode
         }),
         headers: {'Content-Type':'application/json'}
       });
@@ -128,11 +132,11 @@ const CreerCompte = (props) => {
 
         {estCompteAccepte ? 
         <View style= {{flex:2}}> 
-          <View style={{flex:0.5}}>
+          <View style={{flex:0.2}}>
             <Text style={styles.text}>Vous allez recevoir un mail contenant le code à 6 chiffres permettant de verrifier votre comtpe dans les 5 prochaines minutes</Text>
           </View>
           <StrInput onChangeText={onChangeTextCode} value={textCode} placeholder = {"Code à 6 chiffres"} secureTextEntry={false}/> 
-          <View style = {{flex:0.5}}>
+          <View style = {{flex:0.2}}>
             <TouchableOpacity style={styles.photoVerrifButton} onPress={validerCode}>
               <Text style={styles.text}>Valider code</Text>
             </TouchableOpacity>
