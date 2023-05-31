@@ -209,7 +209,7 @@ const darkStyles = StyleSheet.create({
   scanIcon: {
     width:40,
     height:40,
-    tintColor:"#F7FFFBDC",
+    tintColor:"#F7FFFBEC",
   },
 
   settingsBox: {
