@@ -108,7 +108,7 @@ const Main = () => { // Page de navigation entre Settings.js et Informations.js
               
       <View style={{position:'absolute', left :'82%', top:'88%'}}>
         <TouchableOpacity style={styles.scanButton} onPress={() => setChangeMapType(value => !value)}>
-          <Image style={styles.scanIcon} source={require('../assets/ultra_icon.png')}/>
+          <Image style={styles.scanIcon} source={require('../assets/layerIcon.png')}/>
         </TouchableOpacity>
       </View>
       
