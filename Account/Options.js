@@ -105,7 +105,7 @@ const Options = (props) => {
             <Text style={styles.text}>{ThemeLabel}</Text>
           </View>
           <View style={styles.settingsLanguageBox}>
-            <Text style={styles.text}>Changemement de langue</Text>
+            <Text style={styles.text}>Changemement de langue [Work in Progress]</Text>
           </View>
         </View>
 
