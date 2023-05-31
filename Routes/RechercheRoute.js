@@ -200,55 +200,21 @@ const Routes = (props) => {
         : <Text style={styles.text}>Page des voies</Text>
       }
         <ScrollView style={{flex:1}}>
-          <Text style = {{flex:1, color:"#f00"}}> A </Text> 
-          <Text style = {{flex:1, color:"#f00"}}> A </Text>
-          <Text style = {{flex:1, color:"#f00"}}> A </Text>
-          <Text style = {{flex:1, color:"#f00"}}> A </Text>
-          <Text style = {{flex:1, color:"#f00"}}> A </Text>
-          <Text style = {{flex:1, color:"#f00"}}> A </Text>
-          <Text style = {{flex:1, color:"#f00"}}> A </Text>
-          <Text style = {{flex:1, color:"#f00"}}> A </Text> 
-          <Text style = {{flex:1, color:"#f00"}}> A </Text>
-          <Text style = {{flex:1, color:"#f00"}}> A </Text>
-          <Text style = {{flex:1, color:"#f00"}}> A </Text>
-          <Text style = {{flex:1, color:"#f00"}}> A </Text>
-          <Text style = {{flex:1, color:"#f00"}}> A </Text>
-          <Text style = {{flex:1, color:"#f00"}}> A </Text>
-          <Text style = {{flex:1, color:"#f00"}}> A </Text> 
-          <Text style = {{flex:1, color:"#f00"}}> A </Text>
-          <Text style = {{flex:1, color:"#f00"}}> A </Text>
-          <Text style = {{flex:1, color:"#f00"}}> A </Text>
-          <Text style = {{flex:1, color:"#f00"}}> A </Text>
-          <Text style = {{flex:1, color:"#f00"}}> A </Text>
-          <Text style = {{flex:1, color:"#f00"}}> A </Text>
-          <Text style = {{flex:1, color:"#f00"}}> A </Text> 
-          <Text style = {{flex:1, color:"#f00"}}> A </Text>
-          <Text style = {{flex:1, color:"#f00"}}> A </Text>
-          <Text style = {{flex:1, color:"#f00"}}> A </Text>
-          <Text style = {{flex:1, color:"#f00"}}> A </Text>
-          <Text style = {{flex:1, color:"#f00"}}> A </Text>
-          <Text style = {{flex:1, color:"#f00"}}> A </Text>
-          <Text style = {{flex:1, color:"#f00"}}> A </Text> 
-          <Text style = {{flex:1, color:"#f00"}}> A </Text>
-          <Text style = {{flex:1, color:"#f00"}}> A </Text>
-          <Text style = {{flex:1, color:"#f00"}}> A </Text>
-          <Text style = {{flex:1, color:"#f00"}}> A </Text>
-          <Text style = {{flex:1, color:"#f00"}}> A </Text>
-          <Text style = {{flex:1, color:"#f00"}}> A </Text>
-          <Text style = {{flex:1, color:"#f00"}}> A </Text> 
-          <Text style = {{flex:1, color:"#f00"}}> A </Text>
-          <Text style = {{flex:1, color:"#f00"}}> A </Text>
-          <Text style = {{flex:1, color:"#f00"}}> A </Text>
-          <Text style = {{flex:1, color:"#f00"}}> A </Text>
-          <Text style = {{flex:1, color:"#f00"}}> A </Text>
-          <Text style = {{flex:1, color:"#f00"}}> A </Text>
-          <Text style = {{flex:1, color:"#f00"}}> A </Text> 
-          <Text style = {{flex:1, color:"#f00"}}> A </Text>
-          <Text style = {{flex:1, color:"#f00"}}> A </Text>
-          <Text style = {{flex:1, color:"#f00"}}> A </Text>
-          <Text style = {{flex:1, color:"#f00"}}> A </Text>
-          <Text style = {{flex:1, color:"#f00"}}> A </Text>
-          <Text style = {{flex:1, color:"#f00"}}> A </Text>
+          <TouchableOpacity style={{flex:1, borderWidth: 1, borderColor: '#fff'}}>
+            <Image source={require('../assets/imageTest.jpg')} style={{height: 160, width: 120}}/>
+          </TouchableOpacity>
+          <TouchableOpacity style={{flex:1, borderWidth: 1, borderColor: '#fff'}}>
+            <Image source={require('../assets/imageTest.jpg')} style={{height: 160, width: 120}}/>
+          </TouchableOpacity>
+          <TouchableOpacity style={{flex:1, borderWidth: 1, borderColor: '#fff'}}>
+            <Image source={require('../assets/imageTest.jpg')} style={{height: 160, width: 120}}/>
+          </TouchableOpacity>
+          <TouchableOpacity style={{flex:1, borderWidth: 1, borderColor: '#fff'}}>
+            <Image source={require('../assets/imageTest.jpg')} style={{height: 160, width: 120}}/>
+          </TouchableOpacity>
+          <TouchableOpacity style={{flex:1, borderWidth: 1, borderColor: '#fff'}}>
+            <Image source={require('../assets/imageTest.jpg')} style={{height: 160, width: 120}}/>
+          </TouchableOpacity>
         </ScrollView>
       </View> 
 
