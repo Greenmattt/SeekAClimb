@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { View, TouchableOpacity, Text } from 'react-native';
+import { View, TouchableOpacity, Text, Alert } from 'react-native';
 
 import style from '../Component/Styles';
 import StrInput from '../Component/StrInput';
@@ -33,6 +33,33 @@ const CreerCompte = (props) => {
   const [estMailVerrifie, setEstMailVerrifie] = useState(false);
 
   const [textCode, onChangeTextCode] = useState('');
+  const [estAlert, cestAlert] = useState(false);
+
+
+const showAlert = () => {
+  cestAlert(true);
+  return (
+  Alert.alert(
+    'Authentification',
+    'Vous recevrez un code à six chiffres dans les cinq minutes suivant ce message',
+    [
+      {
+        text: 'OK',
+        style: 'cancel',
+      },
+    ],
+    {
+      cancelable: false,
+      onDismiss: () =>
+        Alert.alert(
+          'This alert was dismissed by tapping outside of the alert dialog.',
+        ),
+    },
+  )
+  );
+}
+
+
 
   const creerCompte = async() => {
 
@@ -40,7 +67,7 @@ const CreerCompte = (props) => {
     setEstCompteRefuse(false);
 
     if (textMdp != textMdpConfirme) {
-      setEstCompteRefuse(false);
+      setEstCompteRefuse(true);
       setTextErreurRefus("Les mots de passe ne concordent pas !");
     }
     else {
@@ -130,12 +157,17 @@ const CreerCompte = (props) => {
 
         {estCompteRefuse ? <Text style={styles.text}>{textErreurRefus}</Text> : <View/>}
 
-        {estCompteAccepte ? 
-        <View style= {{flex:2}}> 
+        {estCompteAccepte && ! estAlert ? showAlert() : <View/>}
+        {estCompteAccepte ?
+        <View style= {{flex:1}}> 
           <View style={{flex:0.2}}>
-            <Text style={styles.text}>Vous allez recevoir un mail contenant le code à 6 chiffres permettant de verrifier votre comtpe dans les 5 prochaines minutes</Text>
+            {}
+            
           </View>
-          <StrInput onChangeText={onChangeTextCode} value={textCode} placeholder = {"Code à 6 chiffres"} secureTextEntry={false}/> 
+          <View style = {{flex:1, alignItems: 'center',
+    justifyContent: 'space-evenly'}}>
+            <StrInput onChangeText={onChangeTextCode} value={textCode} placeholder = {"Code à 6 chiffres"} secureTextEntry={false}/>
+          </View>
           <View style = {{flex:0.2}}>
             <TouchableOpacity style={styles.photoVerrifButton} onPress={validerCode}>
               <Text style={styles.text}>Valider code</Text>
