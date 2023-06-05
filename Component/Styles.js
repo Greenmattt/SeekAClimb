@@ -260,6 +260,12 @@ const darkStyles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 18,
   },
+
+  textPlus: {
+    color: 'white',
+    textAlign: 'center',
+    fontSize: 40,
+  },
   
   textTitre: {
     color: 'white',
@@ -586,6 +592,12 @@ const lightStyles = StyleSheet.create({
     color: 'black',
     textAlign: 'center',
     fontSize: 18,
+  },
+  
+  textPlus: {
+    color: 'white',
+    textAlign: 'center',
+    fontSize: 40,
   },
   
   textTitre: {

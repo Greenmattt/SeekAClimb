@@ -16,6 +16,10 @@ const Routes = (props) => {
     props.navigation.navigate('Camera');
   };
 
+  const goToCreerBloc = () => {
+    props.navigation.navigate('CreerBloc');
+  };
+
 
   // load du style
   const [styles, setLeStyle] = useState({});
@@ -215,10 +219,16 @@ const Routes = (props) => {
       </View> 
 
     <View style={{position:'absolute', left :'82%', top:'88%'}}>
-    <TouchableOpacity style={styles.scanButton} onPress = {goToCamera}>
-      <Image style={styles.scanIcon} source={require('../assets/ultra_icon.png')}/>
-    </TouchableOpacity>
-  </View>
+      <TouchableOpacity style={styles.scanButton} onPress = {goToCamera}>
+        <Image style={styles.scanIcon} source={require('../assets/ultra_icon.png')}/>
+      </TouchableOpacity>
+    </View>
+
+    <View style={{position:'absolute', left :'82%', top:'78%'}}>
+      <TouchableOpacity style={styles.scanButton} onPress = {goToCreerBloc}>
+        <Text style={styles.textPlus}>+</Text>
+      </TouchableOpacity>
+    </View>
 
 
     </View> )
