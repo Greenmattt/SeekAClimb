@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Text, View, TouchableOpacity, Image, ScrollView } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
+
 // commandes à faire :  npm install react-native-dropdown-picker
 //                      npm install --save @ptomasroos/react-native-multi-slider
 
 import JsonToButtons from './ReponseRoute';
 import EnumButtons from '../Component/EnumButtons';
 import style from '../Component/Styles';
+import DefaultLabel from '../Component/TestLabel';
 
 const Routes = (props) => {
 
@@ -56,7 +58,7 @@ const Routes = (props) => {
   disableScroll = () => this.setState({ scrollEnabled: false });
 
  
-  const [nonCollidingMultiSliderValue, setNonCollidingMultiSliderValue,] = React.useState([0, 100]);
+  const [nonCollidingMultiSliderValue, setNonCollidingMultiSliderValue,] = React.useState([0, 31]);
   nonCollidingMultiSliderValuesChange = values => setNonCollidingMultiSliderValue(values);
 
   const imageCursor = <Image source={require("../assets/green_circle.png")} style={styles.routeSliderRond}/>
@@ -102,8 +104,7 @@ const Routes = (props) => {
                 nonCollidingMultiSliderValue[1] < 31 ? nonCollidingMultiSliderValue[1] : 30);
     }
   };
-    
-  
+
   return (
     <View style={styles.container}>
 
@@ -137,11 +138,11 @@ const Routes = (props) => {
       <View style={styles.routeSlider}>
         
         <View style= {{flex: 1}}> 
-          <Text style={styles.text}>min : {difficultes[nonCollidingMultiSliderValue[0]]}</Text>
+          <Text style={{color:'#282828'}}>min : {difficultes[nonCollidingMultiSliderValue[0]]}</Text>
         </View>
         <View style = {{flex: 3}}></View>
         <View style= {{flex: 1}}>
-          <Text style={styles.text}>max : {difficultes[nonCollidingMultiSliderValue[1] < 31 ?           nonCollidingMultiSliderValue[1] : 30 ]} </Text>
+          <Text style={{color:'#282828'}}>max : {difficultes[nonCollidingMultiSliderValue[1] < 31 ?           nonCollidingMultiSliderValue[1] : 30 ]} </Text>
         </View>
 
       </View>
@@ -163,7 +164,8 @@ const Routes = (props) => {
           allowOverlap={false}
           snapped
           minMarkerOverlapDistance={7}
-          enableLabel = {false}
+          enableLabel = {true}
+          customLabel={DefaultLabel}
           customMarker = {(e) =>imageCursor}
           trackStyle={{
             height: 5,
@@ -176,6 +178,7 @@ const Routes = (props) => {
           }}
 
         />
+  
       </View>
 
 
@@ -197,7 +200,7 @@ const Routes = (props) => {
 
       <View style ={styles.routeReponse}>
         { estCharge ? <JsonToButtons json = {apiRes}/> 
-        : <Text style={styles.text}>Page des voies</Text>
+        : <Text style={styles.text}>oui oui baguette</Text>
       }
         <ScrollView style={{flex:1}}>
           <TouchableOpacity style={{flex:1, borderWidth: 1, borderColor: '#fff'}}>
@@ -231,7 +234,7 @@ const Routes = (props) => {
     </View>
 
 
-    </View> )
+    </View>)
 } 
 
 export default Routes;
