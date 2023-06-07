@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import {View, Text, Button, TouchableOpacity, Image} from "react-native";
 import { Camera, CameraType } from 'expo-camera';
 import * as ImageManipulator from 'expo-image-manipulator';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import style from "../Component/Styles";
 import SneakyBackButton from "../Component/SneakyBackButton";
@@ -71,6 +72,17 @@ const CameraMain = (props) => {
       );
 
       setEstImagePrise(true);
+      getConnectedAccount();
+    }
+  }
+
+  const [mailConnecte, onChangeMailConnecte] = useState('');
+
+  const getConnectedAccount = async() => {
+    let email = await AsyncStorage.getItem("@email");
+    if (email != null) {
+      let jsonEmail = JSON.parse(email);
+      onChangeMailConnecte(jsonEmail);
     }
   }
 
@@ -78,8 +90,8 @@ const CameraMain = (props) => {
     const form = new FormData();
 
     const image = await imageEnvoyer.uri
-    
-    form.append('id', {
+    if (mailConnecte != ''){
+      form.append(email, {
       uri: image,
       type: 'image/jpg',
       name:'image.jpg'
@@ -103,6 +115,12 @@ const CameraMain = (props) => {
     }
 
     setEstImagePrise(false);
+
+    }
+    else {
+      console.log("connecte toi èfdépé!");
+    }
+    
 
   }
 
