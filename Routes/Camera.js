@@ -4,7 +4,7 @@ import { Camera, CameraType } from 'expo-camera';
 import * as ImageManipulator from 'expo-image-manipulator';
 
 import style from "../Component/Styles";
-import GoBackButton from "../Component/GoBackButton";
+import SneakyBackButton from "../Component/SneakyBackButton";
 
 const CameraMain = (props) => {
 
@@ -109,7 +109,7 @@ const CameraMain = (props) => {
 
   return (
     <View style={styles.container}>
-      <GoBackButton onPress = {() => GoBackToRoutes(props)}/>
+      
       {permission === null || permission.granted ?
 
       ! estImagePrise ?
@@ -126,6 +126,7 @@ const CameraMain = (props) => {
         <Text style={{ textAlign: 'center' }}>We need your permission to show the camera</Text>
         <Button onPress={requestPermission} title="grant permission" />
       </View>}
+      <SneakyBackButton onPress = {() => GoBackToRoutes(props)}/>
     </View>
   );
 }
