@@ -241,6 +241,18 @@ const darkStyles = StyleSheet.create({
     justifyContent: 'space-around',
   },
 
+  sneakyBackButton:{
+    backgroundColor:"#04899B00", 
+    height: 60, 
+    width: 60, 
+    borderRadius: 20,
+    borderWidth : 1, 
+    alignItems: 'center', 
+    justifyContent: 'center',
+    borderColor: "#F7FFFB",
+    
+  },
+
   tabBarIconStyle: {
     width: '40%',
     height: '35%'
