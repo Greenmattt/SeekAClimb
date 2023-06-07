@@ -250,7 +250,6 @@ const darkStyles = StyleSheet.create({
     alignItems: 'center', 
     justifyContent: 'center',
     borderColor: "#F7FFFB",
-    
   },
 
   tabBarIconStyle: {
@@ -583,6 +582,17 @@ const lightStyles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-around',
+  },
+
+    sneakyBackButton:{
+    backgroundColor:"#04899B00", 
+    height: 60, 
+    width: 60, 
+    borderRadius: 20,
+    borderWidth : 1, 
+    alignItems: 'center', 
+    justifyContent: 'center',
+    borderColor: "#F7FFFB",
   },
 
   tabBarIconStyle: {
