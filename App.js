@@ -91,7 +91,7 @@ const App = () => {
 
     </NavigationContainer>
 
-    : <ActivityIndicator sier="large" color="#0000ff"/>}
+    : <ActivityIndicator size="large" color="#0000ff"/>}
 
 
     </View>
