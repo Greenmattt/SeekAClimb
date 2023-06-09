@@ -60,11 +60,13 @@ const CreerBloc = (props) => {
 
     }, [lieuPicker]);
 
+const [blocImage, setBlocImage] = useState();
+
     const getImage = async(idSite, idMur, numeroImage) => {
         try {
             let response = await fetch('http://91.164.5.221:50000/getImage?idSite='+idSite+"&idMur="+idMur+"&numeroImage="+numeroImage);
-            let texte = await response.text();
-            console.log('charge');
+            let json = await response.json();
+            setBlocImage(<Image style={{flex:1,position:'absolute', left:0, right:0}} resizeMode='contain' source={{uri: 'data:image/png;base64,'+json.image}}/>);
         } catch(e) {
             console.warn(e)
         }
@@ -93,6 +95,8 @@ const CreerBloc = (props) => {
                 <Text style={styles.text}>Choisissez l'image sur laquelle est votre route :</Text>
 
                 {miniatures}
+
+                {blocImage != undefined ? blocImage : <View/>}
             </View>
         </View>
     );
