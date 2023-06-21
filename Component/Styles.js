@@ -42,6 +42,14 @@ const darkStyles = StyleSheet.create({
     backgroundColor: '#131514',
   },
 
+  containerTextActus: {
+    flex:1, 
+    position:'absolute', 
+    left:'2%', 
+    top:'60%', 
+    alignItems:'flex-start'
+  },
+
   goBackBox: {
     flex: 1,
     backgroundColor: '#1c1c1c',
@@ -277,6 +285,14 @@ const darkStyles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 40,
   },
+
+  textActus: {
+    color: '#fff', 
+    fontWeight: 'bold', 
+    textDecorationLine: 'underline', 
+    fontSize: 24, 
+    flexWrap: 'wrap'
+  },
   
   textTitre: {
     color: 'white',
@@ -386,6 +402,14 @@ const lightStyles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F7FFFB',
+  },
+
+  containerTextActus: {
+    flex:1, 
+    position:'absolute', 
+    left:'2%', 
+    top:'60%', 
+    alignItems:'flex-start'
   },
 
   goBackBox: {
@@ -620,6 +644,14 @@ const lightStyles = StyleSheet.create({
     color: 'white',
     textAlign: 'center',
     fontSize: 40,
+  },
+
+  textActus: {
+    color: '#fff', 
+    fontWeight: 'bold', 
+    textDecorationLine: 'underline', 
+    fontSize: 24, 
+    flexWrap: 'wrap'
   },
   
   textTitre: {

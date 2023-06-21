@@ -32,8 +32,8 @@ const Actus = props => {
       listActus.push(
         <View style={{flex:1}} key={key}>
           <ImageBackground source = {{uri: 'data:image/png;base64, ' + props.text.resultat[key].image}} style = {{width:400, height:180}}>
-            <TouchableOpacity style={{flex:1, position:'absolute', left:'2%', top:'60%', alignItems:'flex-start'}}>
-              <Text style={{color:'#0f0', fontWeight:'bold', textDecorationLine:'underline', fontSize:24, flexWrap:'wrap'}} onPress={() => Linking.openURL(props.text.resultat[key].lien)}>
+            <TouchableOpacity style={styles.containerTextActus} onPress={() => Linking.openURL(props.text.resultat[key].lien)}>
+              <Text style={styles.textActus}>
                 {props.text.resultat[key].titre}
               </Text>
             </TouchableOpacity>
