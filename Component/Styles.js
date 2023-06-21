@@ -37,6 +37,12 @@ const darkStyles = StyleSheet.create({
     justifyContent: 'center',
   },
 
+  clickIcon: {
+    width:50,
+    height:50,
+    tintColor:"#FFFFFF"
+  },
+
   container: {
     flex: 1,
     backgroundColor: '#131514',
@@ -280,6 +286,14 @@ const darkStyles = StyleSheet.create({
     fontSize: 18,
   },
 
+  textContent: {
+    color: 'white',
+    fontSize: 15,
+    fontStyle: 'italic',
+    textAlign: 'justify',
+
+  },
+
   textPlus: {
     color: 'white',
     textAlign: 'center',
@@ -397,6 +411,12 @@ const lightStyles = StyleSheet.create({
     backgroundColor: '#cdcdcd',
     borderRadius: 5,
     justifyContent: 'center',
+  },
+
+  clickIcon: {
+    width:50,
+    height:50,
+    tintColor:"#000000"
   },
 
   container: {
@@ -654,6 +674,14 @@ const lightStyles = StyleSheet.create({
     flexWrap: 'wrap'
   },
   
+  textContent: {
+    color: 'black',
+    fontSize: 15,
+    fontStyle: 'italic',
+    textAlign: 'justify',
+
+  },
+
   textTitre: {
     color: 'black',
     textAlign: 'center',
