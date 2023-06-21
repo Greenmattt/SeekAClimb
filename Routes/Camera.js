@@ -37,6 +37,8 @@ const CameraMain = (props) => {
 
   const takePicture = async() => {
     if (cameraRef !== null) {
+
+      getConnectedAccount();
       const image = await cameraRef.takePictureAsync({quality:1});
 
       const resizedImage = await ImageManipulator.manipulateAsync(
@@ -72,17 +74,18 @@ const CameraMain = (props) => {
       );
 
       setEstImagePrise(true);
-      getConnectedAccount();
+      
     }
   }
 
-  const [mailConnecte, onChangeMailConnecte] = useState('');
+  const [mailConnecte, setMailConnecte] = useState('');
 
   const getConnectedAccount = async() => {
     let email = await AsyncStorage.getItem("@email");
     if (email != null) {
       let jsonEmail = JSON.parse(email);
-      onChangeMailConnecte(jsonEmail);
+      setMailConnecte(jsonEmail);
+      console.log(jsonEmail);
     }
   }
 
@@ -91,7 +94,7 @@ const CameraMain = (props) => {
 
     const image = await imageEnvoyer.uri
     if (mailConnecte != ''){
-      form.append(email, {
+      form.append(mailConnecte, {
       uri: image,
       type: 'image/jpg',
       name:'image.jpg'
