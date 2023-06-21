@@ -1,4 +1,4 @@
-import { Text, View, ActivityIndicator } from 'react-native';
+import { Text, View, ActivityIndicator, ScrollView } from 'react-native';
 import React, { useEffect , useState} from 'react';
 
 import style from './../Component/Styles';
@@ -17,7 +17,7 @@ const Home = () => {
   }, []);
 
   // load des info
-  const [info, setInfo] = useState("");
+  const [info, setInfo] = useState();
   const [estInfoCharge, setEstInfoCharge] = useState(false);
 
   useEffect(() => {
@@ -46,7 +46,9 @@ const Home = () => {
 
       <View style={styles.homeQuart}>
         <View style={styles.homeBox}>
-        {estInfoCharge ? <Actus text = {info}/> : <Text style = {styles.text}>Attente de l'api pour les info</Text>}
+          <ScrollView style={{flex:1}} horizontal={true}>
+          {estInfoCharge ? <Actus text = {info}/> : <Text style = {styles.text}>Attente de l'api pour les info</Text>}
+          </ScrollView>
         </View>
       </View>
 

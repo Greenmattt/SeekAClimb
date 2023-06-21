@@ -1,4 +1,4 @@
-import { Text, View, Image, ImageBackground, Linking } from 'react-native';
+import { Text, View, Image, ImageBackground, Linking, TouchableOpacity } from 'react-native';
 import React, { useEffect , useState} from 'react';
 import style from './../Component/Styles'
 
@@ -31,10 +31,12 @@ const Actus = props => {
     Object.keys(props.text.resultat).forEach(function (key) {
       listActus.push(
         <View style={{flex:1}} key={key}>
-          <ImageBackground source = {{uri: 'data:image/png;base64, ' + image}} style = {{width:300, height:150}}>
-            <Text style={styles.text} onPress={() => Linking.openURL(props.text.resultat[key].lien)}>
-              {props.text.resultat[key].titre}
-            </Text>
+          <ImageBackground source = {{uri: 'data:image/png;base64, ' + props.text.resultat[key].image}} style = {{width:400, height:180}}>
+            <TouchableOpacity style={{flex:1, position:'absolute', left:'2%', top:'60%', alignItems:'flex-start'}}>
+              <Text style={{color:'#0f0', fontWeight:'bold', textDecorationLine:'underline', fontSize:24, flexWrap:'wrap'}} onPress={() => Linking.openURL(props.text.resultat[key].lien)}>
+                {props.text.resultat[key].titre}
+              </Text>
+            </TouchableOpacity>
           </ImageBackground>
         </View>
       ); 
@@ -55,7 +57,7 @@ const Actus = props => {
 
   return (
     <Text style={styles.text}>
-      Page des actus chargée
+      {listActus}
     </Text>
 
   );
