@@ -38,9 +38,10 @@ const darkStyles = StyleSheet.create({
   },
 
   clickIcon: {
+    marginLeft:60,
     width:50,
     height:50,
-    tintColor:"#FFFFFF"
+    tintColor:"#FFFFFF",
   },
 
   container: {
@@ -379,7 +380,7 @@ const darkStyles = StyleSheet.create({
 const lightStyles = StyleSheet.create({
   accountBox: {
     flex: 2,
-    backgroundColor: '#cdcdcd',
+    backgroundColor: '#ebeff0',
     marginHorizontal: 7,
     marginVertical: 7,
     borderColor: '#364156',
@@ -396,7 +397,7 @@ const lightStyles = StyleSheet.create({
 
   bottom: {
     flex: 20,
-    backgroundColor: '#CDCDCD',
+    backgroundColor: '#ebeff0',
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
     borderColor: '#364156',
@@ -408,12 +409,13 @@ const lightStyles = StyleSheet.create({
   button: {
     width: '100%',
     height: '100%',
-    backgroundColor: '#cdcdcd',
+    backgroundColor: '#ebeff0',
     borderRadius: 5,
     justifyContent: 'center',
   },
 
   clickIcon: {
+    marginLeft:60,
     width:50,
     height:50,
     tintColor:"#000000"
@@ -445,7 +447,7 @@ const lightStyles = StyleSheet.create({
   goBackButton: {
     width: '100%',
     height: '100%',
-    backgroundColor: '#CDCDCD',
+    backgroundColor: '#ebeff0',
     borderRadius: 5,
   },
 
@@ -469,7 +471,7 @@ const lightStyles = StyleSheet.create({
 
   homeBox: {
     flex: 1,
-    backgroundColor: '#CDCDCD',
+    backgroundColor: '#ebeff0',
     margin: 5,
     borderRadius: 5,
     width: '50%',
@@ -492,7 +494,7 @@ const lightStyles = StyleSheet.create({
 
   informationsBox: {
     flex: 15,
-    backgroundColor: '#CDCDCD',
+    backgroundColor: '#ebeff0',
     borderColor: '#364156',
     borderWidth: 1,
     borderRadius: 5,
@@ -516,7 +518,7 @@ const lightStyles = StyleSheet.create({
   infoSettingsButton: {
     height: '100%',
     justifyContent: 'center',
-    backgroundColor: '#CDCDCD',
+    backgroundColor: '#ebeff0',
     borderRadius: 5,
   },
 
@@ -537,7 +539,7 @@ const lightStyles = StyleSheet.create({
 
   mid: {
     flex: 20,
-    backgroundColor: '#CDCDCD',
+    backgroundColor: '#ebeff0',
     borderColor: '#364156',
     borderWidth: 1,
     borderRadius: 5,
@@ -574,7 +576,7 @@ const lightStyles = StyleSheet.create({
   },
 
   photoVerrifButton: {
-    backgroundColor: '#CDCDCD',
+    backgroundColor: '#ebeff0',
     flex:1,
     borderRadius:5,
     borderColor:"#7282B2",
@@ -601,7 +603,7 @@ const lightStyles = StyleSheet.create({
 
   settingsBox: {
     flex: 10,
-    backgroundColor: '#CDCDCD',
+    backgroundColor: '#ebeff0',
     borderColor: '#364156',
     borderWidth: 1,
     borderRadius: 5,
@@ -611,7 +613,7 @@ const lightStyles = StyleSheet.create({
 
   settingsLanguageBox: {
     flex: 1,
-    backgroundColor: '#CDCDCD',
+    backgroundColor: '#ebeff0',
     alignItems: 'center',
     justifyContent: 'center',
     borderColor: '#364156',
@@ -620,7 +622,7 @@ const lightStyles = StyleSheet.create({
 
   settingsThemeBox: {
     flex: 1,
-    backgroundColor: '#CDCDCD',
+    backgroundColor: '#ebeff0',
     borderColor: '#364156',
     borderBottomWidth: 0.5,
     flexDirection: 'row',
@@ -693,7 +695,7 @@ const lightStyles = StyleSheet.create({
 
   top: {
     flex: 20,
-    backgroundColor: '#CDCDCD',
+    backgroundColor: '#ebeff0',
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
   },
@@ -701,7 +703,7 @@ const lightStyles = StyleSheet.create({
   routeOptions: {
     flex: 4,
     justifyContent: 'space-between',
-    backgroundColor: '#CDCDCD',
+    backgroundColor: '#ebeff0',
     borderRadius: 5,
     borderWidth: 1,
     borderColor: '#364156',

@@ -45,11 +45,11 @@ const Informations = (props) => {
         <Text style = {styles.textContent}> </Text>
         <Text style = {styles.text}>______________________</Text>
         <Text style = {styles.textContent}>Nous Contacter:</Text>
-        <View style = {{flex:0.5,  flexWrap: 'wrap', flexDirection:'column'}}>
-          <TouchableOpacity style = {{flex:1}} onPress={linkerGit}>
+        <View style = {{flex:0.4, flexDirection:'row', justifyContent:'space-evenly'}}>
+          <TouchableOpacity style = {{flex:1,justifyContent:'space-evenly'}} onPress={linkerGit}>
             <Image style={styles.clickIcon} source={githubImage} />
           </TouchableOpacity>
-          <TouchableOpacity style = {{flex:1}} onPress={mailer}>
+          <TouchableOpacity style = {{flex:1,justifyContent:'space-evenly'}} onPress={mailer}>
             <Image style={styles.clickIcon} source={mailIcon} />
           </TouchableOpacity>
         </View>

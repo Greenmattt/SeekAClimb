@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {View, Text, Button, TouchableOpacity, Image} from "react-native";
+import {View, Text, TouchableOpacity, Image, Modal} from "react-native";
 import DropDownPicker from 'react-native-dropdown-picker';
 
 import style from "../Component/Styles";
@@ -62,11 +62,14 @@ const CreerBloc = (props) => {
 
 const [blocImage, setBlocImage] = useState();
 
+const [estModal, setModal] = useState(false);
+
     const getImage = async(idSite, idMur, numeroImage) => {
         try {
             let response = await fetch('http://91.164.5.221:50000/getImage?idSite='+idSite+"&idMur="+idMur+"&numeroImage="+numeroImage);
             let json = await response.json();
             setBlocImage(<Image style={{flex:1,position:'absolute', left:0, right:0}} resizeMode='contain' source={{uri: 'data:image/png;base64,'+json.image}}/>);
+            setModal(true);
         } catch(e) {
             console.warn(e)
         }
@@ -95,9 +98,18 @@ const [blocImage, setBlocImage] = useState();
                 <Text style={styles.text}>Choisissez l'image sur laquelle est votre route :</Text>
 
                 {miniatures}
-
-                {blocImage != undefined ? blocImage : <View/>}
             </View>
+            <Modal
+                animationType="fade"
+                transparent={true}
+                visible={estModal}
+                onRequestClose={() => {
+                setModal(false);
+            }}>
+                <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+                {blocImage}
+                </View>
+            </Modal>
         </View>
     );
 }
