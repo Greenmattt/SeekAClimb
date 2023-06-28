@@ -229,7 +229,7 @@ const Routes = (props) => {
 
     <View style={{position:'absolute', left :'82%', top:'78%'}}>
       <TouchableOpacity style={styles.scanButton} onPress = {goToCreerBloc}>
-        <Text style={styles.textPlus}>+</Text>
+      <Image style={styles.scanIcon} source={require('../assets/plus.png')}/>
       </TouchableOpacity>
     </View>
 
