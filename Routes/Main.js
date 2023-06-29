@@ -3,6 +3,7 @@ import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/
 import Routes from "./RechercheRoute";
 import CameraMain from "./Camera";
 import CreerBloc from './CreerBloc';
+import AfficherMur from './affBloc';
 
 const RouteMain = () => {
   const Stack = createStackNavigator();
@@ -26,6 +27,13 @@ const RouteMain = () => {
       <Stack.Screen
         name="CreerBloc"
         component={CreerBloc}
+        options={{ 
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="AfficherBloc"
+        component={AfficherMur}
         options={{ 
           headerShown: false,
         }}

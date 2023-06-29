@@ -1,14 +1,21 @@
 import React, {useState, useEffect} from "react";
 import {View, Text, TouchableOpacity, Image, Modal} from "react-native";
 import DropDownPicker from 'react-native-dropdown-picker';
+import { useNavigation } from "@react-navigation/native";
 
 import style from "../Component/Styles";
 import GoBackButton from "../Component/GoBackButton";
 
-const CreerBloc = (props) => {
+const CreerBloc = () => {
+    const navigation = useNavigation();
     const GoBackToRoutes = () => {
-        props.navigation.navigate('Routes');
+       navigation.navigate('Routes');
     }
+    const BigBigImage = (idMur,idSite,numeroImage) => {
+        var a={IDMur:idMur,IDSite:idSite,NumImage:numeroImage};
+        navigation.navigate('AfficherMur',{a});
+        console.log("ce qu'il y a dans les props du afficher bloc:",a);
+    };
 
     const [open, setOpen] = useState(false);
     const [lieuPicker, setLieuPicker] = useState([]); 
@@ -65,15 +72,16 @@ const [blocImage, setBlocImage] = useState();
 const [estModal, setModal] = useState(false);
 
     const getImage = async(idSite, idMur, numeroImage) => {
-        try {
-            let response = await fetch('http://91.164.5.221:50000/getImage?idSite='+idSite+"&idMur="+idMur+"&numeroImage="+numeroImage);
-            let json = await response.json();
-            setBlocImage(<Image style={{flex:1,position:'absolute', left:0, right:0}} resizeMode='contain' source={{uri: 'data:image/png;base64,'+json.image}}/>);
-            setModal(true);
-        } catch(e) {
-            console.warn(e)
-        }
-
+        // try {
+        //     let response = await fetch('http://91.164.5.221:50000/getImage?idSite='+idSite+"&idMur="+idMur+"&numeroImage="+numeroImage);
+        //     let json = await response.json();
+        //     setBlocImage(<Image style={{flex:1,position:'absolute', left:0, right:0}} resizeMode='contain' source={{uri: 'data:image/png;base64,'+json.image}}/>);
+        //     setModal(true);
+        // } catch(e) {
+        //     console.warn(e)
+        // }
+        console.log('lmao ggez big NUBZ')
+        BigBigImage(idSite,idMur,numeroImage)
     }
 
     return (
@@ -99,17 +107,7 @@ const [estModal, setModal] = useState(false);
 
                 {miniatures}
             </View>
-            <Modal
-                animationType="fade"
-                transparent={true}
-                visible={estModal}
-                onRequestClose={() => {
-                setModal(false);
-            }}>
-                <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-                {blocImage}
-                </View>
-            </Modal>
+            
         </View>
     );
 }
