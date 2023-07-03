@@ -111,9 +111,9 @@ const darkStyles = StyleSheet.create({
   },
 
   icon: {
-    width: 30,
-    height: 20,
-    resizeMode: 'contain',
+    width: 23,
+    height: 23,
+    resizeMode: 'cover',
     tintColor: '#dedede'
   },
 
@@ -486,9 +486,9 @@ const lightStyles = StyleSheet.create({
   },
 
   icon: {
-    width: 30,
-    height: 20,
-    resizeMode: 'contain',
+    width: 23,
+    height: 23,
+    resizeMode: 'cover',
     tintColor:'#ccc',
   },
 
