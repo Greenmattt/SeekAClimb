@@ -1,14 +1,17 @@
 import React, {useState, useEffect} from "react";
-import {View, Text, TouchableOpacity, Image, Modal} from "react-native";
+import {View, Text, TouchableOpacity, Image} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import style from "../Component/Styles";
 import SneakyBackButton from "../Component/SneakyBackButton";
+import CreerBloc from "./CreerBloc";
 
-const AfficherMur = () => {
-   const navigation = useNavigation();
-    const {infoImage} = a;
-    console.log(infoImage);
+const AfficherMur = ({route, navigation}) => {
+    const {IDSite} = route.params;
+    const {IDMur} = route.params;
+    const {NumImage} = route.params;
+    console.log(IDSite,IDMur,NumImage);
+    
 
     const GoBackToCreerBloc = () => {
         navigation.navigate('CreerBloc');
@@ -27,10 +30,11 @@ const AfficherMur = () => {
     }, []);
     const requestImage = async() =>{
             try {
-            let response = await fetch('http://91.164.5.221:50000/getImage?idSite='+props.IDSite+"&idMur="+props.IDMur+"&numeroImage="+props.NumImage);
-            console.log(response);
+            let response = await fetch('http://91.164.5.221:50000/getImage?idSite='+IDMur+"&idMur="+IDSite+"&numeroImage="+NumImage);
+            // console.log(response);
             let json = await response.json();
-            setImage(<Image style={{flex:1,position:'absolute', left:0, right:0}} resizeMode='contain' source={{uri: 'data:image/png;base64,'+json.image}}/>);
+            console.log(String(json))
+            setImage(<Image style={{flex:1, left:0, right:0}} resizeMode="cover" source={{uri: 'data:image/png;base64,'+json.image}}/>);
             } catch(e) {
             console.warn(e)
         }
@@ -40,7 +44,7 @@ const AfficherMur = () => {
         <View style={styles.container}>
           
             {image}
-            <SneakyBackButton onPress = {() => GoBackToCreerBloc(props)}/>  
+            <SneakyBackButton onPress = {() => GoBackToCreerBloc()}/>  
             
         </View>
     );

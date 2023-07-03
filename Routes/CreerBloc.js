@@ -12,9 +12,7 @@ const CreerBloc = () => {
        navigation.navigate('Routes');
     }
     const BigBigImage = (idMur,idSite,numeroImage) => {
-        var a={IDMur:idMur,IDSite:idSite,NumImage:numeroImage};
-        navigation.navigate('AfficherMur',{a});
-        console.log("ce qu'il y a dans les props du afficher bloc:",a);
+        navigation.navigate('AfficherMur',{IDMur:idMur,IDSite:idSite,NumImage:numeroImage});
     };
 
     const [open, setOpen] = useState(false);

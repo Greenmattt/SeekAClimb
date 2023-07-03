@@ -32,7 +32,7 @@ const RouteMain = () => {
         }}
       />
       <Stack.Screen
-        name="AfficherBloc"
+        name="AfficherMur"
         component={AfficherMur}
         options={{ 
           headerShown: false,
