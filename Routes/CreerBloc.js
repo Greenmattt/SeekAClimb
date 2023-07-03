@@ -1,13 +1,12 @@
 import React, {useState, useEffect} from "react";
-import {View, Text, TouchableOpacity, Image, Modal} from "react-native";
+import {View, Text, TouchableOpacity, Image} from "react-native";
 import DropDownPicker from 'react-native-dropdown-picker';
-import { useNavigation } from "@react-navigation/native";
+
 
 import style from "../Component/Styles";
 import GoBackButton from "../Component/GoBackButton";
 
-const CreerBloc = () => {
-    const navigation = useNavigation();
+const CreerBloc = ({navigation}) => {
     const GoBackToRoutes = () => {
        navigation.navigate('Routes');
     }
@@ -84,7 +83,7 @@ const [estModal, setModal] = useState(false);
 
     return (
         <View style={styles.container}>
-            <GoBackButton onPress = {() => GoBackToRoutes(props)}/>
+            <GoBackButton onPress = {() => GoBackToRoutes()}/>
             <View style={{flex:10}}>
                 <Text style={styles.text}>Choisissez un site :</Text>
 
