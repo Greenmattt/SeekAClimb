@@ -84,7 +84,7 @@ const App = () => {
          }}>
 
         <Tab.Screen name="Accueil" component={HomeScreen} options={{headerShown:false, tabBarIcon:imageAccueil, tabBarShowIcon:true}}/>
-        <Tab.Screen name="Voies" component={RoutesScreen} options={{headerShown:false, tabBarIcon:imageVoies, tabBarShowIcon:true}}/>
+        <Tab.Screen name="Climb" component={RoutesScreen} options={{headerShown:false, tabBarIcon:imageVoies, tabBarShowIcon:true}}/>
         <Tab.Screen name="Carte" component={SettingsScreen} options={{headerShown:false, tabBarIcon:imageMap, tabBarShowIcon:true}}/>
         <Tab.Screen name="Compte" component={AccountScreen} options={{headerShown:false, tabBarIcon:imageSettings, tabBarShowIcon:true}}/>
       </Tab.Navigator>
