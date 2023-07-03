@@ -37,6 +37,12 @@ const darkStyles = StyleSheet.create({
     justifyContent: 'center',
   },
 
+  boutonTriIcon: {
+    width:40,
+    height:40,
+    tintColor:'#ccc'
+  },
+
   clickIcon: {
     marginLeft:60,
     width:50,
@@ -111,9 +117,6 @@ const darkStyles = StyleSheet.create({
   },
 
   icon: {
-    width: 23,
-    height: 23,
-    resizeMode: 'cover',
     tintColor: '#dedede'
   },
 
@@ -414,6 +417,12 @@ const lightStyles = StyleSheet.create({
     justifyContent: 'center',
   },
 
+  boutonTriIcon: {
+    width:50,
+    height:50,
+    tintColor:'#222'
+  },
+
   clickIcon: {
     marginLeft:60,
     width:50,
@@ -486,9 +495,6 @@ const lightStyles = StyleSheet.create({
   },
 
   icon: {
-    width: 23,
-    height: 23,
-    resizeMode: 'cover',
     tintColor:'#ccc',
   },
 
