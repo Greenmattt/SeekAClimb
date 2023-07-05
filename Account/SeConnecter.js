@@ -44,8 +44,12 @@ const SeConnecter = (props) => {
 
 const connecter = async() => {
   try {
-    let res = await fetch('http://91.164.5.221:50000/Connect?email='+String(textEmail)+'&mdp='+String(textMdp),{
-      method:'GET',
+    let res = await fetch('http://91.164.5.221:50000/Connect',{
+      method:'POST',
+      body:JSON.stringify(
+        {email:textEmail,
+        mdp : textMdp}),
+      headers: {'Content-Type':'application/json'}
     });
 
       var json_res = await res.json();
