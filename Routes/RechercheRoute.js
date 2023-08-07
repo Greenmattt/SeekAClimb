@@ -107,9 +107,12 @@ const Routes = (props) => {
     }
   };
 
+  const [isCollapsed, changeIsCollapsed] = useState(false);
+
   return (
     <View style={styles.container}>
 
+      {isCollapsed ? <View/>:
       <View style={styles.routeOptions}>
         {/* Je mets absolument tout dans des View pour bien pouvoir faire des compartiments du screens équitables */}
 
@@ -127,7 +130,6 @@ const Routes = (props) => {
               mode="BADGE"
               badgeDotColors={["#3a75b1", "#3ab175", "#C4137F"]}
               style={{borderWidth: 0}}/>
-
       {/* Choix du type de route */}
 
       <View style={{flex: 1}}></View>
@@ -140,11 +142,11 @@ const Routes = (props) => {
       <View style={styles.routeSlider}>
         
         <View style= {{flex: 1}}> 
-          <Text style={{color:'#282828'}}>min : {difficultes[nonCollidingMultiSliderValue[0]]}</Text>
+          <Text style={styles.text}>min : {difficultes[nonCollidingMultiSliderValue[0]]}</Text>
         </View>
         <View style = {{flex: 3}}></View>
         <View style= {{flex: 1}}>
-          <Text style={{color:'#282828'}}>max : {difficultes[nonCollidingMultiSliderValue[1] < 31 ?           nonCollidingMultiSliderValue[1] : 30 ]} </Text>
+          <Text style={styles.text}>max : {difficultes[nonCollidingMultiSliderValue[1] < 31 ?           nonCollidingMultiSliderValue[1] : 30 ]} </Text>
         </View>
 
       </View>
@@ -194,9 +196,18 @@ const Routes = (props) => {
         </TouchableOpacity>
       </View>
 
-      </View>
+      </View>}
 
-      
+      {/* Boutton pour collapse la partie de recherche */}
+      <View style={{alignItems:'center', height:70}}>
+        <TouchableOpacity style={styles.routeRechercheCollapseButton} onPress={() => changeIsCollapsed(!isCollapsed)}>
+          {isCollapsed ?
+          <Image source={require("../assets/down_arrow.png")} style={styles.scanIcon}/>
+        :<Image source={require("../assets/up_arrow.png")} style={styles.scanIcon}/>}
+          
+
+        </TouchableOpacity>
+      </View>
 
        {/* Texte réponse de l'api */}
 
@@ -206,18 +217,19 @@ const Routes = (props) => {
       }
       </View> 
 
-    <View style={{position:'absolute', left :'82%', top:'88%'}}>
-      <TouchableOpacity style={styles.scanButton} onPress = {goToCamera}>
-        <Image style={styles.scanIcon} source={require('../assets/ultra_icon.png')}/>
-      </TouchableOpacity>
-    </View>
 
-    <View style={{position:'absolute', left :'82%', top:'78%'}}>
-      <TouchableOpacity style={styles.scanButton} onPress = {goToCreerBloc}>
-      <Image style={styles.scanIcon} source={require('../assets/plus.png')}/>
-      </TouchableOpacity>
-    </View>
-
+      {/* Bouttons flottants */}
+        <View style={{position:'absolute', left :'82%', top:'88%'}}>
+        <TouchableOpacity style={styles.scanButton} onPress = {goToCamera}>
+          <Image style={styles.scanIcon} source={require('../assets/ultra_icon.png')}/>
+        </TouchableOpacity>
+      </View>
+  
+      <View style={{position:'absolute', left :'82%', top:'78%'}}>
+        <TouchableOpacity style={styles.scanButton} onPress = {goToCreerBloc}>
+        <Image style={styles.scanIcon} source={require('../assets/plus.png')}/>
+        </TouchableOpacity>
+      </View>
 
     </View>)
 } 

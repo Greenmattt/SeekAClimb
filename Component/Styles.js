@@ -365,6 +365,17 @@ const darkStyles = StyleSheet.create({
     margin: 5,
   },
 
+  routeRechercheCollapseButton: {
+    backgroundColor:"#182028", 
+    height:60, 
+    width:120, 
+    borderBottomRightRadius:20, 
+    borderBottomLeftRadius:20, 
+    alignItems: 'center', 
+    justifyContent:'center',
+    borderColor:"#F7FFFB"
+  },
+
   routeReponseBouton: {
     width: '40%',
     height: '40%',
@@ -744,6 +755,17 @@ const lightStyles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 20,
     margin: 5,
+  },
+
+  routeRechercheCollapseButton: {
+    backgroundColor:"#182028", 
+    height:60, 
+    width:120, 
+    borderBottomRightRadius:20, 
+    borderBottomLeftRadius:20, 
+    alignItems: 'center', 
+    justifyContent:'center',
+    borderColor:"#F7FFFB"
   },
 
   routeReponseBouton: {
