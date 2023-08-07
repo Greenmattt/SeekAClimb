@@ -10,6 +10,7 @@ import JsonToButtons from './ReponseRoute';
 import EnumButtons from '../Component/EnumButtons';
 import style from '../Component/Styles';
 import DefaultLabel from '../Component/TestLabel';
+import PreviewRoute from '../Component/PreviewRoute';
 
 const Routes = (props) => {
 
@@ -44,6 +45,7 @@ const Routes = (props) => {
     {label: 'Blaise-Pascal', value: '0001'},
     {label: 'Casamur', value: '0002', },
     {label: 'Cournols', value: '0003'},
+    {label: "siteTest", value:'9999'}
   ]);
 
   const difficultes = ['3a', '3b', '3c', 
@@ -75,8 +77,8 @@ const Routes = (props) => {
                                                                 +'&type='+String(list_Type[typeID])
                                                                 +'&diffMin='+String(difficultes[sliderMinID])
                                                                 +'&diffMax='+String(difficultes[sliderMaxID]));
-      let json = await response.text();
-      console.log(String(json))
+      let json = await response.json();
+      setApiRes(json);
       // setApiRes(json); // String() pour pouvoir l'afficher correctement (donc c'est temporaire)
     } 
     catch (error) { // là c'est si on a un pb
@@ -199,26 +201,9 @@ const Routes = (props) => {
        {/* Texte réponse de l'api */}
 
       <View style ={styles.routeReponse}>
-        { estCharge ? <JsonToButtons json = {apiRes}/> 
+        { estCharge ? <PreviewRoute json = {apiRes}/> 
         : <Text style={styles.text}>oui oui baguette</Text>
       }
-        <ScrollView style={{flex:1}}>
-          <TouchableOpacity style={{flex:1, borderWidth: 1, borderColor: '#fff'}}>
-            <Image source={require('../assets/imageTest.jpg')} style={{height: 160, width: 120}}/>
-          </TouchableOpacity>
-          <TouchableOpacity style={{flex:1, borderWidth: 1, borderColor: '#fff'}}>
-            <Image source={require('../assets/imageTest.jpg')} style={{height: 160, width: 120}}/>
-          </TouchableOpacity>
-          <TouchableOpacity style={{flex:1, borderWidth: 1, borderColor: '#fff'}}>
-            <Image source={require('../assets/imageTest.jpg')} style={{height: 160, width: 120}}/>
-          </TouchableOpacity>
-          <TouchableOpacity style={{flex:1, borderWidth: 1, borderColor: '#fff'}}>
-            <Image source={require('../assets/imageTest.jpg')} style={{height: 160, width: 120}}/>
-          </TouchableOpacity>
-          <TouchableOpacity style={{flex:1, borderWidth: 1, borderColor: '#fff'}}>
-            <Image source={require('../assets/imageTest.jpg')} style={{height: 160, width: 120}}/>
-          </TouchableOpacity>
-        </ScrollView>
       </View> 
 
     <View style={{position:'absolute', left :'82%', top:'88%'}}>
