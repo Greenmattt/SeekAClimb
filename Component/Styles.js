@@ -293,6 +293,13 @@ const darkStyles = StyleSheet.create({
     fontSize: 18,
   },
 
+  textNomBloc: {
+    color: 'white',
+    textAlign: 'center',
+    fontSize: 22,
+    fontWeight: 'bold'
+  },
+
   textContent: {
     color: 'white',
     fontSize: 15,
@@ -683,6 +690,13 @@ const lightStyles = StyleSheet.create({
     color: 'black',
     textAlign: 'center',
     fontSize: 18,
+  },
+
+  textNomBloc: {
+    color: 'black',
+    textAlign: 'center',
+    fontSize: 22,
+    fontWeight: 'bold'
   },
   
   textPlus: {

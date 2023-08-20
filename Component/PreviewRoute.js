@@ -3,6 +3,8 @@ import React,{useState, useEffect} from 'react';
 import DropDownPicker from 'react-native-dropdown-picker';
 
 import style from '../Component/Styles';
+import ShowRoute from './ShowRoute';
+import SneakyBackButton from './SneakyBackButton';
 
 const PreviewRoute = props => {
 
@@ -32,6 +34,20 @@ const PreviewRoute = props => {
     getStyle();
   },[]);
 
+  const [estClique, setEstClique] = useState(false);
+  const [idClique, setIdClique] = useState('');
+
+  const openRoute = (id) => {
+    setEstClique(true);
+    setIdClique(id);
+  }
+
+  const goBackToSearch = () => {
+    setEstClique(false);
+  }
+
+  const [liste_k, setL] = useState([]);
+
   useEffect(() => {
     var liste_res = [];
 
@@ -44,9 +60,13 @@ const PreviewRoute = props => {
       else return 1;
     })
 
-    for (var k = 0; k < liste_res.length; k++){
-      liste_res[k] = 
-        <TouchableOpacity style={{flex:1, borderWidth: 1, borderColor: '#fff', flexDirection:'row'}} key={k}>
+    setL(liste_res);
+
+    var liste_format = [];
+
+    for (let k = 0; k < liste_res.length; k++){
+      liste_format.push(
+        <TouchableOpacity style={{flex:1, borderWidth: 1, borderColor: '#fff', flexDirection:'row'}} key={k} onPress={() => openRoute(liste_res[k].IDRoute)}>
           <Image source={{uri: 'data:image/png;base64,'+liste_res[k].miniature}} style={{height: 160, width: 120}}/>
           {liste_res[k].estVerifie == 1 ? 
           <Image source={require('../assets/check.png')} style={{height:20, width:20, position:'absolute', left:10, top:10, tintColor:'#0ef'}}/> 
@@ -57,15 +77,24 @@ const PreviewRoute = props => {
             <Text style={styles.text}>{liste_res[k].type} de {liste_res[k].longueur}m</Text>
             
           </View>
-        </TouchableOpacity>
+        </TouchableOpacity> )
     }
-    setResultatFormate(liste_res);
+    setResultatFormate(liste_format);
   }, [cle, croissant]);
 
  
 
     return (
       <View style={styles.container}>
+        {estClique ?
+        <View style={{flex:1}}>
+          <ShowRoute id={idClique}/>
+          <TouchableOpacity onPress={goBackToSearch} style={[styles.sneakyBackButton,{position:'absolute', top:0, left:0}]}>
+            <Image style={styles.scanIcon} source={require('./../assets/back_arrow_image.png')}/>
+          </TouchableOpacity>
+        </View>
+        :
+        <View style = {{flex:1}}>
         <View style={{flex:1, flexDirection:'row', alignItems:'center'}}>
           <View style={{flex:3, alignItems:'flex-end'}}>
             <Text style={styles.text}>Trier par :</Text>
@@ -95,7 +124,10 @@ const PreviewRoute = props => {
           <ScrollView style={{flex:1}}>
             {resultatFormate}
           </ScrollView>
+        </View> 
+
         </View>
+        }
       </View>
     );
 
