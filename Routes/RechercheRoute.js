@@ -6,7 +6,6 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider';
 // commandes à faire :  npm install react-native-dropdown-picker
 //                      npm install --save @ptomasroos/react-native-multi-slider
 
-import JsonToButtons from './ReponseRoute';
 import EnumButtons from '../Component/EnumButtons';
 import style from '../Component/Styles';
 import DefaultLabel from '../Component/TestLabel';
