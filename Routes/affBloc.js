@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {View, Image} from "react-native";
+import {Pressable, View, Image, TouchableOpacity} from "react-native";
 
 
 import style from "../Component/Styles";
@@ -35,12 +35,19 @@ const AfficherMur = ({route, navigation}) => {
         }
     }
 
+    const getFingerCoords = (evt) =>{
+        let fingerX = evt.nativeEvent.locationX;
+        let fingerY = evt.nativeEvent.locationY;
+        console.log("x: "+fingerX+" y: "+fingerY); 
+    } 
+
     return (
         <View style={styles.container}>
-          
+                
+            <TouchableOpacity style={{flex:1,color:'#00000000'}} activeOpacity={1} onPress={ (evt)=> getFingerCoords(evt)}>
             {image}
             <SneakyBackButton onPress = {() => GoBackToCreerBloc()}/>  
-            
+            </TouchableOpacity>
         </View>
     );
 }
