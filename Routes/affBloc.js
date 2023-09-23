@@ -1,5 +1,28 @@
 import React, {useState, useEffect} from "react";
 import {Pressable, View, Image, TouchableOpacity} from "react-native";
+import Svg, {
+    Circle,
+    Ellipse,
+    
+    G,
+    Text,
+    TSpan,
+    TextPath,
+    Path,
+    Polygon,
+    Polyline,
+    Line,
+    Rect,
+    Use,
+    Symbol,
+    Defs,
+    LinearGradient,
+    RadialGradient,
+    Stop,
+    ClipPath,
+    Pattern,
+    Mask,
+  } from 'react-native-svg';
 
 
 import style from "../Component/Styles";
@@ -16,6 +39,8 @@ const AfficherMur = ({route, navigation}) => {
     // load du style
     const [styles, setLeStyle] = useState({});
     const [image, setImage] = useState();
+    const [isLogging, setIsLogging] = useState(false);
+    const [pathData, setPathData] = useState('');
 
     useEffect(() => {
         async function getStyle (){
@@ -36,17 +61,32 @@ const AfficherMur = ({route, navigation}) => {
     }
 
     const getFingerCoords = (evt) =>{
-        let fingerX = evt.nativeEvent.locationX;
-        let fingerY = evt.nativeEvent.locationY;
-        console.log("x: "+fingerX+" y: "+fingerY); 
+        const { locationX, locationY } = evt.nativeEvent;
+        setIsLogging(console.log("x: "+locationX+" y: "+locationY));
+        setPathData(`M${locationX} ${locationY}`)
     } 
+
+    const actualiseFingerCoords = (evt) => {
+        const { locationX, locationY } = evt.nativeEvent;
+        setPathData((prevPath) => `${prevPath} L${locationX} ${locationY}`)
+    };
 
     return (
         <View style={styles.container}>
                 
-            <TouchableOpacity style={{flex:1,color:'#00000000'}} activeOpacity={1} onPress={ (evt)=> getFingerCoords(evt)}>
-            {image}
-            <SneakyBackButton onPress = {() => GoBackToCreerBloc()}/>  
+            <TouchableOpacity style={{flex:1,color:'#00000000'}} activeOpacity={1} onPressIn={getFingerCoords} onPressOut={actualiseFingerCoords}>
+            <Svg fill = "none" resizeMode="cover" >
+                <Path
+                
+                    d={pathData}
+                    fill="none"
+                    stroke="red"
+                    strokeWidth={5}
+                    />
+            </Svg>
+                    {image}
+                
+                <SneakyBackButton onPress = {() => GoBackToCreerBloc()}/>  
             </TouchableOpacity>
         </View>
     );
